@@ -59,11 +59,7 @@ A RESTful API template built with PHP 8.2 driven by [Mezzio framework][mezzio-ur
 
 **[Squad Cross Business — Nuvemshop](https://github.com/orgs/TiendaNube/teams/cross-business)**
 
-<img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/mshibata-nuvemshop.png" />
-<img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/LuizHonorato.png" />
-<img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/jonathanbraznuvem.png" />
-<img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/marianadasilvanuvem.png" />
-<img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/jnreginato.png" />
+<img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/mshibata-nuvemshop.png" /> <img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/LuizHonorato.png" /> <img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/jonathanbraznuvem.png" /> <img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/marianadasilvanuvem.png" /> <img align="middle" width="80px;" style="margin: 20px 0; border-radius: 10%;" src="https://github.com/jnreginato.png" />
 
 ## Resources:
 
