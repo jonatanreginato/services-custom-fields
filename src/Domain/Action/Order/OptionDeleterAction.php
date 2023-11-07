@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
 
-use DateTime;
 use Nuvemshop\ApiTemplate\Domain\Action\AbstractAction;
 use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
@@ -13,7 +12,7 @@ use Throwable;
 
 class OptionDeleterAction extends AbstractAction
 {
-    public function __invoke(AggregateInterface $aggregate): EntityInterface
+    public function __invoke(AggregateInterface $aggregate): void
     {
         try {
             $this->repository->beginTransaction();
@@ -25,8 +24,6 @@ class OptionDeleterAction extends AbstractAction
             $this->repository->rollback();
             throw new PersistenceException($e->getMessage(), (int)$e->getCode(), $e->getPrevious());
         }
-
-        return $entity;
     }
 
     protected function buildEntity(AggregateInterface $aggregate): EntityInterface

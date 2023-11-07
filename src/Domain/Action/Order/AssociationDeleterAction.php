@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\AssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
+use Nuvemshop\ApiTemplate\Domain\Entity\AssociationEntityInterface;
 use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldEntity;
+use Nuvemshop\ApiTemplate\Domain\Enum\ValueTypeEnum;
 use Nuvemshop\ApiTemplate\Domain\Repository\Order\CustomFieldRepositoryInterface;
 use Nuvemshop\ApiTemplate\Domain\Repository\Order\DateTypeAssociationRepository;
 use Nuvemshop\ApiTemplate\Domain\Repository\Order\NumericTypeAssociationRepository;
@@ -14,7 +14,7 @@ use Nuvemshop\ApiTemplate\Domain\Repository\Order\OptionTypeAssociationRepositor
 use Nuvemshop\ApiTemplate\Domain\Repository\Order\TextTypeAssociationRepository;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\Association\Association;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
+use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Repository;
 use Nuvemshop\ApiTemplate\Infrastructure\Exception\PersistenceException;
 use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
 use Throwable;
@@ -31,76 +31,41 @@ class AssociationDeleterAction
     ) {
     }
 
-    public function __invoke(AggregateInterface $aggregate): EntityInterface
+    public function __invoke(AggregateInterface|Association $association): void
     {
-        /** @var Association $aggregate */
-        /** @var CustomFieldEntity $orderFieldEntity */
-        $orderFieldEntity = $this->orderFieldRepository->getByIdentifier($aggregate->customField->uuid);
-
-        $entity = $this->getAssociationEntity($aggregate->identifier, $orderFieldEntity->getValueType());
+        /** @var CustomFieldEntity $customFieldEntity */
+        $customFieldEntity = $this->orderFieldRepository->getByIdentifier($association->customField->uuid);
+        $repository        = $this->getAssociationRepository($customFieldEntity->getValueType());
 
         try {
-            $this->transaction($orderFieldEntity->getValueType(), $entity);
+            $repository->beginTransaction();
+
+            /** @var AssociationEntityInterface|null $entity */
+            $entity = $repository->findOneBy([
+                'customField' => (string)$association->getCustomFieldUuid(),
+                'ownerId'     => $association->getOwnerId()
+            ]);
+
+            if (!$entity) {
+                throw new PersistenceException();
+            }
+
+            $repository->remove($entity);
+            $repository->commit();
         } catch (Throwable $e) {
             $this->logger->error($e->getMessage());
-            $this->rollback($orderFieldEntity->getValueType());
+            $repository->rollback();
             throw new PersistenceException($e->getMessage(), (int)$e->getCode(), $e->getPrevious());
         }
-
-        return $entity;
     }
 
-    private function getAssociationEntity(IdentifierType $identifier, int $valueType): AssociationEntity
+    private function getAssociationRepository(int $valueType): Repository
     {
         return match ($valueType) {
-            1 => $this->optionTypeOrderAssociationRepository->getByIdentifier($identifier),
-            2 => $this->textTypeOrderAssociationRepository->getByIdentifier($identifier),
-            3 => $this->numericTypeOrderAssociationRepository->getByIdentifier($identifier),
-            4 => $this->dateTypeOrderAssociationRepository->getByIdentifier($identifier),
+            ValueTypeEnum::text_list->value => $this->optionTypeOrderAssociationRepository,
+            ValueTypeEnum::text->value => $this->textTypeOrderAssociationRepository,
+            ValueTypeEnum::numeric->value => $this->numericTypeOrderAssociationRepository,
+            ValueTypeEnum::date->value => $this->dateTypeOrderAssociationRepository,
         };
-    }
-
-    private function transaction(int $valueType, EntityInterface $entity): void
-    {
-        switch ($valueType) {
-            case 1:
-                $this->optionTypeOrderAssociationRepository->beginTransaction();
-                $this->optionTypeOrderAssociationRepository->remove($entity);
-                $this->optionTypeOrderAssociationRepository->commit();
-                break;
-            case 2:
-                $this->textTypeOrderAssociationRepository->beginTransaction();
-                $this->textTypeOrderAssociationRepository->remove($entity);
-                $this->textTypeOrderAssociationRepository->commit();
-                break;
-            case 3:
-                $this->numericTypeOrderAssociationRepository->beginTransaction();
-                $this->numericTypeOrderAssociationRepository->remove($entity);
-                $this->numericTypeOrderAssociationRepository->commit();
-                break;
-            case 4:
-                $this->dateTypeOrderAssociationRepository->beginTransaction();
-                $this->dateTypeOrderAssociationRepository->remove($entity);
-                $this->dateTypeOrderAssociationRepository->commit();
-                break;
-        }
-    }
-
-    private function rollback(int $valueType): void
-    {
-        switch ($valueType) {
-            case 1:
-                $this->optionTypeOrderAssociationRepository->rollback();
-                break;
-            case 2:
-                $this->textTypeOrderAssociationRepository->rollback();
-                break;
-            case 3:
-                $this->numericTypeOrderAssociationRepository->rollback();
-                break;
-            case 4:
-                $this->dateTypeOrderAssociationRepository->rollback();
-                break;
-        }
     }
 }
