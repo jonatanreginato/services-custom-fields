@@ -1,0 +1,8 @@
+components:
+  schemas:
+    UserUpdateResponse:
+      description: Response
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/User"

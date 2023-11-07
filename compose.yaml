@@ -1,0 +1,38 @@
+name: php-restful-api-template
+services :
+  nginx :
+    build :
+      context : .
+      dockerfile : ./environment/nginx/Dockerfile
+    container_name : php-restful-api-template-nginx
+    ports :
+      - "8181:80"
+      - "8282:443"
+      - "8383:9001"
+    privileged : true
+    volumes :
+      - "./environment/nginx/log:/var/log/nginx"
+    command: [nginx-debug, '-g', 'daemon off;']
+  php :
+    build :
+      context : .
+      dockerfile : ./environment/php/Dockerfile
+      target: final
+    container_name : php-restful-api-template-php
+    privileged : true
+    volumes :
+      - "./:/var/www"
+      - "./environment/php/log:/var/log"
+  elk:
+    image: sebp/elk:latest
+    container_name: php-restful-api-template-elk
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+    environment:
+      TZ: America/Sao_Paulo
+    deploy:
+      resources:
+        limits:
+          memory: 512mb

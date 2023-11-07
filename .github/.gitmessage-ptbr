@@ -1,0 +1,52 @@
+# Oi o/!
+
+# Nós queremos que você saiba que nos preocupamos muito em tornar
+# nosso histórico do git limpo, fácil de manter e de fácil acesso
+# para todos os nossos contribuidores.
+#
+# As mensagens de commit são muito importantes para nós, e é por
+# isso que temos uma política rígida de mensagens de commit.
+#
+# Por favor, use as seguintes diretrizes para formatar todas as suas
+# mensagens de commit:
+#
+#     <tipo>(<escopo>): <assunto>
+#     <LINHA EM BRANCO>
+#     <corpo>
+#     <LINHA EM BRANCO>
+#     <rodapé>
+#
+# Observe que:
+#    - O CABEÇALHO deve conter uma única linha de no max. 72
+#      caracteres com uma descrição sucinta da alteração. Ele contém
+#      um tipo, um escopo opcional e um assunto
+#
+#         + <tipo> descreve o tipo de mudança que este commit está
+#                  fornecendo. Os tipos permitidos são:
+#             * feat (recurso)
+#             * fix (correção de bug)
+#             * docs (documentação)
+#             * style (formatação, falta de ponto e vírgula, …)
+#             * refactor
+#             * test (ao adicionar testes ausentes)
+#             * chore (infraestrutura)
+#
+#         + <escopo> pode ser qualquer coisa que especifique o local
+#                    da alteração do commit
+#
+#         + <assunto> é uma descrição muito curta da mudança, no
+#                     seguinte formato:
+#             * imperativo, tempo presente: “alterado” não “alterar”
+#               “alterou”, “alterou-se”, etc.
+#             * sem primeira letra maiúscula
+#             * sem ponto (.) no final
+#
+#    - O CORPO deve incluir a motivação para a mudança, contrastá-la
+#      com o comportamento anterior e deve ser expresso em tempo
+#      presente imperativo
+#
+#    - O RODAPÉ deve conter qualquer informação sobre Breaking
+#      Changes e também é o local para fazer referência à tarefa do
+#      Jira a qual este commit está relacionado
+#
+# Obrigado <3

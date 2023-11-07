@@ -1,0 +1,22 @@
+components:
+  schemas:
+    UserCreateRequest:
+      description: Request
+      type: object
+      properties:
+        firstName:
+          description: User first name
+          type: string
+          example: Layla
+        lastName:
+          description: User last name
+          type: string
+          example: Schultz
+        password:
+          description: User password
+          type: string
+          example: '******'
+        role:
+          description: Role identifier [ moderator | admin | user ]
+          type: string
+          example: moderator

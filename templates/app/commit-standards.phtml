@@ -1,0 +1,783 @@
+<?php $this->layout('layout::default', ['title' => 'Commit Standards']) ?>
+
+<a href="#top" class="text-muted back-to-top"><em class="fa fa-toggle-up"></em>&nbsp;Back to top</a>
+<div class="content">
+    <div itemtype="http://schema.org/SoftwareSourceCode">
+        <main>
+            <div class="px-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <?= $this->insert('layout::nav') ?>
+                        <div class="repository-content content">
+                            <div class="box box-condensed">
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="en" class="anchor" aria-hidden="true" href="#en">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <img class="flag" src="/assets/images/reino-unido.png">Commit pattern
+                                        </h1>
+                                        <p>A guide to understanding the importance of commit messages and how to write them well.</p>
+                                        <p>It can help you learn what a commit is, understand why it's important to write good messages using best practices and learn tips for planning and (re)writing your commit history.</p>
+                                        <h2>
+                                            <a id="what-is-a-commit" class="anchor" aria-hidden="true" href="#what-is-a-commit">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            What is a commit?
+                                        </h2>
+                                        <p>In simple terms, <strong>commit</strong> is a kind of snapshot of your local files, saved locally in your repository. Contrary to popular belief, git doesn't just store the differences, but the complete copy of the files. In the case of files that have not changed from one commit to the next, a reference to the file generated in the last snapshot is recorded.</p>
+                                        <p>The image below shows how git stores data over time with a version for each commit:</p>
+                                        <p><img style="margin: 30px auto;" src="https://i.imgur.com/yQRxNQE.png" alt="snapshot"></p>
+                                        <p class="text-center mb-5"><strong>Figure 1</strong> - Data flow over time.</p>
+                                        <h2>
+                                            <a id="why-are-messages-important" class="anchor" aria-hidden="true" href="#why-are-messages-important">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Why are messages important?
+                                        </h2>
+                                        <ul>
+                                            <li>Facilitates and speeds up code review</li>
+                                            <li>Helps in understanding what is going on</li>
+                                            <li>Explains hidden whys that can't be explained in code alone</li>
+                                            <li>Facilitates troubleshooting and debugging by ensuring future developers understand why and how changes were made</li>
+                                        </ul>
+                                        <p>We care a lot about making our git history clean, easy to maintain, and easy to access for all of our contributors. Therefore, commit messages are very important to us, which is why we have a strict commit message policy.</p>
+                                        <p>Our commit pattern shown below was based on the well-known pattern used by <a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit" target="_blank" rel= "noopener">Angular</a>, <a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html" target="_blank" rel="noopener"> Karma</a> and others. A commit message consists of a header, a body and a footer, separated by a blank line.</p>
+                                        <p>Structure:</p>
+                                        <?= $this->insert('partials::commit-structure') ?>
+                                        <p>Example:</p>
+                                        <?= $this->insert('partials::commit-example') ?>
+                                        <p>The idea of using this pattern is to granularly define what each commit did and what. Furthermore, it makes it easier to extract any changelog from the application and also improves the visualization of the log without vague commits.</p>
+                                        <p>Below is a summary of all the rules we have adopted:</p>
+                                        <ul>
+                                            <li>Commits must be <a href="https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention" target="_blank" rel="noopener">atomic</a>; if two different implementations/fixes are made, they must be implemented in two different commits;</li>
+                                            <li>The header is mandatory;</li>
+                                            <ul>
+                                                <li>The header type is mandatory;</li>
+                                                <li>The header scope is optional;</li>
+                                                <li>The header subject is mandatory;</li>
+                                            </ul>
+                                            <li>The body is optional;</li>
+                                            <li>The footer is optional;</li>
+                                            <li>Don't capitalize the header subject first letter;</li>
+                                            <li>Do not end the header subject line with a period;</li>
+                                            <li>Use the imperative mood in the header subject line;</li>
+                                            <li>Each line of the commit will have a maximum of 72 characters (we recommend 50 characters or less for the message header);</li>
+                                            <li>Understanding the commit content should be almost automatic for any contributor and easy for new contributors to understand;</li>
+                                            <li>Use the body to explain what and why vs. how,</li>
+                                            <li>Footer messages, when present, should reference the <a href="https://tiendanube.atlassian.net/jira/software/c/projects/CRBU/boards/78" target="_blank" rel="noopener">Jira</a> issue number associated with the commit.</li>
+                                        </ul>
+                                        <p>For example:</p>
+                                        <?= $this->insert('partials::commit-rules-example') ?>
+                                        <p>For a better understanding of the importance of a descriptive commit and some examples, read:</p>
+                                        <ul>
+                                            <li><a href="https://chris.beams.io/posts/git-commit/" target="_blank" rel="noopener">chris beams</a> and</li>
+                                            <li><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html" target="_blank" rel="noopener">tbaggery</a>.</li>
+                                        </ul>
+                                        <h2>
+                                            <a id="message-header" class="anchor" aria-hidden="true" href="#message-header">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Message header
+                                        </h2>
+                                        <p>The message header is a single line that contains succinct description of the change containing a <strong>type</strong>, an optional <strong>scope</strong> and a <strong>subject</strong>.</p>
+                                        <h3>
+                                            <a id="type" class="anchor" aria-hidden="true" href="#type">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Type
+                                        </h3>
+                                        <p>The types are summarized in <strong>feat</strong>, <strong>fix</strong>, <strong>refactor</strong>, <strong>style</strong>, <strong>docs</strong>, <strong>test</strong>, <strong>perf</strong>, <strong>build</strong>, <strong>ci</strong> and <strong>revert</strong>.</p>
+                                        <h4>
+                                            <a id="feat" class="anchor" aria-hidden="true" href="#feat">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>feat</u>
+                                        </h4>
+                                        <p><code>feat</code> are any additions to the code.</p>
+                                        <p>While they can change part of the existing code, their focus is on implementing new features to the ecosystem or improvements to existing features. A new feature for docs, tests, build or ci scripts should not be considered a feat type.</p>
+                                        <p>Examples:</p>
+                                        <p>Addition of a service, functionality, endpoint, etc.</p>
+                                        <p><code>feat: allow provided config object to extend other configs</code></p>
+                                        <p><code>feat(lang): add polish language</code></p>
+                                        <p><code>feat(login): insert domain validation on the login screen</code></p>
+                                        <p><code>feat(routes): add click functions on map markers</code></p>
+                                        <h4>
+                                            <a id="fix" class="anchor" aria-hidden="true" href="#fix">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>fix</u>
+                                        </h4>
+                                        <p><code>fix</code> refers to bug fixes. A fix for docs, tests, build or ci scripts should not be considered a fix type.</p>
+                                        <p>Examples:</p>
+                                        <p>Apply treatment to a function that is not having the expected behavior and returning an error.</p>
+                                        <p><code>fix(login): fix description property of the email field</code></p>
+                                        <p><code>fix(dashboard): fix decimal point error</code></p>
+                                        <p><code>fix(router): make router provides work with cli and offline compilation</code></p>
+                                        <p><code>fix: resolve shorthand property declarations</code></p>
+                                        <h4>
+                                            <a id="refactor" class="anchor" aria-hidden="true" href="#refactor">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>refactor</u>
+                                        </h4>
+                                        <p><code>refactor</code> refers to any changes that affect the code, but do not alter its functionality.</p>
+                                        <p>Did you change the processing format on a certain part of your screen, but maintain the same functionality? Declare as refactor.</p>
+                                        <p>Examples:</p>
+                                        <p>Removing redundant code, simplifying the code, renaming variables, code changes after a code review, etc.</p>
+                                        <p><code>refactor: remove redundat styles</code></p>
+                                        <p><code>refactor: remove deprecated bootstrap</code></p>
+                                        <p><code>refactor(core): simplify and cleanup reflection</code></p>
+                                        <p><code>refactor: change from anonymous functions to arrow function on container config</code></p>
+                                        <h4>
+                                            <a id="style" class="anchor" aria-hidden="true" href="#style">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>style</u>
+                                        </h4>
+                                        <p>Changes regarding code formatting, semicolons, trailing spaces and lint in general are in <code>style</code>.</p>
+                                        <p>Examples:</p>
+                                        <p>Indents, remove whitespace, remove comments, etc.</p>
+                                        <p><code>style(login): insert blank line at the end of login.php file</code></p>
+                                        <p><code>style(core): fix max line length to pass linting</code></p>
+                                        <p><code>style: add space between .home and hamburger</code></p>
+                                        <p><code>style: use single quotes consistently</code></p>
+                                        <h4>
+                                            <a id="docs" class="anchor" aria-hidden="true" href="#docs">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>docs</u>
+                                        </h4>
+                                        <p>With <code>docs</code>, we have content related to documentation. It will be used when adding comments to the code, phpdoc, jsdoc, storyboard and everything that does not interfere with the code, but indicates its operation.</p>
+                                        <p>Examples:</p>
+                                        <p>Add information to the API documentation, change the README, etc.</p>
+                                        <p><code>docs(login): add jsdoc to functions</code></p>
+                                        <p><code>docs(readme): remove incorrect download count badge</code></p>
+                                        <p><code>docs(changelog): update change log to rc.5</code></p>
+                                        <p><code>docs: fix API docs for ContentChild and ViewChildren</code></p>
+                                        <h4>
+                                            <a id="test" class="anchor" aria-hidden="true" href="#test">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>test</u>
+                                        </h4>
+                                        <p><code>test</code> will be used when making commits related to modifications and additions to unit and/or end-to-end tests.</p>
+                                        <p>Examples:</p>
+                                        <p>Creation or modification of unit tests.</p>
+                                        <p><code>test(login): fix unit tests on the validator class</code></p>
+                                        <p><code>test(dashboard): add e2e test</code></p>
+                                        <p><code>test: add test for missingTranslation parameter</code></p>
+                                        <p><code>test: add attribute interpolation test</code></p>
+                                        <h4>
+                                            <a id="perf" class="anchor" aria-hidden="true" href="#perf">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>perf</u>
+                                        </h4>
+                                        <p><code>perf</code> will be used to indicate a change that improved system performance.</p>
+                                        <p>Examples:</p>
+                                        <p>Remove slow code, improve the graphQL query, etc.</p>
+                                        <p><code>perf: change ForEach to while in the item filter</code></p>
+                                        <p><code>perf(dashboard): improve graphQL query</code></p>
+                                        <p><code>perf: avoid unnecessary I/O operation in ng-packages-installer</code></p>
+                                        <p><code>perf: remove check for function type in renderStringify</code></p>
+                                        <h4>
+                                            <a id="build" class="anchor" aria-hidden="true" href="#build">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>build</u>
+                                        </h4>
+                                        <p><code>build</code> will be used to indicate changes that affect the project's build process (involving scripts, configurations or tools) and package dependencies.</p>
+                                        <p>Examples:</p>
+                                        <p>Add/remove npm dependencies, edit package.json scripts, etc.</p>
+                                        <p><code>build: add mm-cz-conventional-changelog dependency</code></p>
+                                        <p><code>build: change license type in package.json</code></p>
+                                        <p><code>build(npm): update fsevents to 1.0.14</code></p>
+                                        <p><code>build(docs-infra): enable ServiceWorker in cli config</code></p>
+                                        <h4>
+                                            <a id="ci" class="anchor" aria-hidden="true" href="#ci">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>ci</u>
+                                        </h4>
+                                        <p><code>ci</code> will be used to report changes related to the continuous integration and deployment system - involving scripts, configurations or tools.</p>
+                                        <p>Examples:</p>
+                                        <p>Github Actions, Git hooks, CircleCI, Travis, Jenkins etc.</p>
+                                        <p><code>ci: add payload size limit file</code></p>
+                                        <p><code>ci: re-use setup CircleCI job in aio_monitoring</code></p>
+                                        <p><code>ci: implement unit test triggering in github actions</code></p>
+                                        <p><code>ci: add pre-push git hook</code></p>
+                                        <h4>
+                                            <a id="revert" class="anchor" aria-hidden="true" href="#revert">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>revert</u>
+                                        </h4>
+                                        <p>If the commit reverts a previous commit, it must begin with <code>revert</code>, followed by the header of the reverted commit. In the body, it should say <code>this reverts commit &lt;hash&gt;</code>, where the “hash” is the <strong>SHA</strong> of the commit being reverted.</p>
+                                        <p>Example:</p>
+                                        <p><code>revert: revert commit 74a9ef</code></p>
+                                        <h3>
+                                            <a id="scope" class="anchor" aria-hidden="true" href="#scope">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Scope
+                                        </h3>
+                                        <p>Scope can be anything specifying place of the commit change; It is important that they are understood in an almost automatic way for someone who is not familiar with the project. In general, the use of scope is very generic, specifying only the first context (login, middleware, profile). However, prefer to be more specific and define a second scope (containers/login, for example).</p>
+                                        <p>Assuming that you have refactored the routes related to the project settings, a possible commit would be:</p>
+                                        <p><code>feat(routes/settings): adjust settings to be called in any screen</code></p>
+                                        <h3>
+                                            <a id="subject" class="anchor" aria-hidden="true" href="#subject">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Subject
+                                        </h3>
+                                        <p>Subject must be sufficiently clear, using their space up to the maximum allowed on the line. If you see that the explanation was not enough, feel free to add content to the body.</p>
+                                        <ol>
+                                            <li>
+                                                <strong>It must contain a brief description of the change.</strong>
+                                                <p>Try to communicate what the commit does without having to look at the content of the commit.</p>
+                                            </li>
+                                            <li>
+                                                <strong>Use the imperative.</strong>
+                                                <p>Use the imperative, present tense: “change” not “changed” nor “changes”.</p>
+                                                <p>Why!?</p>
+                                                <p>The commit message tells you what it <strong>does</strong>, not what was done.</p>
+                                                <p><u>Golden rule for messages:</u></p>
+                                                <p><strong>A properly formed Git commit subject line should always be able to complete the following sentence:</strong></p>
+                                                <ul><li><p>If applied, this commit will your subject line here</p></li></ul>
+                                                <p>For example:</p>
+                                                <ul><li><p>If applied, this commit will <em><u>refactor subsystem X for readability</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>update getting started documentation</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>remove deprecated methods</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>release version 1.0.0</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>merge pull request #123 from user/branch</u></em></p></li></ul>
+                                                <p>Notice how this doesn’t work for the other non-imperative forms:</p>
+                                                <ul><li><p>If applied, this commit will <em><u>fixed bug with Y</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>changing behavior of X</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>more fixes for broken stuff</u></em></p></li></ul>
+                                                <ul><li><p>If applied, this commit will <em><u>sweet new API methods</u></em></p></li></ul>
+                                                <p><em>Remember: Use of the imperative is important only in the subject line. You can relax this restriction when you’re writing the body.</em></p>
+                                            </li>
+                                            <li>
+                                                <strong>Limit the subject line to 50 characters.</strong>
+                                                <p>Keeping subject lines at this length ensures that they are readable, and forces the author to think for a moment about the most concise way to explain what’s going on.</p>
+                                                <p><em>Tip: If you’re having a hard time summarizing, you might be committing too many changes at once. Strive for <a href="https://www.freshconsulting.com/atomic-commits/" target="_blank" rel="noopener">atomic commits</a>.</em></p>
+                                                <p>GitHub’s UI is fully aware of these conventions. It will warn you if you go past the 50 character limit and will truncate any subject line longer than 72 characters with an ellipsis. So shoot for 50 characters, but consider 72 the hard limit.</p>
+                                            </li>
+                                            <li>
+                                                <strong>Start the sentence with a lowercase letter.</strong>
+                                                <p>This is as simple as it sounds. The reason for choosing to start with a lowercase letter is simply to adhere to the <a href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional" target="_blank" rel="noopener">@commitlint/config-conventional</a>.</p>
+                                            </li>
+                                            <li>
+                                                <strong>No dot (.) at the end.</strong>
+                                                <p>Trailing punctuation is unnecessary in subject lines. Besides, space is precious when you’re trying to keep them to 50 chars or less.</p>
+                                            </li>
+                                        </ol>
+                                        <h2>
+                                            <a id="message-body" class="anchor" aria-hidden="true" href="#message-body">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Message body
+                                        </h2>
+                                        <p>The body, in contrasts with message header subject, must contain more precise descriptions of what is contained in that commit, showing the reasons or consequences generated by that code, as well as future instructions.</p>
+                                        <h3>Use the body to explain what and why vs. how.</h3>
+                                        <?= $this->insert('partials::commit-message-body-1') ?>
+                                        <?= $this->insert('partials::commit-message-body-2') ?>
+                                        <p>The message title and body are separated by a blank line. Additional blank lines are considered part of the body.</p>
+                                        <p>Characters like <code>-</code>, <code>*</code> and <code>`</code> are common elements to improve readability.</p>
+                                        <p>In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard (and if the code is so complex that it needs to be explained in prose, that’s what source comments are for). Just focus on making clear the reasons why you made the change in the first place — the way things worked before the change (and what was wrong with that), the way they work now, and why you decided to solve it the way you did.</p>
+                                        <p>The future maintainer that thanks you may be yourself!</p>
+                                        <h2>
+                                            <a id="message-footer" class="anchor" aria-hidden="true" href="#message-footer">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Message footer
+                                        </h2>
+                                        <p>The footer is restricted to status changes via <strong>smart commit</strong>, such as issues status resolutions. The idea is that in the future it will be possible with <strong>smart commits</strong> to associate the commit with a issue of Jira and change its status automatically with keywords like <code>comment</code>, <code>close</code>, <code>time</code>.</p>
+                                        <p>Example: <code>CRBU-1984 #time 1h #close #comment Bug fixed.</code></p>
+                                        <h2>
+                                            <a id="recommendations" class="anchor" aria-hidden="true" href="#recommendations">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Recommendations
+                                        </h2>
+                                        <h3>Avoid commits with generic messages or without any context</h3>
+                                        <?= $this->insert('partials::commit-message-body-3') ?>
+                                        <h3>Try limiting the number of message columns</h3>
+                                        <p><a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines" target="_blank" rel="noopener">It is recommended</a> 50 characters for the title and around 72 for the body.</p>
+                                        <p><strong>Tip</strong>: Configure your editor (<a href="http://stackoverflow.com/a/31844714" target="_blank" rel="noopener">nano¹</a>, <a href="https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message" target="_blank" rel="noopener">Vim²</a>) to break the line at 72 characters.</p>
+                                        <h3>Maintain language consistency</h3>
+                                        <?= $this->insert('partials::commit-message-body-4') ?>
+                                        <?= $this->insert('partials::commit-message-body-5') ?>
+                                        <?= $this->insert('partials::commit-message-body-6') ?>
+                                        <h3>Breaking Change</h3>
+                                        <p>If there is a drastic change that will break functionality, you <strong>MUST</strong> indicate it in the body with <strong>'BREAKING CHANGE'</strong> (yes, in capital letters) and explain the reasons that led to this marking.</p>
+                                        <h2>
+                                            <a id="notes" class="anchor" aria-hidden="true" href="#notes">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Notes
+                                        </h2>
+                                        <ol>
+                                            <li><a href="https://www.nano-editor.org/" target="_blank" rel="noopener">nano</a></li>
+                                            <li><a href="https://www.vim.org/" target="_blank" rel="noopener">vim</a></li>
+                                        </ol>
+                                        <h2>
+                                            <a id="references" class="anchor" aria-hidden="true" href="#references">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            References
+                                        </h2>
+                                        <ol>
+                                            <li><a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit" target="_blank" rel="noopener">Contributing to Angular</a></li>
+                                            <li><a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html" target="_blank" rel="noopener">Karma - Git Commit Msg</a></li>
+                                            <li><a href="https://cbea.ms/git-commit/" target="_blank" rel="noopener">Chris Beams - How to Write a Git Commit Message</a></li>
+                                            <li><a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html" target="_blank" rel="noopener">tbaggery - A Note About Git Commit Messages</a></li>
+                                            <li><a href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional" target="_blank" rel="noopener">conventional-changelog/commitlint</a></li>
+                                            <li><a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines" target="_blank" rel="noopener">Git - Commit Guidelines</a></li>
+                                            <li><a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a></li>
+                                            <li><a href="https://github.com/spring-projects/spring-framework/blob/30bce7/CONTRIBUTING.md#format-commit-messages" target="_blank" rel="noopener">Spring framework - Format commit messages</a></li>
+                                        </ol>
+                                    </article>
+                                </div>
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="pt-br" class="anchor" aria-hidden="true" href="#pt-br">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <img class="flag" src="/assets/images/brasil.png">Padrão de commit
+                                        </h1>
+                                        <p>Um guia para entender a importância das mensagens de commit e como escrevê-las bem.</p>
+                                        <p>Pode te ajudar a aprender o que é um commit, entender porque é importante escrever boas mensagens usando boas práticas e conhecer dicas para planejar e (re)escrever o seu histórico de commits.</p>
+                                        <h2>
+                                            <a id="o-que-e-um-commit" class="anchor" aria-hidden="true" href="#o-que-e-um-commit">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            O que é um commit?
+                                        </h2>
+                                        <p>Em termos simples, o <strong>commit</strong> é uma espécie de “snapshot” dos seus arquivos locais, gravado localmente no seu repositório. Ao contrário do que se pensa, o git não armazena apenas as diferenças e sim a cópia completa dos arquivos. No caso de arquivos que não mudaram de um commit para o outro, é gravada uma referência ao arquivo gerado no último “snapshot”.</p>
+                                        <p>A imagem abaixo mostra como o git armazena dados ao longo do tempo com uma versão para cada commit:</p>
+                                        <p><img style="margin: 30px auto;" src="https://i.imgur.com/yQRxNQE.png" alt="snapshot"></p>
+                                        <p class="text-center mb-5"><strong>Figura 1</strong> - Fluxo de dados ao longo do tempo.</p>
+                                        <h2>
+                                            <a id="por-que-as-mensagens-sao-importantes" class="anchor" aria-hidden="true" href="#por-que-as-mensagens-sao-importantes">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Por que as mensagens são importantes?
+                                        </h2>
+                                        <ul>
+                                            <li>Facilita e agiliza o “code review”</li>
+                                            <li>Ajuda no entendimento do que está acontecendo</li>
+                                            <li>Explica os porquês ocultos que não podem ser explicados somente em código</li>
+                                            <li>Facilita a solução de problemas e a depuração garantindo que futuros desenvolvedores entendam por que e como as mudanças foram feitas</li>
+                                        </ul>
+                                        <p>Nós nos preocupamos muito em tornar nosso histórico do git limpo, fácil de manter e de fácil acesso para todos os nossos contribuidores. Portanto, as mensagens de commit são muito importantes para nós, e é por isso que temos uma política rígida de mensagens de commit.</p>
+                                        <p>Nosso padrão de commit apresentado a seguir foi baseado no padrão bastante conhecido e usado pelo <a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit" target="_blank" rel="noopener">Angular</a>, <a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html" target="_blank" rel="noopener">Karma</a> e outros:</p>
+                                        <p>Estrutura:</p>
+                                        <?= $this->insert('partials::commit-structure-pt-br') ?>
+                                        <p>Exemplo:</p>
+                                        <?= $this->insert('partials::commit-example-pt-br') ?>
+                                        <p>A ideia de usar esse padrão, é termos de forma granulada o que cada commit fez e em o quê. Além disso, facilita na hora de extrair algum “changelog” da aplicação e além de melhorar a visualização do “log” sem commits vagos.</p>
+                                        <p>Abaixo está um resumo de todas as regras que adotamos:</p>
+                                        <ul>
+                                            <li>Os commits devem ser <a href="https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention" target="_blank" rel="noopener">atômicos</a>; se duas implementações/correções distintas são realizadas, elas devem ser implementadas em dois commits diferentes;</li>
+                                            <li>O cabeçalho é obrigatório;</li>
+                                            <ul>
+                                                <li>O tipo do cabeçalho é obrigatório;</li>
+                                                <li>O escopo do cabeçalho é opcional;</li>
+                                                <li>A descrição do cabeçalho é obrigatório;</li>
+                                            </ul>
+                                            <li>O corpo é opcional;</li>
+                                            <li>O rodapé é opcional;</li>
+                                            <li>Não coloque a primeira letra do assunto do cabeçalho em maiúscula;</li>
+                                            <li>Não termine a linha de assunto do cabeçalho com um ponto final;</li>
+                                            <li>Use o modo imperativo na descrição do cabeçalho;</li>
+                                            <li>Cada linha do commit terá no máximo 72 caracteres;</li>
+                                            <li>A compreensão do conteúdo do commit deve ser quase que automática para qualquer contribuidor e de fácil compreensão para novos contribuidores;</li>
+                                            <li>Use o corpo para explicar o que e por que, não como;</li>
+                                            <li>A mensagens de rodapé, quando presente, deve fazer referência ao número da tarefa no <a href="https://tiendanube.atlassian.net/jira/software/c/projects/CRBU/boards/78" target="_blank" rel="noopener">Jira</a> associada ao commit;</li>
+                                        </ul>
+                                        <p>Por exemplo:</p>
+                                        <?= $this->insert('partials::commit-rules-example-pt-br') ?>
+                                        <p>Para uma melhor compreensão da importância de um commit descritivo e alguns exemplos, leia:</p>
+                                        <ul>
+                                            <li><a href="https://chris.beams.io/posts/git-commit/" target="_blank" rel="noopener">chris beams</a> e</li>
+                                            <li><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html" target="_blank" rel="noopener">tbaggery</a>.</li>
+                                        </ul>
+                                        <h2>
+                                            <a id="cabeçalho" class="anchor" aria-hidden="true" href="#cabeçalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Cabeçalho
+                                        </h2>
+                                        <p>O cabeçalho da mensagem é uma única linha que contém uma descrição sucinta da mudança contendo um <strong>tipo</strong>, um <strong>escopo</strong> opcional e uma <strong>descrição</strong>.</p>
+                                        <h3>
+                                            <a id="tipo" class="anchor" aria-hidden="true" href="#tipo">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Tipo
+                                        </h3>
+                                        <p>Os <strong>Tipos</strong> se resumem em <strong>feat</strong>, <strong>fix</strong>, <strong>refactor</strong>, <strong>style</strong>, <strong>docs</strong>, <strong>test</strong>, <strong>perf</strong>, <strong>build</strong>, <strong>ci</strong> e <strong>revert</strong>.</p>
+                                        <h4>
+                                            <a id="implementacao" class="anchor" aria-hidden="true" href="#implementacao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>feat</u>
+                                        </h4>
+                                        <p><code>feat</code> são quaisquer adições ao código.</p>
+                                        <p>Enquanto elas podem alterar parte do código já existente, o foco dela é a implementação de “features” novas ao ecossistema ou incrementos em “features” existentes. Um novo recurso para documentos, testes, build ou scripts ci não deve ser considerado do tipo feat.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Acréscimo de um serviço, funcionalidade, endpoint, etc.</p>
+                                        <p><code>feat: allow provided config object to extend other configs</code></p>
+                                        <p><code>feat(lang): add polish language</code></p>
+                                        <p><code>feat(login): insert domain validation on the login screen</code></p>
+                                        <p><code>feat(routes): add click functions on map markers</code></p>
+                                        <h4>
+                                            <a id="correcao" class="anchor" aria-hidden="true" href="#correcao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>fix</u>
+                                        </h4>
+                                        <p><code>fix</code> refere-se às correções de “bugs”. Uma correção em documentos, testes, build ou scripts ci não deve ser considerada do tipo fix.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Aplicar tratativa para uma função que não está tendo o comportamento esperado e retornando erro.</p>
+                                        <p><code>fix(login): fix description property of the email field</code></p>
+                                        <p><code>fix(dashboard): fix decimal point error</code></p>
+                                        <p><code>fix(router): make router provides work with cli and offline compilation</code></p>
+                                        <p><code>fix: resolve shorthand property declarations</code></p>
+                                        <h4>
+                                            <a id="refatoracao" class="anchor" aria-hidden="true" href="#refatoracao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>refactor</u>
+                                        </h4>
+                                        <p><code>refactor</code> refere-se a quaisquer mudanças que atinjam o código, porém não alterem sua funcionalidade.</p>
+                                        <p>Alterou o formato de como é o processamento em determinada parte da sua tela, mas manteve a mesma funcionalidade? Declare como “refactor”.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Remoção de código redundante, simplificação do código, renomeação de variáveis, alterações de código após uma revisão de código, etc.</p>
+                                        <p><code>refactor: remove redundat styles</code></p>
+                                        <p><code>refactor: remove deprecated bootstrap</code></p>
+                                        <p><code>refactor(core): simplify and cleanup reflection</code></p>
+                                        <p><code>refactor: change from anonymous functions to arrow function on container config</code></p>
+                                        <h4>
+                                            <a id="estilo" class="anchor" aria-hidden="true" href="#estilo">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>style</u>
+                                        </h4>
+                                        <p>Alterações referentes a formatações de código, “semicolons”, “trailing spaces” e “lint” em geral são em <code>style</code>.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Indentações, remover espaços em brancos, remover comentários, etc..</p>
+                                        <p><code>style(login): insert blank line at the end of login.php file</code></p>
+                                        <p><code>style(core): fix max line length to pass linting</code></p>
+                                        <p><code>style: add space between .home and hamburger</code></p>
+                                        <p><code>style: use single quotes consistently</code></p>
+                                        <h4>
+                                            <a id="documentacao" class="anchor" aria-hidden="true" href="#documentacao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>docs</u>
+                                        </h4>
+                                        <p>Com <code>docs</code>, temos conteúdo relativo à documentação. Será usado ao adicionar comentários no código, phpdoc, jsdoc, storyboard e tudo que não interfira no código, porém indique o funcionamento do mesmo.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Adicionar informações na documentação da API, mudar o README, etc.</p>
+                                        <p><code>docs(login): add jsdoc to functions</code></p>
+                                        <p><code>docs(readme): remove incorrect download count badge</code></p>
+                                        <p><code>docs(changelog): update change log to rc.5</code></p>
+                                        <p><code>docs: fix API docs for ContentChild and ViewChildren</code></p>
+                                        <h4>
+                                            <a id="teste" class="anchor" aria-hidden="true" href="#teste">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>test</u>
+                                        </h4>
+                                        <p><code>test</code> será usado ao realizar commits relacionados às modificações e adições aos testes unitários e/ou end-to-end.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Criação ou modificação de testes unitários.</p>
+                                        <p><code>test(login): fix unit tests on the validator class</code></p>
+                                        <p><code>test(dashboard): add e2e test</code></p>
+                                        <p><code>test: add test for missingTranslation parameter</code></p>
+                                        <p><code>test: add attribute interpolation test</code></p>
+                                        <h4>
+                                            <a id="performance" class="anchor" aria-hidden="true" href="#performance">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>perf</u>
+                                        </h4>
+                                        <p><code>perf</code> será usado para indicar uma alteração que melhorou a performance do sistema.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Remover código lento, melhorar a query do graphQL, etc.</p>
+                                        <p><code>perf: change ForEach to while in the item filter</code></p>
+                                        <p><code>perf(dashboard): improve graphQL query</code></p>
+                                        <p><code>perf: avoid unnecessary I/O operation in ng-packages-installer</code></p>
+                                        <p><code>perf: remove check for function type in renderStringify</code></p>
+                                        <h4>
+                                            <a id="construir" class="anchor" aria-hidden="true" href="#construir">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>build</u>
+                                        </h4>
+                                        <p><code>build</code> será utilizada para indicar mudanças que afetam o processo de “build” do projeto ou dependências externas.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Adicionar/remover dependências do npm, editar scripts do package.json, etc.</p>
+                                        <p><code>build: add mm-cz-conventional-changelog dependency</code></p>
+                                        <p><code>build: change license type in package.json</code></p>
+                                        <p><code>build(npm): update fsevents to 1.0.14</code></p>
+                                        <p><code>build(docs-infra): enable ServiceWorker in cli config</code></p>
+                                        <h4>
+                                            <a id="integracao-continua" class="anchor" aria-hidden="true" href="#integracao-continua">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>ci</u>
+                                        </h4>
+                                        <p><code>ci</code> será utilizada para informar mudanças nos arquivos de configuração de CI.</p>
+                                        <p>Exemplos:</p>
+                                        <p>Github Actions, Git hooks, CircleCI, Travis, Jenkins etc.</p>
+                                        <p><code>ci: add payload size limit file</code></p>
+                                        <p><code>ci: re-use setup CircleCI job in aio_monitoring</code></p>
+                                        <p><code>ci: implement unit test triggering in github actions</code></p>
+                                        <p><code>ci: add pre-push git hook</code></p>
+                                        <h4>
+                                            <a id="revert" class="anchor" aria-hidden="true" href="#revert">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <u>revert</u>
+                                        </h4>
+                                        <p>Se o commit reverter um commit anterior, ele deve começar com <code>revert</code>, seguido pelo cabeçalho do commit revertido. No corpo, deve-se dizer <code>this reverts commit &lt;hash&gt;</code>, onde o “hash” é o <strong>SHA</strong> do commit que está sendo revertido.</p>
+                                        <p>Exemplo:</p>
+                                        <p><code>revert: reverte commit 74a9ef</code></p>
+                                        <h3>
+                                            <a id="escopo" class="anchor" aria-hidden="true" href="#escopo">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Escopo
+                                        </h3>
+                                        <p>Escopos podem ser quaisquer partes do projeto; é importante que eles sejam compreendidos de uma maneira quase automática para alguém que não conhece o projeto. Em geral, a utilização do escopo é bem genérica, especificando apenas o primeiro contexto (login, middleware, profile). No entanto, prefira ser mais específico e defina um segundo escopo (containers/login, por exemplo).</p>
+                                        <p>Supondo que você tenha feito uma refatoração nas rotas relativas as configurações do projeto, uma possibilidade de commit seria:</p>
+                                        <p><code>feat(routes/settings): adjust settings to be called in any screen</code></p>
+                                        <h3>
+                                            <a id="descricao" class="anchor" aria-hidden="true" href="#descricao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Descrição
+                                        </h3>
+                                        <p>As descrições devem ser suficientemente claras, utilizando seu espaço até o máximo permitido da linha. Caso você veja que a explicação não foi suficiente, sinta-se à vontade para adicionar conteúdo ao corpo.</p>
+                                        <ol>
+                                            <li>
+                                                <strong>Deve conter a descrição sucinta da alteração:</strong>
+                                                <p>Tente comunicar o que o commit faz sem que seja necessário olhar o conteúdo do commit.</p>
+                                            </li>
+                                            <li>
+                                                <strong>Use o imperativo:</strong>
+                                                <p>Use o modo imperativo na 3ª pessoa do singular: &quot;corrige&quot; e não &quot;corrigiu&quot;, &quot;corrigindo&quot; ou &quot;correção&quot;.</p>
+                                                <p>Por que!?</p>
+                                                <p>A mensagem de commit diz o que ele <strong>faz</strong>, não o que foi feito.</p>
+                                                <p><u>Regrinha de ouro para mensagens:</u></p>
+                                                <p><strong>Uma descrição de commit devidamente formada deve sempre ser capaz de completar a seguinte frase:</strong></p>
+                                                <ul><li><p>Se aplicado, este commit ...</p></li></ul>
+                                                <p>Por exemplo:</p>
+                                                <ul><li><p>Se aplicado, este commit <em><u>refatora o subsistema X para facilitar a leitura</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>atualiza a documentação de primeiros passos</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>remove métodos obsoletos</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>atualiza versão para 1.0.0</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>mescla solicitação #123 de user/branch</u></em></p></li></ul>
+                                                <p>Observe como isso não funciona para as outras formas não imperativas:</p>
+                                                <ul><li><p>Se aplicado, este commit <em><u>bug corrigido com Y</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>mudando o comportamento de X</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>mais correções para coisas quebradas</u></em></p></li></ul>
+                                                <ul><li><p>Se aplicado, este commit <em><u>lindos novos métodos de API</u></em></p></li></ul>
+                                                <p><em>Lembre-se: o uso do imperativo é importante apenas na linha de descrição. Você pode ignorar essa restrição ao escrever o corpo.</em></p>
+                                            </li>
+                                            <li>
+                                                <strong>Limite a linha de descriçao a 50 caracteres.</strong>
+                                                <p>Manter as descrições de commit nesse tamanho garante que elas sejam legíveis e força o autor a pensar por um momento sobre a maneira mais concisa de explicar o que está acontecendo.</p>
+                                                <p><em>Dica: se estiver com dificuldade para resumir, você pode estar realizando muitas alterações de uma vez. Esforce-se por <a href="https://www.freshconsulting.com/atomic-commits/" target="_blank" rel="noopener">commits atômicos</a>.</em></p>
+                                                <p>A IU do GitHub está totalmente ciente dessas convenções. Ele irá avisá-lo se você ultrapassar o limite de 50 caracteres e truncará qualquer linha de assunto com mais de 72 caracteres com reticências. Portanto, busque 50 caracteres, mas considere 72 como limite máximo.</p>
+                                            </li>
+                                            <li>
+                                                <strong>Comece a frase com uma letra minúscula.</strong>
+                                                <p>Isto é tão simples quanto parece. A razão para escolher começar com uma letra minúscula é simplesmente aderir ao <a href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional" target="_blank" rel="noopener">@commitlint/config-conventional</a>.</p>
+                                            </li>
+                                            <li>
+                                                <strong>Sem ponto (.) no final.</strong>
+                                                <p>A pontuação final é desnecessária nas descrições. Além disso, o espaço é precioso quando você tenta mantê-los com 50 caracteres ou menos.</p>
+                                            </li>
+                                        </ol>
+                                        <h2>
+                                            <a id="corpo" class="anchor" aria-hidden="true" href="#corpo">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Corpo
+                                        </h2>
+                                        <p>O corpo, por sua vez, deve conter descrições mais precisas do que está contido naquele commit, mostrando as razões ou consequências geradas por esse código, assim como instruções futuras.</p>
+                                        <h3>Use o corpo da mensagem para explicar "porquê", "para quê" e detalhes adicionais, mas não o "como".</h3>
+                                        <?= $this->insert('partials::commit-message-body-1-pt-br') ?>
+                                        <?= $this->insert('partials::commit-message-body-2-pt-br') ?>
+                                        <p>O título e o corpo da mensagem são separados por uma linha em branco. Linhas em branco adicionais são consideradas como parte do corpo.</p>
+                                        <p>Caracteres como <code>-</code>, <code>*</code> e <code>`</code>  são elementos comuns para melhorar a leitura.</p>
+                                        <p>Na maioria dos casos, você pode omitir detalhes sobre como uma alteração foi feita. O código geralmente é autoexplicativo nesse aspecto (e se o código for tão complexo que precise ser explicado, é para isso que servem os comentários no próprio código). Concentre-se apenas em deixar claro os motivos pelos quais você fez a mudança em primeiro lugar - a maneira como as coisas funcionavam antes da mudança (e o que havia de errado com isso), a maneira como funcionam agora e por que você decidiu resolver o problema da maneira que fez.</p>
+                                        <p>O futuro mantenedor que irá lhe agradecer pode ser você mesmo!</p>
+                                        <h2>
+                                            <a id="rodape" class="anchor" aria-hidden="true" href="#rodape">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Rodapé
+                                        </h2>
+                                        <p>O rodapé restringe-se às alterações de estado via <strong>“smart commit”</strong>, como resoluções de estado de “issues”. A idéia é que no futuro seja possível com <strong>“smart commits”</strong> associar o commit a uma “issue” do Jira e alterar seu estado automaticamente com keywords como <code>comment</code>, <code>close</code>, <code>time</code>.</p>
+                                        <p>Exemplo: <code>CRBU-1984 #time 1h #close #comment Problema resolvido.</code></p>
+                                        <h2>
+                                            <a id="recommendacoes" class="anchor" aria-hidden="true" href="#recommendacoes">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Recommendações
+                                        </h2>
+                                        <h3>Evite commits com mensagens genéricas ou sem contexto algum</h3>
+                                        <?= $this->insert('partials::commit-message-body-3-pt-br') ?>
+                                        <h3>Tente limitar o nº de colunas das mensagens</h3>
+                                        <p><a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines" target="_blank" rel="noopener">Recomenda-se</a> 50 caracteres para o título e por volta de 72 para o corpo.</p>
+                                        <p><strong>Dica</strong>: Configure seu editor (<a href="http://stackoverflow.com/a/31844714" target="_blank" rel="noopener">nano¹</a>, <a href="https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message" target="_blank" rel="noopener">Vim²</a>) para quebrar a linha em 72 caracteres.</p>
+                                        <h3>Mantenha consistência de idioma</h3>
+                                        <?= $this->insert('partials::commit-message-body-4') ?>
+                                        <?= $this->insert('partials::commit-message-body-5') ?>
+                                        <?= $this->insert('partials::commit-message-body-6') ?>
+                                        <h3>Breaking Change</h3>
+                                        <p>Se existir uma mudança drástica que quebrará funcionalidades, você <strong>DEVE</strong> obrigatóriamente indicar no corpo com <strong>‘BREAKING CHANGE’</strong> (sim, em caixa alta) e explicar as razões que levaram a essa marcação.</p>
+                                        <h2>
+                                            <a id="notas" class="anchor" aria-hidden="true" href="#notas">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Notas
+                                        </h2>
+                                        <ol>
+                                            <li><a href="https://www.nano-editor.org/" target="_blank" rel="noopener">nano</a></li>
+                                            <li><a href="https://www.vim.org/" target="_blank" rel="noopener">vim</a></li>
+                                        </ol>
+                                        <h2>
+                                            <a id="referencias" class="anchor" aria-hidden="true" href="#referencias">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            Referências
+                                        </h2>
+                                        <ol>
+                                            <li><a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit" target="_blank" rel="noopener">Contributing to Angular</a></li>
+                                            <li><a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html" target="_blank" rel="noopener">Karma - Git Commit Msg</a></li>
+                                            <li><a href="https://cbea.ms/git-commit/" target="_blank" rel="noopener">Chris Beams - How to Write a Git Commit Message</a></li>
+                                            <li><a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html" target="_blank" rel="noopener">tbaggery - A Note About Git Commit Messages</a></li>
+                                            <li><a href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional" target="_blank" rel="noopener">conventional-changelog/commitlint</a></li>
+                                            <li><a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines" target="_blank" rel="noopener">Git - Commit Guidelines</a></li>
+                                            <li><a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a></li>
+                                            <li><a href="https://github.com/spring-projects/spring-framework/blob/30bce7/CONTRIBUTING.md#format-commit-messages" target="_blank" rel="noopener">Spring framework - Format commit messages</a></li>
+                                        </ol>
+                                    </article>
+                                </div>
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="es" class="anchor" aria-hidden="true" href="#en">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <img class="flag" src="/assets/images/espanha.png">Patrón de Commit
+                                        </h1>
+                                        <p>TODO</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

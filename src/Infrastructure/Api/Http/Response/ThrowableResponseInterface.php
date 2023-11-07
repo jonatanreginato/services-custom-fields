@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response;
+
+use Psr\Http\Message\ResponseInterface;
+use Throwable;
+
+interface ThrowableResponseInterface extends ResponseInterface
+{
+    public function getThrowable(): Throwable;
+}

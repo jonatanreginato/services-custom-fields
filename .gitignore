@@ -1,0 +1,33 @@
+.idea/
+.vscode/
+*~
+._*
+*.bkp
+*.log
+.buildpath/
+.DS_Store/
+.project/
+.settings/
+.run/
+.environment
+.env
+supervisord.pid
+
+# Caches
+cache/*
+.phpunit.cache/
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Docker logs e configs
+environment/nginx/log/
+environment/php/log/
+
+# Environment files
+environment/production*
+environment/staging*
+environment/*.json
+
+# Dependencies
+vendor/
+node_modules/

@@ -1,0 +1,9 @@
+addReviewers: true
+addAssignees: author
+reviewers: 
+  - jonatanreginato
+  - jonathanbraznuvem
+  - LuizHonorato
+  - marianadasilvanuvem
+  - mshibata-nuvemshop
+numberOfReviewers: 1

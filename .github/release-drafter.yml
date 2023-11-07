@@ -1,0 +1,163 @@
+name-template: 'v$RESOLVED_VERSION 🚀'
+tag-template: 'v$RESOLVED_VERSION'
+template: |
+  # What's Changed
+
+  $CHANGES
+
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+
+change-template: '* $TITLE (#$NUMBER) @$AUTHOR'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+exclude-labels:
+  - 'skip-changelog'
+filter-by-commitish: true
+commitish: 'refs/heads/production'
+
+categories:
+  - title: '🌟 Added'
+    labels:
+      - 'changelog:added'
+      - 'added'
+  - title: '🛠 Changed'
+    labels:
+      - 'changelog:changed'
+      - 'changed'
+  - title: '💀 Deprecated'
+    labels:
+      - 'changelog:deprecated'
+      - 'deprecated'
+  - title: '🗑 Removed'
+    labels:
+      - 'changelog:removed'
+      - 'removed'
+  - title: '🐛 Fixed'
+    labels:
+      - 'changelog:fixed'
+      - 'fixed'
+  - title: '🔒 Security'
+    labels:
+      - 'changelog:security'
+      - 'security'
+  - title: '🤝🏽 Dependency Updates'
+    labels:
+      - 'changelog:dependency'
+      - 'dependency'
+  - title: '🚨 Breaking Changes'
+    labels:
+      - 'changelog:breaking'
+      - 'breaking'
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+      - 'changelog:breaking'
+      - 'breaking'
+  minor:
+    labels:
+      - 'minor'
+      - 'changelog:added'
+      - 'added'
+  patch:
+    labels:
+      - 'patch'
+      - 'changelog:fixed'
+      - 'fixed'
+      - 'changelog:security'
+      - 'security'
+      - 'changelog:dependency'
+      - 'dependency'
+  default: patch
+
+autolabeler:
+  - label: 'changelog:breaking'
+    body:
+      - '/BREAKING CHANGE/'
+
+  - label: 'changelog:added'
+    branch:
+      - '/^feature\/\b.+/m'
+      - '/^feat\/\b.+/m'
+    title:
+      - '/^feat: \b.+/m'
+      - '/^feat\([0-9a-z]{1,}\): \b.+/m'
+    body:
+      - '/feat: .+/'
+      - '/feat\([0-9a-z]{1,}\): .+/'
+
+  - label: 'changelog:changed'
+    files:
+      - '*.md'
+    branch:
+      - '/^refactor\/\b.+/m'
+      - '/^style\/\b.+/m'
+      - '/^chore\/\b.+/m'
+      - '/^docs{0,1}\/\b.+/m'
+      - '/^test\/\b.+/m'
+      - '/^perf\/\b.+/m'
+      - '/^build\/\b.+/m'
+      - '/^ci\/\b.+/m'
+      - '/^revert\/\b.+/m'
+    title:
+      - '/^refactor: \b.+/m'
+      - '/^style: \b.+/m'
+      - '/^chore: \b.+/m'
+      - '/^docs: \b.+/m'
+      - '/^test: \b.+/m'
+      - '/^perf: \b.+/m'
+      - '/^build: \b.+/m'
+      - '/^ci: \b.+/m'
+      - '/^revert: \b.+/m'
+    body:
+      - '/refactor: .+/'
+      - '/style: .+/'
+      - '/chore: .+/'
+      - '/docs: .+/'
+      - '/test: .+/'
+      - '/perf: .+/'
+      - '/build: .+/'
+      - '/ci: .+/'
+      - '/revert: .+/'
+
+  - label: 'changelog:deprecated'
+    body:
+      - '/deprecated/i'
+
+  - label: 'changelog:removed'
+    body:
+      - '/removed/i'
+
+  - label: 'changelog:fixed'
+    branch:
+      - '/^fix\/\b.+/m'
+    title:
+      - '/^fix: \b.+/m'
+      - '/^fix\([0-9a-z]{1,}\): \b.+/m'
+    body:
+      - '/fix: .+/'
+      - '/fix\([0-9a-z]{1,}\): .+/'
+
+replacers:
+  - search: 'feat: '
+    replace: ''
+  - search: 'fix: '
+    replace: ''
+  - search: 'refactor: '
+    replace: ''
+  - search: 'style: '
+    replace: ''
+  - search: 'chore: '
+    replace: ''
+  - search: 'docs: '
+    replace: ''
+  - search: 'test: '
+    replace: ''
+  - search: 'perf: '
+    replace: ''
+  - search: 'build: '
+    replace: ''
+  - search: 'ci: '
+    replace: ''
+  - search: 'revert: '
+    replace: ''

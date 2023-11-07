@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+$response = [
+    'message' => 'We encountered a 404 Not Found error.',
+];
+
+header('Content-Type: application/json');
+
+try {
+    echo json_encode($response, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_FORCE_OBJECT);
+} catch (JsonException $e) {
+    echo $e->getCode() . ':' . $e->getMessage();
+}

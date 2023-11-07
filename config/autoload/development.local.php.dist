@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Development-only configuration.
+ * Put settings you want enabled when under development mode in this file, and check it into your repository.
+ */
+
+declare(strict_types=1);
+
+return [];

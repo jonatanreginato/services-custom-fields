@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Dotenv\Dotenv;
+use Psr\Container\ContainerInterface;
+use Ramsey\Uuid\Uuid;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
+
+date_default_timezone_set('Etc/GMT+3');
+
+define('RESOURCE_USAGE', (array)(getrusage() ?? []));
+define('START_EXECUTION_TIME', microtime(true));
+define('APP_ROOT', dirname(realpath(__DIR__)));
+
+// This makes our life easier when dealing with paths. Everything is relative to the application root now.
+chdir(dirname(realpath(__DIR__)));
+
+// Setup auto-loading
+require 'vendor/autoload.php';
+
+// Generate and define a RFC 4122 version 4 universally unique identifiers (UUID).
+try {
+    define('REQUEST_ID', Uuid::uuid4());
+} catch (Exception $e) {
+    echo $e->getCode() . ':' . $e->getMessage();
+}
+
+// Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically.
+$dotenv = Dotenv::createUnsafeImmutable(APP_ROOT);
+$dotenv->load();
+
+/** @var ContainerInterface $container */
+$container = require 'config/container.php';
+
+$commands = array_map(
+    static function ($command) use ($container) {
+        /** @var Command $command */
+        return new $command($container);
+    },
+    require 'config/cli-scripts.php'
+);
+
+$application = new Application('CLI Application', '0.0.1');
+
+foreach ($commands as $command) {
+    $application->add($command);
+}
+
+try {
+    exit($application->run());
+} catch (Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+    exit(1);
+}

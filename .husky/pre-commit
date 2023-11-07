@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+MAIN_CONTAINER_NAME="php-restful-api-template"
+RUNNING_CONTAINER=$(docker ps --filter name=${MAIN_CONTAINER_NAME} -aq)
+
+if [ ! "$RUNNING_CONTAINER" ]; then
+    echo ""
+    echo "$(tput bold)$(tput setaf 1)ERROR: Container php não está em execução.$(tput sgr0)"
+    echo "$(tput bold)Por favor, execute o comando: ./bin/runenv.sh$(tput sgr0)"
+    echo ""
+    exit 1
+fi
+
+echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Executing CodeSniffer..."
+docker compose exec -T php composer run cs-check
+
+echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Executing PHP-unit..."
+docker compose exec -T php composer run test

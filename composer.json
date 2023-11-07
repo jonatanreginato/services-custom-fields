@@ -1,0 +1,113 @@
+{
+  "name": "jonatanreginato/php-restful-api-template",
+  "description": "A RESTful API template built with PHP 8.2 driven by Mezzio framework.",
+  "license": "proprietary",
+  "type": "project",
+  "keywords": [
+    "template",
+    "php",
+    "mezzio",
+    "restful",
+    "middleware",
+    "psr-7",
+    "psr-11",
+    "psr-15"
+  ],
+  "authors": [
+    {
+      "name": "Jonatan Noronha Reginato",
+      "email": "jonatan.reginato@nuvemshop.com.br"
+    }
+  ],
+  "homepage": "https://github.com/jonatanreginato/php-restful-api-template",
+  "require": {
+    "php": "^8.2",
+    "ext-dom": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-libxml": "*",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "ext-tokenizer": "*",
+    "ext-xml": "*",
+    "ext-xmlwriter": "*",
+    "aws/aws-sdk-php": "^3",
+    "beberlei/assert": "^v3",
+    "beberlei/doctrineextensions": "^v1",
+    "doctrine/migrations": "^3",
+    "doctrine/orm": "^2",
+    "elasticsearch/elasticsearch": "^v8",
+    "laminas/laminas-config-aggregator": "^1",
+    "laminas/laminas-diactoros": "^3",
+    "laminas/laminas-servicemanager": "^3",
+    "mezzio/mezzio": "^3",
+    "mezzio/mezzio-fastroute": "^3",
+    "mezzio/mezzio-platesrenderer": "^2",
+    "monolog/monolog": "^3",
+    "opensearch-project/opensearch-php": "^2",
+    "php-middleware/request-id": "^4",
+    "ramsey/uuid": "^4",
+    "respect/validation": "^2",
+    "symfony/cache": "^v6",
+    "symfony/console": "^v6",
+    "symfony/doctrine-bridge": "^v6",
+    "symfony/stopwatch": "^v6",
+    "symfony/yaml": "^v6",
+    "tuupola/cors-middleware": "^1",
+    "tuupola/slim-jwt-auth": "^3",
+    "vlucas/phpdotenv": "^v5"
+  },
+  "require-dev": {
+    "doctrine/data-fixtures": "^1",
+    "friendsofphp/php-cs-fixer": "^v3",
+    "phpmd/phpmd": "@stable",
+    "phpspec/prophecy": "^v1",
+    "phpstan/phpstan": "^1",
+    "phpunit/phpunit": "^10",
+    "squizlabs/php_codesniffer": "^3",
+    "symfony/var-dumper": "^v6",
+    "vimeo/psalm": "^5",
+    "zircote/swagger-php": "^4"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Nuvemshop\\ApiTemplate\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nuvemshop\\ApiTemplate\\": [
+        "tests/unit",
+        "tests/integration"
+      ]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "php-http/discovery": true
+    },
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "clear-config-cache": "php bin/clear-config-cache",
+    "clear-routes-cache": "php bin/clear-routes-cache",
+    "cs-check": "./vendor/bin/phpcs -w -p",
+    "cs-fix": "./vendor/bin/phpcbf",
+    "swagger": "./bin/console swagger:generate-schemas && ./vendor/bin/openapi --bootstrap vendor/autoload.php --output public/swagger/openapi.json public/swagger config/swagger.php --legacy",
+    "test": "./vendor/bin/phpunit --configuration phpunit.xml --testsuite all-tests",
+    "test-integration": "./vendor/bin/phpunit --configuration phpunit.xml --testsuite integration-tests",
+    "test-integration-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --configuration phpunit.xml --testsuite integration-tests --coverage-html public/coverage/integration --coverage-clover target/integration/coverage.xml --coverage-text='target/integration/coverage.txt' --log-junit target/integration/report.xml",
+    "test-unit": "./vendor/bin/phpunit --configuration phpunit.xml --testsuite unit-tests",
+    "test-unit-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --configuration phpunit.xml --testsuite unit-tests --coverage-html public/coverage/unit --coverage-clover target/unit/coverage.xml --coverage-text='target/unit/coverage.txt' --log-junit target/unit/report.xml"
+  }
+}

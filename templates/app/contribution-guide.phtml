@@ -1,0 +1,700 @@
+<?php $this->layout('layout::default', ['title' => 'Contribution guide']) ?>
+
+<a href="#top" class="text-muted back-to-top"><em class="fa fa-toggle-up"></em>&nbsp;Back to top</a>
+<div class="content">
+    <div itemtype="http://schema.org/SoftwareSourceCode">
+        <main>
+            <div class="px-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <?= $this->insert('layout::nav') ?>
+                        <div class="repository-content content">
+                            <div class="box box-condensed">
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="en" class="anchor" aria-hidden="true" href="#en">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <img class="flag" src="/assets/images/reino-unido.png">Contribution guide and good development practices
+                                        </h1>
+                                        <p>TODO</p>
+                                    </article>
+                                </div>
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="pt-br" class="anchor" aria-hidden="true" href="#pt-br">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <img class="flag" src="/assets/images/brasil.png">Guia de contribuição e boas práticas de desenvolvimento
+                                        </h1>
+                                        <p>Este documento tem por objetivo registrar as boas práticas de desenvolvimento adotadas pela <a href="https://github.com/orgs/TiendaNube/teams/cross-business" target="_blank" rel="noopener"><strong>Squad Cross Business</strong></a> da <strong>Nuvemshop</strong>, tornando acessível aos colaboradores responsáveis e/ou interessados em contribuir com o código da aplicação, os requisitos mínimos necessários para que mudanças sejam introduzidas ao código, bem como o fluxo de atividades recomendadas para a sua evolução, seja na resolução de problemas ou criação de funcionalidades.</p>
+                                        <h2>
+                                            <a id="codigo-de-conduta" class="anchor" aria-hidden="true" href="#codigo-de-conduta">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            1. Código de conduta
+                                        </h2>
+                                        <p>Consulte a seção <a href="/conduct-code#pt-br" target="_blank" rel="noopener">código de conduta do colaborador</a> para obter detalhes.</p>
+                                        <h2>
+                                            <a id="repositorio-e-controle-de-versao" class="anchor" aria-hidden="true" href="#repositorio-e-controle-de-versao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            2. Repositório e controle de versão
+                                        </h2>
+                                        <p>Nós utilizamos o <a href="https://git-scm.com/" target="_blank" rel="noopener">git</a> como sistema de controle de versão, portanto, você deve ter o git instalado em sua máquina local. Você pode verificar se o git está instalado em seu computador e passar pelo processo de instalação para o seu sistema operacional, seguindo este <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-contributing-to-open-source-projects-and-installing-git#check-if-git-is-installed" target="_blank" rel="noopener">guia</a>.</p>
+                                        <p>Ainda que sejam necessários <a href="/contribution-cheatsheet" target="_blank" rel="noopener">poucos comandos</a> para compartilhar sua contribuição, recomendamos uma boa compreensão dos <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">fundamentos</a> do git, pois comandos como <code>stage</code>, <code>diff</code> e <code>log</code> podem ser úteis.</p>
+                                        <p>Os repositórios oficiais de todas as aplicações desenvolvidas pela <strong>Squad Cross Business</strong> da <strong>Nuvemshop</strong> encontram-se disponíveis no <a href="https://github.com/orgs/TiendaNube/teams/cross-business/repositories" target="_blank" rel="noopener">GitHub</a>. Para fazer uma cópia local do repositório e enviar as alterações para o repositório oficial, você precisa de uma conta no GitHub e se preciso, solicitar acesso ao repositório através da abertura de um <a href="https://tiendanube.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener">chamado</a> à nossa equipe de suporte.</p>
+                                        <p>Para realizar as configurações necessárias, basta seguir as instruções de listadas na seção <a href="/setup" target="_blank" rel="noopener">configuração do ambiente de desenvolvimento</a>.</p>
+                                        <h3>
+                                            <a id="clone-do-repositorio" class="anchor" aria-hidden="true" href="#clone-do-repositorio">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            2.1. Clone do repositório
+                                        </h3>
+                                        <p>Para criar sua própria cópia local do repositório, primeiro vamos abrir uma janela de terminal.</p>
+                                        <p>Vamos utilizar o comando <code>git clone</code> juntamente com a URL que aponta para o repositório do projeto.</p>
+                                        <p>Você pode, alternativamente, copiar a URL usando o botão verde
+                                            <span class="btn-primary-github btn-github">
+                                                <span class="btn-github-content">
+                                                    <span class="btn-github-visual btn-github-leading-visual">
+                                                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code">
+                                                            <path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path>
+                                                        </svg>
+                                                    </span>
+                                                     <span class="btn-github-label">Code</span>
+                                                    <span class="btn-github-visual btn-github-trailing-action">
+                                                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-triangle-down">
+                                                            <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        da página do repositório. Depois de clicar no botão, você poderá copiar a URL clicando no botão do fichário (
+                                        <span>
+                                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon d-inline-block">
+                                                <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                                            </svg>
+                                        </span>) ao lado da URL:
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <p><img style="margin: 30px auto;" src="/assets/images/github-clone.png" alt="Clone do repositório"></p>
+                                                    <p class="text-center mb-5"><strong>Figura 1</strong> - Clone do repositório.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p>Uma vez que tenhamos a URL, estamos prontos para clonar o repositório. Para fazer isto, vamos combinar o comando <code>git clone</code> com a URL do repositório a partir da linha de comando em uma janela de terminal:</p>
+                                        <p><?= $this->insert('partials::git-clone') ?></p>
+                                        <p>Agora que você tem uma cópia local do código, podemos passar para a criação de uma nova “branch” ou ramificação na qual iremos trabalhar com o código.</p>
+                                        <h2>
+                                            <a id="politica-de-ramificacao" class="anchor" aria-hidden="true" href="#politica-de-ramificacao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            3. Política de ramificação
+                                        </h2>
+                                        <p>Utilizamos uma política de ramificação própria, baseada no “Trunk Based Development”, que busca unir flexibilidade com as boas práticas de gestão e lançamento.</p>
+                                        <p>Nossa proposta é diminuir a complexidade de promover código, compartilhar código, mitigar os “merges hell” e aumentar produtividade.</p>
+                                        <h3>
+                                            <a id="como-funciona" class="anchor" aria-hidden="true" href="#como-funciona">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            3.1. Como funciona
+                                        </h3>
+                                        <p>Os desenvolvedores trabalham em uma única ramificação, a “branch main”, a ideia é que tudo que todos estão fazendo, esteja na “main” e seja compartilhado entre todos os outros desenvolvedores.</p>
+                                        <p>Os desenvolvedores abrem ramificaçoes de trabalho (“features” ou “fixes branches”) a partir da “main”; o desenvolvedor altera o código necessário da tarefa em que está trabalhando no momento, uma vez que essas alterações não quebram o “build” e os testes passam, o desenvolvedor abre então um “merge request” para a “main”, onde acontece o processo de “code review”, uma vez completo e o “merge request” é aprovado, então esse código entra na “main” e já pode ser baixado por todos os outros desenvolvedores.</p>
+                                        <p>O “release” desse código é feito direto da ramificação principal, é criada uma “tag” da versão que será liberada e então o código pode ser promovido para produção.</p>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <p><img style="margin: 30px auto;" src="/assets/images/flow.png" alt="Ramificações do fluxo de trabalho"></p>
+                                                    <p class="text-center mb-5"><strong>Figura 2</strong> - Ramificações do fluxo de trabalho.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>
+                                            <a id="ramificacao-principal" class="anchor" aria-hidden="true" href="#ramificacao-principal">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            3.2. Ramificação principal (“main”)
+                                        </h3>
+                                        <p>A “branch main” irá conter todo código já testado e versionado que será entregue ao cliente. Essa ramificação armazena o histórico do lançamento oficial.</p>
+                                        <h3>
+                                            <a id="ramificacao-de-trabalho" class="anchor" aria-hidden="true" href="#ramificacao-de-trabalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            3.3. Ramificação de trabalho (“feature ou fix branch”)
+                                        </h3>
+                                        <p>Toda funcionalidade deve ser implementada em uma ramificação própria, ramificada a partir da “branch main”.</p>
+                                        <h4>
+                                            <a id="padrao-de-nomenclatura-da-ramificacao-de-trabalho" class="anchor" aria-hidden="true" href="#padrao-de-nomenclatura-da-ramificacao-de-trabalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            3.3.1. Padrão de nomenclatura da ramificação de trabalho
+                                        </h4>
+                                        <p>A nova ramificação deverá seguir um padrão de nomenclatura que possibilite a sua identificação e integração com a sua respectiva tarefa no <a href="https://tiendanube.atlassian.net/jira/software/c/projects/CRBU/boards/78" target="_blank" rel="noopener">Jira</a>.</p>
+                                        <p>Exemplo:</p>
+                                        <p>a) <u>Nova funcionalidade:</u></p>
+                                        <p><strong>Tarefa no Jira</strong>: CRBU-1984: Desenvolver layout da tela de login</p>
+                                        <p><strong>Nome da ramificação</strong>: feat/crbu-1984-desenvolver-layout-da-tela-de-login</p>
+                                        <p>b) <u>Correção:</u></p>
+                                        <p><strong>Tarefa no Jira</strong>: CRBU-2023: Corrigir layout da tela de login</p>
+                                        <p><strong>Nome da ramificação</strong>: fix/crbu-2023-corrigir-layout-da-tela-de-login</p>
+                                        <h2>
+                                            <a id="fluxo-de-desenvolvimento" class="anchor" aria-hidden="true" href="#fluxo-de-desenvolvimento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4. Fluxo de desenvolvimento
+                                        </h2>
+                                        <p>O fluxo completo de desenvolvimento pode ser resumido em:</p>
+                                        <ol>
+                                            <li>Gera-se uma ramificação de trabalho a partir da ramificação principal;</li>
+                                            <li>Realiza-se modificações na ramificação de trabalho e essas modificações são levadas ao repositório remoto;</li>
+                                            <li>Quando concluída a funcionalidade/correção, aciona-se o CircleCI para executar a “pipeline” de “deploy” da ramificação de trabalho em <strong>“STAGING”</strong>;</li>
+                                            <li>Na sequência, deve-se realizar os testes em <strong>“STAGING”</strong> através da ramificação de trabalho;</li>
+                                            <li>Estando os testes na ramificação de trabalho aprovados, deve-se abrir uma solicitação para revisão de código (PR);</li>
+                                            <li>Após a aprovação da solicitação de revisão a ramificação de trabalho já pode ser mesclada à ramificação principal e então apagada;</li>
+                                            <li>Aciona-se novamente o CircleCI, mas dessa vez para executar a “pipeline” de “deploy” da ramificação principal em <strong>“STAGING”</strong>;</li>
+                                            <li>Nesse momento, deve-se realizar os testes em <strong>“STAGING”</strong> através da ramificação de principal;</li>
+                                            <li>Estando os testes na ramificação principal aprovados, deve-se ser gerada a “tag” da versão;</li>
+                                            <li>Finalmente aciona-se o CircleCI para executar a “pipeline” de “deploy” da ramificação de principal em <strong>“PRODUCTION”</strong>;</li>
+                                            <li>Em seguida deve-se realizar testes em <strong>“PRODUCTION”</strong> para certificar que está tudo funcionando corretamente e finalizar o processo.</li>
+                                        </ol>
+                                        <h3>
+                                            <a id="fluxo-de-trabalho" class="anchor" aria-hidden="true" href="#fluxo-de-trabalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.1. Esquema do fluxo de trabalho
+                                        </h3>
+                                        <p>O diagrama a seguir apresenta o fluxo de uma nova funcionalidade, desde a criação da ramificação no git até a publicação em produção; mostrando as etapas no Git e no CircleCI.</p>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <p><img style="margin: 30px auto;" src="/assets/images/workflow.png" alt="Fluxo de trabalho"></p>
+                                                    <p class="text-center"><strong>Figura 3</strong> - Fluxo de trabalho no Git e CircleCI.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>
+                                            <a id="fluxo-de-trabalho-com-erro-staging" class="anchor" aria-hidden="true" href="#fluxo-de-trabalho-com-erro-staging">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.2. Esquema do fluxo de trabalho com erro em ambiente de homologação
+                                        </h3>
+                                        <p>Esquema do fluxo de trabalho com erro detectado durante o teste em ambiente de homologação.</p>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <p><img style="margin: 30px auto;" src="/assets/images/workflow-staging-error.png" alt="Fluxo de trabalho come erro - staging"></p>
+                                                    <p class="text-center"><strong>Figura 4</strong> - Fluxo de trabalho com erro detectado durante o teste em ambiente de homologação.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>
+                                            <a id="fluxo-de-trabalho-com-erro-production" class="anchor" aria-hidden="true" href="#fluxo-de-trabalho-com-erro-production">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.3. Esquema do fluxo de trabalho com erro em ambiente de produção
+                                        </h3>
+                                        <p>Esquema do fluxo de trabalho com erro detectado durante o teste em produção.</p>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <p><img style="margin: 30px auto;" src="/assets/images/workflow-production-error.png" alt="Fluxo de trabalho com erro - production"></p>
+                                                    <p class="text-center"><strong>Figura 5</strong> - Fluxo de trabalho com erro detectado durante o teste em produção.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>
+                                            <a id="criacao-da-ramificacao-de-trabalho" class="anchor" aria-hidden="true" href="#criacao-da-ramificacao-de-trabalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.4. Criação da ramificação de trabalho
+                                        </h3>
+                                        <p><?= $this->insert('partials::create-branch') ?></p>
+                                        <h3>
+                                            <a id="realizacao-de-alteracoes-na-ramificacao-de-trabalho" class="anchor" aria-hidden="true" href="#realizacao-de-alteracoes-na-ramificacao-de-trabalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.5. Realização de alterações na ramificação de trabalho
+                                        </h3>
+                                        <p>Depois de modificar os arquivos existentes ou adicionar novos arquivos ao projeto, você pode adicioná-los ao seu repositório local, o que podemos fazer com o comando <code>git add</code>. Vamos adicionar a flag <code>-A</code> para adicionar todas as alterações que fizemos:</p>
+                                        <p><?= $this->insert('partials::git-add') ?></p>
+                                        <p>Em seguida, queremos registrar as alterações que fizemos no repositório com o comando <code>git commit</code>.
+                                        <p>A mensagem de “commit” é um aspecto importante da sua contribuição de código; ela ajuda os outros contribuidores a entenderem completamente a mudança que você fez, porque você fez e o quanto é importante. Adicionalmente, as mensagens de “commit” fornecem um registro histórico das mudanças para o projeto em geral, ajudando os futuros contribuidores ao longo do caminho.
+                                        <p>Se tivermos uma mensagem muito curta, podemos gravar isso com a flag <code>-m</code> e a mensagem entre aspas:</p>
+                                        <p><?= $this->insert('partials::git-commit-m') ?></p>
+                                        <p>Mas, a menos que seja uma mudança muito pequena, é bem provável que incluiremos uma mensagem de confirmação mais longa para que nossos colaboradores estejam totalmente atualizados com nossa contribuição. Para gravar esta mensagem maior, vamos executar o comando <code>git commit</code> que abrirá o editor de texto padrão:</p>
+                                        <p><?= $this->insert('partials::git-commit') ?></p>
+                                        <p>Se você gostaria de configurar seu editor de texto padrão, você pode fazê-lo com o comando <code>git config</code> e definir o <a href="https://www.nano-editor.org/" target="_blank" rel="noopener">nano</a> como editor padrão, por exemplo:</p>
+                                        <p><?= $this->insert('partials::git-config-nano') ?></p>
+                                        <p>Ou o <a href="https://www.vim.org/" target="_blank" rel="noopener">vim</a>:</p>
+                                        <p><?= $this->insert('partials::git-config-vim') ?></p>
+                                        <p>Depois de executar o comando <code>git commit</code>, dependendo do editor de texto padrão que você está usando, sua janela de terminal deve exibir um documento pronto para edição que será semelhante a este:</p>
+                                        <p><?= $this->insert('partials::git-commit-return') ?></p>
+                                        <p>Abaixo dos comentários introdutórios, você deve adicionar a mensagem de “commit” ao arquivo de texto.</p>
+                                        <p>Para seguir a padronização adotada pela “Squad Cross Business” ao escrever uma mensagem de “commit” você deve consultar os <a href="/commit-standards" target="_blank" rel="noopener">padrões de “commit”</a>.</p>
+                                        <p>Basicamente para escrever uma mensagem útil no “commit”, você deve incluir um sumário na primeira linha com cerca de 50 caracteres. Abaixo disso, e dividido em seções de fácil entendimento, você deve incluir uma descrição que indique o motivo pelo qual você fez essa alteração, como o código funciona, e informações adicionais que irão contextualizar e esclarecer o código para que outras pessoas revisem o trabalho ao mesclá-lo. Tente ser o mais útil e proativo possível para garantir que os responsáveis pela manutenção do projeto possam entender totalmente sua contribuição.</p>
+                                        <p>Depois de salvar e sair do arquivo de texto da mensagem de “commit”, você poderá verificar o “commit” que o git estará fazendo com o seguinte comando:</p>
+                                        <p><?= $this->insert('partials::git-status') ?></p>
+                                        <p>Dependendo das alterações que você fez, você receberá uma saída parecida com esta:</p>
+                                        <p><?= $this->insert('partials::git-status-return') ?></p>
+                                        <p>Nesse ponto você pode usar o comando <code>git push</code> para enviar suas alterações para a ramificação atual no repositório remoto:</p>
+                                        <p><?= $this->insert('partials::git-push') ?></p>
+                                        <p>O comando irá lhe fornecer uma saída para que você saiba do progresso e será semelhante ao seguinte:</p>
+                                        <p><?= $this->insert('partials::git-push-return') ?></p>
+                                        <p>Agora você pode navegar até o repositório no Github e alternar para a ramificação que você acabou de fazer “push” para ver as alterações que você fez diretamente no navegador.</p>
+                                        <h3>
+                                            <a id="atualizacao-da-ramificacao-de-trabalho" class="anchor" aria-hidden="true" href="#atualizacao-da-ramificacao-de-trabalho">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.6. Atualização da ramificação de trabalho
+                                        </h3>
+                                        <p>Enquanto você estiver trabalhando em um projeto ao lado de outros colaboradores, é importante que você mantenha seu repositório local atualizado com o projeto, pois você não deseja fazer um “pull request” de um código que cause conflitos <span><img src="https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net/standard/a51a7674-8d5d-4495-a2d2-a67c090f5c3b/64x64/1f642.png" alt=":slight_smile:" data-emoji-text="🙂" width="20" height="20" style="display: inline; visibility: visible;"></span>. Para manter sua cópia local da base de código atualizada, você precisará sincronizar as alterações.</p>
+                                        <p><?= $this->insert('partials::git-update') ?></p>
+                                        <p>A saída aqui vai variar, mas começará com <strong>Applying: ...</strong> se tiverem sido feitas alterações, ou <strong>Current branch &lt;nome-da-ramificação-de-trabalho&gt; is up to date.</strong>, se nenhuma alteração foi feita desde que você fez o “clone” do repositório.</p>
+                                        <p><?= $this->insert('partials::git-update-error') ?></p>
+                                        <p>A sua branch de recurso agora está em sincronia com o repositório remoto, e as alterações locais que você fez não foram perdidas. Basta agora publicar o código atualizado no repositório remoto, para isso utilize o comando:</p>
+                                        <p><?= $this->insert('partials::git-push-f') ?></p>
+                                        <p>Dependendo do seu fluxo de trabalho e da quantidade de tempo que você gasta para fazer alterações, você pode sincronizar sua ramificação com o código do repositório remoto quantas vezes isso fizer sentido para você. No entanto, você certamente deve sincronizar sua ramificação antes de fazer um “pull request” para garantir que não contribuirá com código conflitante.</p>
+                                        <h3>
+                                            <a id="criacao-do-pull-request" class="anchor" aria-hidden="true" href="#criacao-do-pull-request">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.7. Criação do pull request
+                                        </h3>
+                                        <p>Quando você concluir o trabalho de desenvolvimento no recurso, a próxima etapa é fazer um “pull request” apontando para o repositório remoto “main”.</p>
+                                        <ol>
+                                            <li>No GitHub, navegue até a página principal do repositório.</li>
+                                            <li>No menu “branches”, clique no botão <strong>“New pull request”</strong>, ao lado direito da ramificação que contém seus “commits”.
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="text-center">
+                                                            <p><img style="margin: 30px auto;" src="/assets/images/branches.png" alt="Branches"></p>
+                                                            <p class="text-center mb-5"><strong>Figura 6</strong> - Branches.</p>
+                                                            <p><img style="margin: 30px auto;" src="/assets/images/pull-request.png" alt="Novo pull request"></p>
+                                                            <p class="text-center mb-5"><strong>Figura 7</strong> - Novo pull request.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>Na próxima tela use o menu suspenso da ramificação base (à esquerda) para selecionar o “branch main”, ramificação no qual você fará “merge” de suas alterações. Em seguida, se necessário, use o menu suspenso do ramificação de comparação (à esquerda) para escolher o ramificação no qual você fez as alterações. Você deverá ver uma tela semelhante a essa:
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="text-center">
+                                                            <p><img style="margin: 30px auto;" src="/assets/images/create-pull-request.png" alt="pull request 1"></p>
+                                                            <p class="text-center mb-5"><strong>Figura 8</strong> - Criar pull request.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>O GitHub vai lhe alertar de que é possível mesclar as duas “branches” porque não há código concorrente. Você deve adicionar um título, um comentário, indicar ao menos 2 colaboradores da Squad Cross Business como revisores e, em seguida, pressionar o botão <span class="btn-primary-github btn-github">Create pull request</span>. Neste ponto, os revisores indicados decidirão se aceitam ou não o seu “pull request”. Eles podem solicitar que você edite ou revise seu código antes de aceitar o “pull request”.</li>
+                                        </ol>
+                                        <h4>
+                                            <a id="padronizacao-do-pull-request" class="anchor" aria-hidden="true" href="#padronizacao-do-pull-request">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.7.1. Padronização do pull request
+                                        </h4>
+                                        <p>O “pull request” deverá seguir um padrão que possibilite a sua identificação e integração com a sua respectiva tarefa no <a href="https://tiendanube.atlassian.net/jira/software/c/projects/CRBU/boards/78" target="_blank" rel="noopener">Jira</a>. O título do “pull request” deverá:</p>
+                                        <ul>
+                                            <li>Conter referência ao número da tarefa no <a href="https://tiendanube.atlassian.net/jira/software/c/projects/CRBU/boards/78" target="_blank" rel="noopener">Jira</a> que o originou;</li>
+                                            <li>Conter a descrição sucinta da alteração.</li>
+                                        </ul>
+                                        <p>Exemplo:</p>
+                                        <p><strong>Tarefa no Jira</strong>: CRBU-1984: Desenvolver layout da tela de login</p>
+                                        <p><strong>Título do pull request</strong>: [CRBU-1984]: Desenvolvido layout da tela de login</p>
+                                        <p>Já para o comentário do “pull request”, fornecemos um “template” gerado automaticamente, onde você deverá:</p>
+                                        <ul>
+                                            <li>Indicar o tipo, marcando um <code>x</code> na opção correspondente;</li>
+                                            <li>Adicionar uma descrição do que foi feito no “pull request” e</li>
+                                            <li>Adicionar os “links” das tarefas do <a href="https://tiendanube.atlassian.net/jira/software/c/projects/CRBU/boards/78" target="_blank" rel="noopener">Jira</a> em forma de lista.</li>
+                                        </ul>
+                                        <h3>
+                                            <a id="ramificacao-de-lancamento" class="anchor" aria-hidden="true" href="#ramificacao-de-lancamento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            4.8. Lançamento da versão (“release”)
+                                        </h3>
+                                        <p>Ao final do ciclo de desenvolvimento, após os testes terem sido devidamente homologados, uma “release” é lançada a partir da ramificação da “branch main”.</p>
+                                        <h2>
+                                            <a id="cheatsheet" class="anchor" aria-hidden="true" href="#cheatsheet">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            5. Cheatsheet
+                                        </h2>
+                                        <p>Consulte a seção <a href="/contribution-cheatsheet" target="_blank" rel="noopener">guia de contribuição</a> para um guia rápido de contribuição.</p>
+                                        <h2>
+                                            <a id="padrao-de-commit" class="anchor" aria-hidden="true" href="#padrao-de-commit">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            6. Padrão de commit
+                                        </h2>
+                                        <p>Consulte a seção <a href="/commit-standards" target="_blank" rel="noopener">padrões de commit</a> para obter detalhes.</p>
+                                        <h2>
+                                            <a id="versionamento" class="anchor" aria-hidden="true" href="#versionamento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            7. Versionamento
+                                        </h2>
+                                        <p>O padrão de versionamento utilizado pela equipe é uma adaptação do <a href="https://semver.org/lang/pt-BR/" target="_blank" rel="noopener">“semantic versioning”</a> e também consiste em três números inteiros, positivos e sequenciais separados por pontos (e.x., 2.3.23).</p>
+                                        <h3>
+                                            <a id="major" class="anchor" aria-hidden="true" href="#major">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            7.1. Major (primeiro número)
+                                        </h3>
+                                        <p>Quando fizermos mudanças onde a compatibilidade com versões anteriores não é garantida teremos uma “major release”.</p>
+                                        <p>Sempre que a “major” é incrementada, o “patch” e “minor” devem ser redefinidos para <code>0</code>.</p>
+                                        <h3>
+                                            <a id="minor" class="anchor" aria-hidden="true" href="#minor">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            7.2. Minor (segundo número)
+                                        </h3>
+                                        <p>Deve ser incrementado quando introduzir, remover ou adicionar uma funcionalidade à aplicação.</p>
+                                        <p>Estas alterações devem ser compatíveis com versões anteriores da mesma linha “major” (mas não necessariamente com versões subsequentes).</p>
+                                        <p>Sempre que a “minor” é incrementada, o “patch” deve ser redefinido para <code>0</code>.</p>
+                                        <h3>
+                                            <a id="patch" class="anchor" aria-hidden="true" href="#patch">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            7.3. Patch (terceiro número)
+                                        </h3>
+                                        <p>Deve ser incrementado quando correções de “bugs” ou melhorias na segurança forem introduzidas.</p>
+                                        <p>Estas alterações devem ser totalmente compatíveis com versões anteriores da mesma linha “minor”.</p>
+                                        <h2>
+                                            <a id="fluxo-de-desenvolvimento" class="anchor" aria-hidden="true" href="#fluxo-de-desenvolvimento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8. Ciclo de vida de evolução do código
+                                        </h2>
+                                        <p>O fluxo abaixo representa o ciclo de vida de evolução do código e as etapas necessárias para que mudanças sejam incorporadas, sejam elas correções de “bugs” ou novas funcionalidades.</p>
+                                        <p class="text-center">Backlog do produto -&gt; Refinement</p>
+                                        <p class="text-center">Planning e backlog da sprint -&gt; Sprint -&gt; Revisão da sprint -&gt; Retrospectiva da sprint</p>
+                                        <p class="text-center">Reunião diária</p>
+                                        <h3>
+                                            <a id="backlog-do-produto" class="anchor" aria-hidden="true" href="#backlog-do-produto">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.1. Backlog do produto
+                                        </h3>
+                                        <p>O “product owner” irá definir as metas e objetivos gerais e, muitas vezes, um roteiro do produto. O “backlog” do produto deve representar esse roteiro, contemplando uma lista de recursos, requisitos e correções de “bugs” (para “software” ativo) que contém breves descrições de todas as funcionalidades desejadas para um produto específico ainda não atribuídas a um responsável e priorizados de acordo com o valor entregue para o cliente. À medida que os requisitos são descobertos, o “backlog” pode e deve ser ampliado. O importante é que contenha informações suficientes para que o time consiga realizar estimativas de desenvolvimento.</p>
+                                        <h3>
+                                            <a id="refinement" class="anchor" aria-hidden="true" href="#refinement">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.2. Refinement
+                                        </h3>
+                                        <p>É onde quaisquer requisitos grandes (geralmente chamados de “épicos”) serão divididos em tarefas tangíveis (geralmente definidos a partir da perspectiva do usuário e chamados de histórias de usuário), com estimativas de quanto esforço cada uma levará. Ou seja, depois de entrar em acordo sobre um plano geral de implementação, o problema é convertido em tarefas, que no futuro serão feitas pela equipe de desenvolvimento. Dessa forma, e seguindo o processo de trabalho, fica mais fácil priorizar o que deve ser feito em cada “sprint”.</p>
+                                        <p>Uma vez que os recursos necessários à implementação da mudança estão adequados ao cronograma da equipe e alinhada com as diretrizes da empresa, a “issue” devidamente refinada e estimada entra para o “roadmap”.
+                                        </p>
+                                        <h3>
+                                            <a id="planning" class="anchor" aria-hidden="true" href="#planning">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.3. Planning e backlog da sprint
+                                        </h3>
+                                        <p>Etapa onde ocorre a reunião de planejamento da “sprint”.</p>
+                                        <p>Nela serão selecionadas as tarefas do “backlog do produto” que irão compor a lista de atividades da “sprint” (“backlog da sprint”). Essa lista será definida de forma que seja pequena o suficiente para ser alcançável em seu intervalo de tempo.</p>
+                                        <p>Um ou mais membros da equipe são atribuídos como responsáveis e a solicitação de mudança será devidamente priorizada e adicionada ao planejamento da “release”.</p>
+                                        <h3>
+                                            <a id="desenvolvimento" class="anchor" aria-hidden="true" href="#desenvolvimento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.4. Sprint
+                                        </h3>
+                                        <p>Assim que a reunião de planejamento da “sprint” termina, inicia-se a etapa de execução. Aqui, o time de desenvolvimento começa a trabalhar segundo os planos de entrega que planejou, atentando-se aos requisitos de produto delineados pelo “product owner” e ao prazo final da “sprint”.</p>
+                                        <p>“Sprint”, no “framework scrum”, é um período de tempo limitado a um mês ou menos, no qual uma versão incremental e usável de um produto é desenvolvida.</p>
+                                        <p>Esse conceito vem do termo “sprint”, em inglês, que se refere a um tipo de corrida de velocidade em que o atleta percorre uma distância curta num período de tempo mais curto ainda. Sendo assim, a ideia da “sprint” no “scrum” é que deve-se cumprir uma meta dentro de um período determinado, e que ao final o produto esteja “pronto”.</p>
+                                        <p>A duração da “sprint” é “time-boxed”, isto é, limitada a um tempo, e pode variar de uma a quatro semanas, dependendo da produtividade do time para entregar uma funcionalidade completa do produto. Porém, uma vez decidida a duração da “sprint”, ela deve ser mantida até o final do projeto.</p>
+                                        <h4>
+                                            <a id="etapas-do-desenvolvimento" class="anchor" aria-hidden="true" href="#etapas-do-desenvolvimento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.4.1. Etapas do desenvolvimento de uma funcionalidade na “sprint”
+                                        </h4>
+                                        <ul>
+                                            <li><strong>“TAREFAS PENDENTES”</strong>: solicitações aceitas pela equipe, aptas para desenvolvimento;</li>
+                                            <li><strong>“EM ANDAMENTO”</strong>: a solicitação está sendo desenvolvida, mas ainda não está completa;</li>
+                                            <li><strong>“CODE REVIEW”</strong>: solicitação de revisão de código por pares;</li>
+                                            <li><strong>“TESTES”</strong>: a implementação da solicitação está sendo testada;</li>
+                                            <li><strong>“BLOCK”</strong>: a tarefa possui algum impedimento;</li>
+                                            <li><strong>“READY FOR DEPLOY”</strong>: a solicitação encontra-se na fila de espera para implementação em produção;</li>
+                                            <li><strong>“CANCEL”</strong>: a tarefa foi cancelada.</li>
+                                            <li><strong>“CONCLUÍDO”</strong>: a implementação da solicitação está completa.</li>
+                                        </ul>
+                                        <h5>
+                                            <a id="desenvolvimento" class="anchor" aria-hidden="true" href="#desenvolvimento">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.4.1.1. Desenvolvimento (“EM ANDAMENTO”)
+                                        </h5>
+                                        <p>Os desenvolvedores atribuídos a “issue” realizam as devidas alterações no código e os respectivos testes, respeitando as <a href="/coding-standards" target="_blank" rel="noopener">convenções</a>. </p> <p>Assim que o código estiver adequado para revisão e apto para o “merge” (sem conflitos), um “pull request” deve ser aberto e a “label” revisão adicionada ao PR.</p>
+                                        <p>Todo “pull request” enviado ao repositório passa pelo processo de integração, sendo necessário que a “build” passe em todos os testes para que o “pull request” siga para revisão.</p>
+                                        <h5>
+                                            <a id="code-review" class="anchor" aria-hidden="true" href="#code-review">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.4.1.2. Revisão por pares (“CODE REVIEW”)
+                                        </h5>
+                                        <p>A um ou mais membros da equipe é atribuído a revisão do código (“reviewer's”) e deve(m):</p>
+                                        <ul>
+                                            <li>Manter uma comunicação clara, dando o máximo de detalhes nos seus comentários;</li>
+                                            <li>Pontuar aspectos positivos e negativos sobre o código;</li>
+                                            <li>Ter uma boa compreensão da modificação proposta (corrige um “bug”, melhora uma funcionalidade ou parte do código);</li>
+                                            <li>Utilizar o botão de “review changes” do GitHub para comentar, aprovar ou solicitar alterações nos “commits”;</li>
+                                            <li>Levar em conta que uma boa solução para um problema hoje é geralmente melhor do que uma solução perfeita amanhã; entretanto, uma gambiarra hoje é geralmente pior do que uma boa solução amanhã. Na dúvida, solicite a opinião de outras pessoas.</li>
+                                        </ul>
+                                        <p>A revisão deve avaliar aspectos como:</p>
+                                        <ul>
+                                            <li>A mudança se enquadra no propósito declarado pela história/tarefa;</li>
+                                            <li>É válida dentro da arquitetura existente do projeto;</li>
+                                            <li>Introduz possíveis defeitos que causarão problemas futuros;</li>
+                                            <li>Segue as <a href="/coding-standards" target="_blank" rel="noopener">convenções</a>;</li>
+                                            <li>É uma boa maneira de executar a função descrita;</li>
+                                            <li>Introduz qualquer risco de segurança ou instabilidade;</li>
+                                            <li>e demais aspectos que julgar necessário.</li>
+                                        </ul>
+                                        <p>Uma vez que a modificação proposta pelo “pull request” seja aprovada, o “deployer” deve realizar o “merge” da “feature” na ramificação “main” tornando-a disponível para homologação.</p>
+                                        <h5>
+                                            <a id="aprovacao" class="anchor" aria-hidden="true" href="#aprovacao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.4.1.3. Homologação (“TESTES”)
+                                        </h5>
+                                        <p>Nesse momento o desenvolvedor responsável pela implementação deve avaliar a modificação testando o uso da funcionalidade e avaliando os critérios funcionais, não funcionais e de performance, para em seguida avançar (segue para “READY FOR DEPLOY”) ou corrigir (retorna para “EM ANDAMENTO”) a tarefa.</p>
+                                        <h5>
+                                            <a id="deploy-producao" class="anchor" aria-hidden="true" href="#deploy-producao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.4.1.4. Deploy em produção (“CONCLUÍDO”)
+                                        </h5>
+                                        <p>Será gerado a “tag” de versão e realizado o “deploy” no ambiente de produção, fechando a solicitação.</p>
+                                        <h3>
+                                            <a id="revisao" class="anchor" aria-hidden="true" href="#revisao">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.5. Revisão da sprint
+                                        </h3>
+                                        <p>Quando a “sprint” chega ao final, é necessário realizar a revisão da “sprint” (ou “sprint review”) para inspecionar o resultado e adaptar o “backlog” do produto, se for o caso. Todo o time “scrum” participa do evento, que tem “time-box” máximo de 4 horas.</p>
+                                        <p>Os principais pontos de discussão da revisão envolvem o esclarecimento sobre os itens que foram “prontos” e os que não foram, a reflexão sobre o que foi bem e os problemas que foram encontrados, e as sugestões do time “scrum” para o que deve ser feito a seguir, levando em consideração as mudanças do mercado, a linha do tempo, o orçamento e as prioridades.</p>
+                                        <p>Como resultado dessa reunião é produzida uma nova versão do “backlog” do produto, que poderá ser utilizada na próxima “sprint”.</p>
+                                        <h3>
+                                            <a id="retrospectiva" class="anchor" aria-hidden="true" href="#retrospectiva">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.6. Retrospectiva da sprint
+                                        </h3>
+                                        <p>Enquanto a revisão da “sprint” busca avaliar o produto do trabalho do time de desenvolvimento, a retrospectiva da “sprint” (“sprint retrospective”) é uma oportunidade para que a equipe avalie a si mesma, refletindo sobre suas práticas e desenhando melhorias para aplicar na próxima “sprint”.</p>
+                                        <p>Participam dessa reunião o time de desenvolvimento e o “scrum master”, que tem a responsabilidade de ensinar a equipe a seguir o processo “scrum” e a ficar dentro do “time-box” de, no máximo, três horas.</p>
+                                        <p>Ele encoraja a equipe a melhorar o processo de desenvolvimento de acordo com o “framework” do “scrum”, ajudando-a a planejar formas de aumentar a qualidade do produto e a adaptar a <u>definição de pronto</u>.</p>
+                                        <p>Desse modo, no final da retrospectiva da “sprint”, o produto será a relação das melhorias a serem implementadas no próximo ciclo. O final desta reunião marca o final oficial da “sprint”.</p>
+                                        <h3>
+                                            <a id="reuniao-diaria" class="anchor" aria-hidden="true" href="#reuniao-diaria">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            8.7. Reunião diária
+                                        </h3>
+                                        <p>Ao longo da execução da “sprint”, o time de desenvolvimento se reúne diariamente para avaliar como está o andamento das atividades e definir o que será feito no dia para alcançar a meta da “sprint”. São as chamadas reuniões diárias (ou “daily sprints”).</p>
+                                        <p>O “time-box” dessas reuniões é de 15 minutos, e elas são comumente realizadas no mesmo horário.</p>
+                                        <p>Há três perguntas que devem ser respondidas na reunião diária:</p>
+                                        <ul>
+                                            <li>O que eu fiz ontem que ajudou o time de desenvolvimento a alcançar a meta da “sprint”?</li>
+                                            <li>O que eu farei hoje para ajudar o time de desenvolvimento a alcançar a meta da “sprint”?</li>
+                                            <li>Existe algum obstáculo que impeça o time de desenvolvimento de alcançar a meta da “sprint”?</li>
+                                        </ul>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <p><img style="margin: 30px auto;" src="https://i.imgur.com/I6IOaGN.png" alt="Resumo de como a sprint funciona"></p>
+                                                    <p class="text-center mb-5"><strong>Figura 8</strong> - Resumo de como a sprint funciona.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2>
+                                            <a id="reportando-um-problema" class="anchor" aria-hidden="true" href="#reportando-um-problema">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            9. Reportando um problema
+                                        </h2>
+                                        <p>A gestão dos “bugs” é feita pelo <a href="https://tiendanube.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener">servide desk</a> e um chamado pode ser aberto por qualquer colaborador.</p>
+                                        <p>A aberura de um chamado é a maneira adequada de compartilhar e discutir as tarefas, aprimoramentos e “bugs” com o resto da equipe. Entretanto, recomendamos algumas orientações e que algumas informações sejam registradas para que o “bug” seja prontamente rastreado e validado.</p>
+                                        <p>Antes de enviar um problema, pesquise no rastreador de problemas, talvez já exista um chamado para o seu problema e a discussão possa informá-lo sobre as soluções disponíveis.</p>
+                                        <p>Queremos corrigir todos os problemas o mais rápido possível, mas antes de corrigir um “bug”, precisamos reproduzi-lo e confirmá-lo. Para reproduzir “bugs”, solicitaremos sistematicamente que você forneça uma reprodução mínima. Ter um cenário reprodutível mínimo nos dá uma riqueza de informações importantes sem precisar voltar a você com perguntas adicionais.</p>
+                                        <p>Uma reprodução mínima nos permite confirmar rapidamente um “bug” (ou apontar um problema de codificação) e também confirmar que estamos corrigindo o problema correto.</p>
+                                        <p>Vamos insistir em um cenário mínimo de reprodução para economizar tempo dos mantenedores e, finalmente, poder corrigir mais “bugs”.</p>
+                                        <p>Infelizmente, não podemos investigar/corrigir erros sem uma reprodução mínima; portanto, se não recebermos uma resposta sua, fecharemos um problema que não possui informações suficientes para serem reproduzidas.</p>
+                                        <p>Enfim, recomendamos que as seguintes informações sejam registradas na abertura de um chamado:</p>
+                                        <ul>
+                                            <li><strong>Título</strong>: é uma pequena sentença que de forma sucinta descreve o que é o “bug”;</li>
+                                            <li><strong>Descrição</strong>: que é uma descrição completa do “bug”;</li>
+                                            <li><strong>Etapas</strong>: etapas necessárias para reproduzir o comportamento que gerou o “bug”;</li>
+                                            <li><strong>Resultado</strong>: comportamento equivocado da aplicação, que ocasionou no “bug”;</li>
+                                            <li><strong>Resultado esperado</strong>: comportamento esperado da aplicação, caso o “bug” não houvesse ocorrido;</li>
+                                            <li><strong>Versão</strong>: que se refere à versão da aplicação na qual o “bug” foi encontrado;</li>
+                                            <li><strong>Browser</strong>: navegador e versão do browser usado para acessar a plataforma;</li>
+                                            <li><strong>OS</strong>: que se refere ao sistema operacional em que se manifestou o problema,</li>
+                                            <li><strong>Anexo</strong>: no qual podemos adicionar documentos, imagens capturadas, ou qualquer outra informação que ajude na identificação e resolução do “bug”.</li>
+                                        </ul>
+                                        <p>Uma vez cadastrado o chamado, um membro da equipe deve confirmar a pertinência da solicitação e atribuir a devida “label”:</p>
+                                        <p>Tipo:</p>
+                                        <ul>
+                                            <li><strong>“Backport”</strong>: Para problemas em versões antigas cuja solução já foi implementada em versões posteriores;</li>
+                                            <li><strong>“Bug”</strong>: Para problemas confirmados com funcionalidades existentes;</li>
+                                            <li><strong>“Feature”</strong>: Solicitações de novas funcionalidades;</li>
+                                            <li><strong>“Improvement”</strong>: Solicitações de melhoria em funcionalidades já existentes;</li>
+                                            <li><strong>“Design”</strong>: Solicitações referente a “interface” gráfica e componentes do “front-end”;</li>
+                                        </ul>
+                                        <p>Prioridade:</p>
+                                        <ul>
+                                            <li><strong>Prioridade Baixa</strong>: Solicitações aceitas pela equipe, mas sem urgência de resolução.</li>
+                                            <li><strong>Prioridade Média</strong>: Solicitações aceitas pela equipe, aptas para desenvolvimento.</li>
+                                            <li><strong>Prioridade Alta</strong>: Solicitações aceitas pela equipe, cuja resolução é imprescindível.</li>
+                                            <li><strong>Crítico</strong>: Causa perda ou corrupção de dados, congela a aplicação após uma operação específica ou permite que usuários não autenticados vejam conteúdo protegido;</li>
+                                        </ul>
+                                        <h2>
+                                            <a id="muito-obrigado" class="anchor" aria-hidden="true" href="#muito-obrigado">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            10. Muito Obrigado!
+                                        </h2>
+                                        <p>Caso ache algo difícil de descobrir, avise-nos para que possamos melhorar nosso processo ou documentação!</p>
+                                        <h2>
+                                            <a id="creditos" class="anchor" aria-hidden="true" href="#creditos">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            11. Créditos
+                                        </h2>
+                                        <p>Valendo-se da máxima de <a href="https://pt.wikipedia.org/wiki/Antoine_Lavoisier" target="_blank" rel="noopener">Lavoisier<sup>1</sup></a> e do espírito de compartilhamento de conhecimento, esse guia foi inspirado em boas práticas adotadas por comunidades notáveis:</p>
+                                        <ul>
+                                            <li><a href="https://gitlab.com/" target="_blank" rel="noopener">gitlab</a>,</li>
+                                            <li><a href="http://www.discourse.org/" target="_blank" rel="noopener">discourse</a>,</li>
+                                            <li><a href="https://jquery.com/" target="_blank" rel="noopener">jquery</a>,</li>
+                                            <li><a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyllrb</a>,</li>
+                                            <li><a href="http://getbootstrap.com/" target="_blank" rel="noopener">bootstrap</a>,</li>
+                                            <li><a href="https://www.gnome.org/" target="_blank" rel="noopener">gnome</a>,</li>
+                                            <li><a href="https://www.mozilla.org/en-US/" target="_blank" rel="noopener">mozila</a>,</li>
+                                            <li><a href="https://wiki.openstack.org/wiki/Main_Page" target="_blank" rel="noopener">openstack</a>,</li>
+                                            <li><a href="https://docs.angularjs.org/guide" target="_blank" rel="noopener">angular.js</a>,</li>
+                                            <li><a href="https://www.liferay.com/" target="_blank" rel="noopener">liferay</a></li>
+                                            <li>e muito “googleing”.</li>
+                                        </ul>
+                                        <h2>
+                                            <a id="referencias" class="anchor" aria-hidden="true" href="#referencias">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            12. Notas
+                                        </h2>
+                                        <p>1. No século XVIII, o proeminente francês enunciou a máxima: <strong>“Na natureza nada se cria, nada perde, tudo se transforma”</strong> – é conhecida como a lei de Lavoisier de conservação das massas. Conhecido como o pai da química moderna, fez também contribuições importantes na biologia e ajudou a criar o sistema métrico.</p>
+                                    </article>
+                                </div>
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="es" class="anchor" aria-hidden="true" href="#es">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            <img class="flag" src="/assets/images/espanha.png">Guía de contribución y buenas prácticas de desarrollo
+                                        </h1>
+                                        <p>TODO</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

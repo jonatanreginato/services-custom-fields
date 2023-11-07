@@ -1,0 +1,33 @@
+components:
+  schemas:
+    UserReadResponse:
+      description: Response
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/User"
+    UserListResponse:
+      description: Response
+      type: object
+      properties:
+        data:
+          description: Resource data
+          type: array
+          items:
+            $ref: "#/components/schemas/User"
+        limit:
+          description: Maximum number of resources returned per request
+          type: integer
+          example: 10
+        offset:
+          description: Indicates the starting position of the reading
+          type: integer
+          example: 0
+        total:
+          description: Total number of resources
+          type: integer
+          example: 100
+        count:
+          description: Number of resources returned on current request
+          type: integer
+          example: 10

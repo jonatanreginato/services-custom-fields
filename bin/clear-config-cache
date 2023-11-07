@@ -1,0 +1,52 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Dotenv\Dotenv;
+
+date_default_timezone_set('Etc/GMT+3');
+
+define('APP_ROOT', dirname(realpath(__DIR__)));
+
+// This makes our life easier when dealing with paths. Everything is relative to the application root now.
+chdir(dirname(realpath(__DIR__)));
+
+// Setup auto-loading
+require 'vendor/autoload.php';
+
+// Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically.
+$dotenv = Dotenv::createUnsafeImmutable(APP_ROOT);
+$dotenv->load();
+
+$cachePath = (include 'config/config.php')['config_cache_path'];
+
+if (!isset($cachePath)) {
+    echo 'No configuration cache path found' . PHP_EOL;
+    exit(0);
+}
+
+if (!file_exists($cachePath)) {
+    printf(
+        "Configured config cache file '%s' not found%s",
+        $cachePath,
+        PHP_EOL
+    );
+    exit(0);
+}
+
+if (unlink($cachePath) === false) {
+    printf(
+        "ApiError removing config cache file '%s'%s",
+        $cachePath,
+        PHP_EOL
+    );
+    exit(1);
+}
+
+printf(
+    "Removed configured config cache file '%s'%s",
+    $cachePath,
+    PHP_EOL
+);
+exit(0);

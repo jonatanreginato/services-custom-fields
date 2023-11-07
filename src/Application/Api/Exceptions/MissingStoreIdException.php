@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nuvemshop\ApiTemplate\Application\Api\Exceptions;
+
+use DomainException;
+use Throwable;
+
+class MissingStoreIdException extends DomainException
+{
+    public function __construct(string $message = '', int $code = 400, Throwable $previous = null)
+    {
+        parent::__construct(
+            $message ?: 'Invalid store id',
+            $code,
+            $previous
+        );
+    }
+}

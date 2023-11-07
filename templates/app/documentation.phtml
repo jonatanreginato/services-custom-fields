@@ -1,0 +1,86 @@
+<?php $this->layout('layout::default', ['title' => 'API Documentation']) ?>
+
+<?php $this->push('stylesheets') ?>
+<link rel="stylesheet" type="text/css" href="/swagger/swagger-ui.css" >
+<link type="text/css" rel="stylesheet" href="/swagger/swagger.css">
+<?php $this->end() ?>
+
+<a href="#top" class="text-muted back-to-top"><em class="fa fa-toggle-up"></em>&nbsp;Back to top</a>
+<div class="content">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode">
+        <main>
+            <div class="px-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <?= $this->insert('layout::nav') ?>
+                        <div class="repository-content content">
+                            <div class="box box-condensed">
+                                <div class="box-body p-5">
+                                    <article class="markdown-body container-lg" itemprop="text">
+                                        <h1>
+                                            <a id="en" class="anchor" aria-hidden="true" href="#en">
+                                                <svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                                                </svg>
+                                            </a>
+                                            </a>
+                                            PHP Restful API Template
+                                        </h1>
+                                        <p>A RESTful API template built with PHP 8.2 driven by <a href="https://docs.mezzio.dev/" target="_blank" rel="noopener">Mezzio</a> framework.</p>
+                                        <p>The API follows the Restful pattern, with HTTP verbs as action methods.</p>
+                                        <p>Content negotiation is done through JSON. When there is a need to send a file, the file must be sent in base64 encoded form, so that it is received correctly.</p>
+                                        <p>Requests are atomic, there is no inconsistent state if <code>200</code>, <code>201</code> and <code>204</code> are returned. The status description of error and success follow the pattern of <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank" rel="noopener"><code>RFC2616</code></a>.
+                                        </p>
+                                        <p>The most used will be:</p>
+                                        <p><strong>Success:</strong></p>
+                                        <ul>
+                                            <li><p><strong>200</strong> <strong>[OK]</strong> - Used in listing and search methods.</p></li>
+                                            <li><p><strong>201</strong> <strong>[Created]</strong> - When a resource is successfully created. An id and some more information about the created entity will be returned.</p></li>
+                                            <li><p><strong>202</strong> <strong>[Accepted]</strong> - When a request is accepted, but processing will be done in the background. Information about the resource will be returned.</p></li>
+                                            <li><p><strong>204</strong> <strong>[No Content]</strong> - Update or delete successful. Nothing will be returned in the request body.</p></li>
+                                        </ul>
+                                        <p><strong>Error:</strong></p>
+                                        <ul>
+                                            <li><p><strong>400</strong> <strong>[Bad Request]</strong> - Check that JSON is in a valid format.</p></li>
+                                            <li><p><strong>401</strong> <strong>[Unauthorized]</strong> - Check authentication credentials.</p></li>
+                                            <li><p><strong>404</strong> <strong>[Not Found]</strong> - Resource not found.</p></li>
+                                            <li><p><strong>405</strong> <strong>[Method Not Allowed]</strong> - The requested resource does not allow this method.</p></li>
+                                            <li><p><strong>409</strong> <strong>[Conflict]</strong> - When a record has already been inserted and its insertion is requested again (Duplicity).</p></li>
+                                            <li><p><strong>422</strong> <strong>[Unprocessable Entity (WebDAV)]</strong> - Validation returned some error.</p></li>
+                                            <li><p><strong>429</strong> <strong>[Too Many Requests]</strong> - Request limit exceeded.</p></li>
+                                        </ul>
+                                    </article>
+                                </div>
+                            </div>
+                            <br>
+                            <div id="swagger-ui" class="box box-condensed"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<?php $this->push('javascript') ?>
+<script src="/swagger/swagger-ui-bundle.js"></script>
+<script src="/swagger/swagger-ui-standalone-preset.js"></script>
+<script>
+    window.onload = function() {
+        window.ui = SwaggerUIBundle({
+            url: "/swagger/openapi.json",
+            dom_id: '#swagger-ui',
+            deepLinking: true,
+            validatorUrl: null,
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset.slice(1)
+            ],
+            plugins: [
+                SwaggerUIBundle.plugins.DownloadUrl
+            ],
+            layout: "StandaloneLayout"
+        })
+    }
+</script>
+<?php $this->end() ?>

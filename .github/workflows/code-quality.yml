@@ -1,0 +1,56 @@
+name: Code Quality
+on:
+  push:
+    branches:
+      - production
+      - staging
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  sonar-cloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: SonarCloud scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  code-check:
+    name: CodeCheck
+    runs-on: ubuntu-latest
+    container:
+      image: php:8.2.7-fpm-alpine
+      env:
+        APPLICATION_ENV: testing
+      ports:
+        - 80
+      volumes:
+        - ${{ github.workspace }}:/var/www
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up container
+        run: |
+          docker-php-ext-install opcache pcntl pdo pdo_mysql && \
+          curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
+          chmod +x /usr/bin/composer && \
+          composer self-update
+      - name: Run composer install
+        run: |
+          composer install --prefer-dist --quiet --no-progress --no-interaction --ignore-platform-reqs -o
+      - name: Run PHPCS Coding Standards
+        run: |
+          echo ""
+          echo "Running PHP CodeSniffer..."
+          ./vendor/bin/phpcs -w -p
+      - name: Run PHPUnit Tests
+        run: |
+          echo ""
+          echo "Running PHP Unit..."
+          ./vendor/bin/phpunit --configuration phpunit.xml

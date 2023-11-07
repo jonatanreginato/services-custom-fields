@@ -1,0 +1,8 @@
+* text=auto
+*.html linguist-detectable=false
+*.htm linguist-detectable=false
+*.css linguist-vendored
+*.js linguist-vendored
+public/assets/* linguist-vendored
+public/coverage/* linguist-vendored
+public/swagger/* linguist-vendored

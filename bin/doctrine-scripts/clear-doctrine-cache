@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if test -f "./.env"; then
+    DATABASE_CACHE=$(cat ./.env | grep DATABASE_CACHE)
+    DATABASE_CACHE=$(echo "DATABASE_CACHE" | tr '[:lower:]' '[:upper:]')
+    echo "${DATABASE_CACHE}"
+
+    if [ "${DATABASE_CACHE}" = "DATABASE_CACHE=1" ]; then
+        sh -c 'docker compose exec php ./bin/doctrine orm:clear-cache:metadata --flush'
+        sh -c 'docker compose exec php ./bin/doctrine orm:clear-cache:query --flush'
+        sh -c 'docker compose exec php ./bin/doctrine orm:clear-cache:result --flush'
+        echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') SUCCESS: The cache were successfully cleared."
+    fi
+else
+    echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') ERROR: .env file not found."
+fi

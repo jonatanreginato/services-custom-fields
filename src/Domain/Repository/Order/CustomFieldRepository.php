@@ -1,0 +1,129 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nuvemshop\ApiTemplate\Domain\Repository\Order;
+
+use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldOptionEntity;
+use Nuvemshop\ApiTemplate\Domain\Entity\Order\DateTypeAssociationEntity;
+use Nuvemshop\ApiTemplate\Domain\Entity\Order\NumericTypeAssociationEntity;
+use Nuvemshop\ApiTemplate\Domain\Entity\Order\OptionTypeAssociationEntity;
+use Nuvemshop\ApiTemplate\Domain\Entity\Order\TextTypeAssociationEntity;
+use Nuvemshop\ApiTemplate\Domain\Enum\ValueTypeEnum;
+use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldUuid;
+use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
+use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\AbstractRepository;
+use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
+use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\PaginatedData;
+
+class CustomFieldRepository extends AbstractRepository implements CustomFieldRepositoryInterface
+{
+    protected function getAlias(): string
+    {
+        return 'f';
+    }
+
+    public function getByIdentifier(CustomFieldUuid $identifier): mixed
+    {
+        return $this->find((string)$identifier)
+            ?: throw new EntityNotFoundException("Custom order field $identifier not found");
+    }
+
+    public function listOptions(CustomFieldUuid $identifier): PaginatedData
+    {
+        $this->createBuilder(CustomFieldOptionEntity::class, 'o');
+
+        $this->queryBuilder
+            ->select('o')
+            ->from(CustomFieldOptionEntity::class, 'o')
+            ->innerJoin('o.customField', 'f')
+            ->andWhere('f.uuid = :uuid')
+            ->setParameter('uuid', (string)$identifier);
+
+        return new PaginatedData($this->queryBuilder->getQuery()->getResult());
+    }
+
+    public function getOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed
+    {
+        $this->createBuilder(CustomFieldOptionEntity::class, 'o');
+
+        $this->queryBuilder
+            ->select('o')
+            ->from(CustomFieldOptionEntity::class, 'o')
+            ->innerJoin('o.customField', 'f')
+            ->andWhere('f.uuid = :uuid')
+            ->andWhere('o.id = :id')
+            ->setParameter('uuid', (string)$identifier)
+            ->setParameter('id', (string)$optionIdentifier);
+
+        return $this->queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
+    public function listAssociations(CustomFieldUuid $identifier): PaginatedData
+    {
+        $customField            = $this->getByIdentifier($identifier);
+        $associationEntityClass = $this->getAssociationEntityClass($customField->getValueType());
+
+        $this->createBuilder($associationEntityClass, 'a');
+
+        if ($associationEntityClass === OptionTypeAssociationEntity::class) {
+            $this->queryBuilder
+                ->select('a')
+                ->from($associationEntityClass, 'a')
+                ->innerJoin('a.value', 'o')
+                ->innerJoin('a.customField', 'f')
+                ->andWhere('f.uuid = :uuid')
+                ->setParameter('uuid', (string)$identifier);
+        } else {
+            $this->queryBuilder
+                ->select('a')
+                ->from($associationEntityClass, 'a')
+                ->innerJoin('a.customField', 'f')
+                ->andWhere('f.uuid = :uuid')
+                ->setParameter('uuid', (string)$identifier);
+        }
+
+        return new PaginatedData($this->queryBuilder->getQuery()->getResult());
+    }
+
+    public function getAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed
+    {
+        $customField            = $this->getByIdentifier($identifier);
+        $associationEntityClass = $this->getAssociationEntityClass($customField->getValueType());
+
+        $this->createBuilder($associationEntityClass, 'a');
+
+        if ($associationEntityClass === OptionTypeAssociationEntity::class) {
+            $this->queryBuilder
+                ->select('a')
+                ->from($associationEntityClass, 'a')
+                ->innerJoin('a.value', 'o')
+                ->innerJoin('a.customField', 'f')
+                ->andWhere('f.uuid = :uuid')
+                ->andWhere('a.ownerId = :id')
+                ->setParameter('uuid', (string)$identifier)
+                ->setParameter('id', (string)$ownerIdentifier);
+        } else {
+            $this->queryBuilder
+                ->select('a')
+                ->from($associationEntityClass, 'a')
+                ->innerJoin('a.customField', 'f')
+                ->andWhere('f.uuid = :uuid')
+                ->andWhere('a.ownerId = :id')
+                ->setParameter('uuid', (string)$identifier)
+                ->setParameter('id', (string)$ownerIdentifier);
+        }
+
+        return $this->queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
+    private function getAssociationEntityClass(int $valueType): string
+    {
+        return match ($valueType) {
+            ValueTypeEnum::text_list->value => OptionTypeAssociationEntity::class,
+            ValueTypeEnum::text->value => TextTypeAssociationEntity::class,
+            ValueTypeEnum::numeric->value => NumericTypeAssociationEntity::class,
+            ValueTypeEnum::date->value => DateTypeAssociationEntity::class,
+        };
+    }
+}

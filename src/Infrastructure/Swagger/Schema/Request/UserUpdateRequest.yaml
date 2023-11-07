@@ -1,0 +1,4 @@
+components:
+  schemas:
+    UserUpdateRequest:
+      $ref: "#/components/schemas/UserCreateRequest"

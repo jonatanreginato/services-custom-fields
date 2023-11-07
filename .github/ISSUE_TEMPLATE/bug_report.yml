@@ -1,0 +1,35 @@
+name: "Bug Report"
+description: "Submit a bug report"
+labels: ["bug reported"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Thanks for creating an issue 😄!
+
+        Please search open/closed issues before submitting. Someone might have asked the same thing before.
+
+        To help us, please take the time to accurately fill out this template ❤️.
+  - type: "input"
+    id: "description"
+    attributes:
+      label: "Description"
+      description: "A brief description of the issue."
+      placeholder: "When I ____, I expected ____ to happen but ____ happened instead."
+    validations:
+      required: true
+  - type: "textarea"
+    id: "steps"
+    attributes:
+      label: "Steps to reproduce"
+      description: "Describe the steps required to reproduce the behavior that generated the error."
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "Additional information"
+      description: "Add any other context about the problem here."

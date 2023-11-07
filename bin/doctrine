@@ -1,0 +1,42 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
+use Dotenv\Dotenv;
+use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\EntityManagerFactory;
+use Psr\Container\ContainerInterface;
+
+date_default_timezone_set('Etc/GMT+3');
+
+define('APP_ROOT', dirname(realpath(__DIR__)));
+
+// This makes our life easier when dealing with paths. Everything is relative to the application root now.
+chdir(dirname(realpath(__DIR__)));
+
+// Setup auto-loading
+require 'vendor/autoload.php';
+
+// Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically.
+$dotenv = Dotenv::createUnsafeImmutable(APP_ROOT);
+$dotenv->load();
+
+/** @var ContainerInterface $container */
+$container = require 'config/container.php';
+
+try {
+    $commands = [
+        // If you want to add your own custom console commands,
+        // you can do so here.
+    ];
+
+    ConsoleRunner::run(
+        new SingleManagerProvider((new EntityManagerFactory())($container)),
+        $commands
+    );
+} catch (Throwable $e) {
+    echo $e->getCode() . ': ' . $e->getMessage() . PHP_EOL;
+    exit(1);
+}

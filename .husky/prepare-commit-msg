@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+# When trying to run git commit, the commitizen prompt will be presented, allowing you to choose between 
+# cs-conventional-changelog adapter options.
+exec < /dev/tty && ./node_modules/.bin/cz --hook

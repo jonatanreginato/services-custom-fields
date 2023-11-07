@@ -1,0 +1,51 @@
+components:
+  schemas:
+    User:
+      description: User
+      type: object
+      properties:
+        id:
+          description: User identifier
+          type: integer
+          format: int32
+          example: 1
+        firstName:
+          description: User first name
+          type: string
+          example: Layla
+        lastName:
+          description: User last name
+          type: string
+          example: Schultz
+        createdAt:
+          description: User creation date
+          type: object
+          properties:
+            date:
+              type: string
+              format: date-time
+            timezone_type:
+              type: integer
+            timezone:
+              type: string
+          example:
+            date: '2020-12-31 23:59:59'
+            timezone_type: 3
+            timezone: Etc/GMT+3
+        updatedAt:
+          description: User update date
+          type: object
+          properties:
+            date:
+              type: string
+              format: date-time
+            timezone_type:
+              type: integer
+            timezone:
+              type: string
+          example:
+            date: '2020-12-31 23:59:59'
+            timezone_type: 3
+            timezone: Etc/GMT+3
+        role:
+          $ref: "#/components/schemas/Role"

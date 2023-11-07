@@ -1,0 +1,10 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+
+interface PaginatedDataInterface
+{
+    public function getData(): array;
+}
