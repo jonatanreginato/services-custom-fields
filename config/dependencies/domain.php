@@ -66,6 +66,7 @@ return [
             Action\Order\AssociationUpdaterAction::class           =>
                 static fn(ContainerInterface $container) => new Action\Order\AssociationUpdaterAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
+                    $container->get(Repository\Order\OptionRepositoryInterface::class),
                     $container->get(Repository\Order\OptionTypeAssociationRepository::class),
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
                     $container->get(Repository\Order\NumericTypeAssociationRepository::class),

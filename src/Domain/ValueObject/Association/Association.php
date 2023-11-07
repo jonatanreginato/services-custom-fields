@@ -12,7 +12,7 @@ use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
 final readonly class Association implements AggregateInterface
 {
     public function __construct(
-        public ?IdentifierType $identifier,
+        public ?IdentifierType $identifier = null,
         public ?AssociationValue $associationValue = null,
         public ?AssociationOwner $associationOwner = null,
         public ?CustomField $customField = null

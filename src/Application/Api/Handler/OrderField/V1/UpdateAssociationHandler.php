@@ -8,10 +8,10 @@ use Nuvemshop\ApiTemplate\Application\Api\Handler\HandlerInterface;
 use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\BodyParserInterface;
 use Nuvemshop\ApiTemplate\Domain\Action\Order\AssociationUpdaterAction;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\Association\Association;
+use Nuvemshop\ApiTemplate\Domain\ValueObject\Association\AssociationOwner;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\Association\AssociationValue;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomField;
 use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldUuid;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
@@ -34,8 +34,8 @@ class UpdateAssociationHandler implements HandlerInterface
         $captures = $this->bodyParser->getCaptures();
 
         $association = new Association(
-            identifier: new IdentifierType((int)$this->getId($request)),
             associationValue: $this->makeAssociationValue($captures['value'] ?? null),
+            associationOwner: new AssociationOwner((int)$this->getId($request)),
             customField: new CustomField(new CustomFieldUuid((string)$this->getUuid($request)))
         );
 
