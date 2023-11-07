@@ -11,11 +11,11 @@ interface CustomFieldRepositoryInterface
 {
     public function getByIdentifier(CustomFieldUuid $identifier): mixed;
 
-    public function listOptions(CustomFieldUuid $identifier): mixed;
+    public function fetchOptions(CustomFieldUuid $identifier): mixed;
 
-    public function getOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed;
+    public function fetchOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed;
 
-    public function listAssociations(CustomFieldUuid $identifier): mixed;
+    public function fetchAssociations(CustomFieldUuid $identifier): mixed;
 
-    public function getAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed;
+    public function fetchAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed;
 }

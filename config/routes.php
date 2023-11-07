@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 use Mezzio\Application;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderHandler;
+use Nuvemshop\ApiTemplate\Application\Api\Handler\Order\V1 as Order;
+use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderField;
 use Nuvemshop\ApiTemplate\Application\Web;
 
 const UUID           = '/{uuid:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}}';
@@ -32,26 +33,26 @@ return static function (Application $app) {
     $app->get('/test-coverage/{type:\w+}', Web\CoverageHandler::class, 'coverage');
 
     // CUSTOM FIELD ASSOCIATIONS BY OWNER ID
-    $app->get(ORDERS . ID . ASSOCIATIONS, OrderHandler\ListOrderAssociationsHandler::class);
+    $app->get(ORDERS . ID . ASSOCIATIONS, Order\ListOrderAssociationsHandler::class);
 
     // CUSTOM ORDER FIELDS - CONFIG
-    $app->get(ORDER_FIELDS, OrderHandler\ListFieldsHandler::class);
-    $app->post(ORDER_FIELDS, OrderHandler\CreateFieldHandler::class);
-    $app->get(ORDER_FIELDS . UUID, OrderHandler\ReadFieldHandler::class);
-    $app->patch(ORDER_FIELDS . UUID, OrderHandler\UpdateFieldHandler::class);
-    $app->delete(ORDER_FIELDS . UUID, OrderHandler\DeleteFieldHandler::class);
+    $app->get(ORDER_FIELDS, OrderField\ListFieldsHandler::class);
+    $app->post(ORDER_FIELDS, OrderField\CreateFieldHandler::class);
+    $app->get(ORDER_FIELDS . UUID, OrderField\ReadFieldHandler::class);
+    $app->patch(ORDER_FIELDS . UUID, OrderField\UpdateFieldHandler::class);
+    $app->delete(ORDER_FIELDS . UUID, OrderField\DeleteFieldHandler::class);
 
     // CUSTOM ORDER FIELDS - OPTIONS
-    $app->get(ORDER_FIELDS . UUID . OPTIONS, OrderHandler\ListOptionsHandler::class);
-    $app->post(ORDER_FIELDS . UUID . OPTIONS, OrderHandler\CreateOptionHandler::class);
-    $app->get(ORDER_FIELDS . UUID . OPTIONS . ID, OrderHandler\ReadOptionHandler::class);
-    $app->patch(ORDER_FIELDS . UUID . OPTIONS . ID, OrderHandler\UpdateOptionHandler::class);
-    $app->delete(ORDER_FIELDS . UUID . OPTIONS . ID, OrderHandler\DeleteOptionHandler::class);
+    $app->get(ORDER_FIELDS . UUID . OPTIONS, OrderField\ListOptionsHandler::class);
+    $app->post(ORDER_FIELDS . UUID . OPTIONS, OrderField\CreateOptionHandler::class);
+    $app->get(ORDER_FIELDS . UUID . OPTIONS . ID, OrderField\ReadOptionHandler::class);
+    $app->patch(ORDER_FIELDS . UUID . OPTIONS . ID, OrderField\UpdateOptionHandler::class);
+    $app->delete(ORDER_FIELDS . UUID . OPTIONS . ID, OrderField\DeleteOptionHandler::class);
 
     // CUSTOM ORDER FIELDS - ASSOCIATIONS
-    $app->get(ORDER_FIELDS . UUID . ASSOCIATIONS, OrderHandler\ListAssociationsHandler::class);
-    $app->post(ORDER_FIELDS . UUID . ASSOCIATIONS, OrderHandler\CreateAssociationHandler::class);
-    $app->get(ORDER_FIELDS . UUID . ASSOCIATIONS . ID, OrderHandler\ReadAssociationHandler::class);
-    $app->patch(ORDER_FIELDS . UUID . ASSOCIATIONS . ID, OrderHandler\UpdateAssociationHandler::class);
-    $app->delete(ORDER_FIELDS . UUID . ASSOCIATIONS . ID, OrderHandler\DeleteAssociationHandler::class);
+    $app->get(ORDER_FIELDS . UUID . ASSOCIATIONS, OrderField\ListAssociationsHandler::class);
+    $app->post(ORDER_FIELDS . UUID . ASSOCIATIONS, OrderField\CreateAssociationHandler::class);
+    $app->get(ORDER_FIELDS . UUID . ASSOCIATIONS . ID, OrderField\ReadAssociationHandler::class);
+    $app->patch(ORDER_FIELDS . UUID . ASSOCIATIONS . ID, OrderField\UpdateAssociationHandler::class);
+    $app->delete(ORDER_FIELDS . UUID . ASSOCIATIONS . ID, OrderField\DeleteAssociationHandler::class);
 };

@@ -29,7 +29,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
             ?: throw new EntityNotFoundException("Custom order field $identifier not found");
     }
 
-    public function listOptions(CustomFieldUuid $identifier): PaginatedData
+    public function fetchOptions(CustomFieldUuid $identifier): PaginatedData
     {
         $this->createBuilder(CustomFieldOptionEntity::class, 'o');
 
@@ -43,7 +43,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
         return new PaginatedData($this->queryBuilder->getQuery()->getResult());
     }
 
-    public function getOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed
+    public function fetchOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed
     {
         $this->createBuilder(CustomFieldOptionEntity::class, 'o');
 
@@ -59,7 +59,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
         return $this->queryBuilder->getQuery()->getOneOrNullResult();
     }
 
-    public function listAssociations(CustomFieldUuid $identifier): PaginatedData
+    public function fetchAssociations(CustomFieldUuid $identifier): PaginatedData
     {
         $customField            = $this->getByIdentifier($identifier);
         $associationEntityClass = $this->getAssociationEntityClass($customField->getValueType());
@@ -86,7 +86,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
         return new PaginatedData($this->queryBuilder->getQuery()->getResult());
     }
 
-    public function getAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed
+    public function fetchAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed
     {
         $customField            = $this->getByIdentifier($identifier);
         $associationEntityClass = $this->getAssociationEntityClass($customField->getValueType());

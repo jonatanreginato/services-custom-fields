@@ -19,4 +19,6 @@ class TextTypeAssociationEntity extends BaseTextTypeAssociationEntity
     #[ManyToOne(targetEntity: CustomFieldEntity::class, inversedBy: 'textAssociations')]
     #[JoinColumn(name: 'metafield_uuid', referencedColumnName: 'uuid')]
     public ?CustomFieldEntityInterface $customField;
+
+    public string $ownerResource = 'order';
 }

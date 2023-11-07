@@ -20,11 +20,10 @@ class AssociationSchema extends AbstractSchema
     public function getAttributes(): array
     {
         return [
-            'id'         => $this->entity->getId(),
-            'value'      => $this->entity->getValue(),
-            'owner_id'   => $this->entity->getOwnerId(),
-            'created_at' => ($this->entity->getCreatedAt())?->format(self::DATETIME_FORMAT),
-            'updated_at' => ($this->entity->getUpdatedAt())?->format(self::DATETIME_FORMAT),
+            'metafield_id'   => $this->entity->getCustomField()->uuid,
+            'value'          => $this->entity->getValue(),
+            'owner_id'       => $this->entity->getOwnerId(),
+            'owner_resource' => $this->entity->getOwnerResource(),
         ];
     }
 }

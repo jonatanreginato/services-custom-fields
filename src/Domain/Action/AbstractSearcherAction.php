@@ -21,22 +21,22 @@ abstract class AbstractSearcherAction extends AbstractAction
 
     public function listOptions(mixed $fieldIdentifier): PaginatedDataInterface
     {
-        return $this->repository->listOptions($fieldIdentifier);
+        return $this->repository->fetchOptions($fieldIdentifier);
     }
 
     public function readOption(mixed $fieldIdentifier, mixed $optionIdentifier): ?EntityInterface
     {
-        return $this->repository->getOption($fieldIdentifier, $optionIdentifier);
+        return $this->repository->fetchOption($fieldIdentifier, $optionIdentifier);
     }
 
     public function listAssociations(mixed $fieldIdentifier): PaginatedDataInterface
     {
-        return $this->repository->listAssociations($fieldIdentifier);
+        return $this->repository->fetchAssociations($fieldIdentifier);
     }
 
     public function readAssociation(mixed $fieldIdentifier, mixed $ownerIdentifier): ?EntityInterface
     {
-        return $this->repository->getAssociation($fieldIdentifier, $ownerIdentifier);
+        return $this->repository->fetchAssociation($fieldIdentifier, $ownerIdentifier);
     }
 
     public function count(): int

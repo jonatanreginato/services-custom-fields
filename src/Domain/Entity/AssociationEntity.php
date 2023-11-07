@@ -89,4 +89,9 @@ abstract class AssociationEntity implements AssociationEntityInterface
 
         return $this;
     }
+
+    public function getOwnerResource(): string
+    {
+        return $this->ownerResource;
+    }
 }

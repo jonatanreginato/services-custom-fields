@@ -19,4 +19,6 @@ class NumericTypeAssociationEntity extends BaseNumericTypeAssociationEntity
     #[ManyToOne(targetEntity: CustomFieldEntity::class, inversedBy: 'numericAssociations')]
     #[JoinColumn(name: 'metafield_uuid', referencedColumnName: 'uuid')]
     public ?CustomFieldEntityInterface $customField = null;
+
+    public string $ownerResource = 'order';
 }

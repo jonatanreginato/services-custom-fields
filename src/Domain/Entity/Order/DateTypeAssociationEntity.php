@@ -19,4 +19,6 @@ class DateTypeAssociationEntity extends BaseDateTypeAssociationEntity
     #[ManyToOne(targetEntity: CustomFieldEntity::class, inversedBy: 'dateAssociations')]
     #[JoinColumn(name: 'metafield_uuid', referencedColumnName: 'uuid')]
     public ?CustomFieldEntityInterface $customField = null;
+
+    public string $ownerResource = 'order';
 }

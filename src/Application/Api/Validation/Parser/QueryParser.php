@@ -21,7 +21,7 @@ class QueryParser implements QueryParserInterface
 {
     private ?QueryRulesAggregatorInterface $queryRules = null;
 
-    private ?string $identityParameter = null;
+    private mixed $identityParameter = null;
 
     private ?int $storeId = null;
 
@@ -46,7 +46,7 @@ class QueryParser implements QueryParserInterface
         return $this->queryRules;
     }
 
-    public function parse(?string $identity, int $storeId, array $parameters = []): void
+    public function parse(mixed $identity, int $storeId, array $parameters = []): void
     {
         $this->clear();
         $this->setIdentityParameter($identity);
@@ -72,7 +72,7 @@ class QueryParser implements QueryParserInterface
         $this->errorAggregator->clear();
     }
 
-    private function setIdentityParameter(?string $value): void
+    private function setIdentityParameter(mixed $value): void
     {
         $this->identityParameter = $value;
     }

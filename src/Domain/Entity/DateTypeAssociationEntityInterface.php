@@ -8,5 +8,5 @@ use DateTime;
 
 interface DateTypeAssociationEntityInterface extends AssociationEntityInterface
 {
-    public function getValue(): DateTime;
+    public function getValue(): string;
 }
