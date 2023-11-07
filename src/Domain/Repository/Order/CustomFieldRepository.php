@@ -117,6 +117,21 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
         return $this->queryBuilder->getQuery()->getOneOrNullResult();
     }
 
+    public function getCountByOwner(int $storeId): array
+    {
+        $this->createBuilder($this->_entityName, 'a');
+
+        $this->queryBuilder->select('COUNT(1)')
+            ->from($this->_entityName, 'a')
+            ->andWhere('a.storeId = :store_id')
+            ->andWhere($this->queryBuilder->expr()->isNull('a.deletedAt'))
+            ->setParameter('store_id', $storeId);
+
+        return [
+            'order' => $this->queryBuilder->getQuery()->getSingleScalarResult()
+        ];
+    }
+
     private function getAssociationEntityClass(int $valueType): string
     {
         return match ($valueType) {

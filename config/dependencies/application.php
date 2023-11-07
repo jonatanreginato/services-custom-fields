@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
+use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractCountHandlerFactory;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractCreateHandlerFactory;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractDeleteHandlerFactory;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractListDomainAssociationsHandlerFactory;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractReadHandlerFactory;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractUpdateHandlerFactory;
+use Nuvemshop\ApiTemplate\Application\Api\Handler\CustomField\V1 as CustomFieldHandler;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\Order\V1 as OrderHandler;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderFieldHandler;
 use Nuvemshop\ApiTemplate\Application\Api\Validation;
@@ -73,6 +75,9 @@ return [
 
             // domain's associations
             OrderHandler\ListOrderAssociationsHandler::class  => AbstractListDomainAssociationsHandlerFactory::class,
+
+            // count custom fields
+            CustomFieldHandler\CountHandler::class            => AbstractCountHandlerFactory::class,
         ],
     ],
 ];

@@ -7,7 +7,6 @@ namespace Nuvemshop\ApiTemplate\Application\Api\Handler;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\Order\V1 as OrderHandler;
 use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\QueryParserInterface;
 use Nuvemshop\ApiTemplate\Domain;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -22,8 +21,7 @@ class AbstractListDomainAssociationsHandlerFactory
         return new BaseHandler(
             new $requestedName(
                 $queryParser,
-                $container->get($this->selectActionClass($requestedName)),
-                $container->get(EncoderInterface::class)
+                $container->get($this->selectActionClass($requestedName))
             ),
             $container->get(ThrowableHandlerInterface::class)
         );

@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Mezzio\Application;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\Order\V1 as Order;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderField;
+use Nuvemshop\ApiTemplate\Application\Api\Handler\CustomField\V1 as CustomField;
 use Nuvemshop\ApiTemplate\Application\Web;
 
 const UUID           = '/{uuid:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}}';
@@ -31,6 +32,8 @@ return static function (Application $app) {
     $app->get('/documentation', Web\DocumentationHandler::class, 'documentation');
     $app->get('/license', Web\LicenseHandler::class, 'license');
     $app->get('/test-coverage/{type:\w+}', Web\CoverageHandler::class, 'coverage');
+
+    $app->get('/api/v1/custom-fields/count', CustomField\CountHandler::class);
 
     // CUSTOM FIELD ASSOCIATIONS BY OWNER ID
     $app->get(ORDERS . ID . ASSOCIATIONS, Order\ListOrderAssociationsHandler::class);

@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace Nuvemshop\ApiTemplate\Domain\Action;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Repository;
+use Nuvemshop\ApiTemplate\Domain\Repository;
 
 readonly class CounterAction
 {
-    public function __construct(protected Repository $customFieldsRepository)
-    {
+    public function __construct(
+        protected Repository\Order\CustomFieldRepositoryInterface $orderFieldRepository
+    ) {
     }
 
-    public function __invoke(AggregateInterface $aggregate): array
+    public function __invoke(int $storeId): array
     {
-        return $this->customFieldsRepository->getCount();
+        return array_merge(
+            $this->orderFieldRepository->getCountByOwner($storeId)
+        );
     }
 }

@@ -102,7 +102,7 @@ return [
                 ),
             Action\CounterAction::class                              =>
                 static fn(ContainerInterface $container) => new Action\CounterAction(
-                    $container->get(Repository\Contract\UserRepositoryInterface::class)
+                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                 ),
             Repository\Order\CustomFieldRepositoryInterface::class   =>
                 static fn(ContainerInterface $container) => $container->get(EntityManager::class)->getRepository(

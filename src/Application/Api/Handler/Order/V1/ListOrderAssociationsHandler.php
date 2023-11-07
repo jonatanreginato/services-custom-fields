@@ -8,7 +8,6 @@ use Laminas\Diactoros\Response\JsonResponse;
 use Nuvemshop\ApiTemplate\Application\Api\Handler\HandlerInterface;
 use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\QueryParser;
 use Nuvemshop\ApiTemplate\Domain\Action\Order\SearcherAction;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -19,8 +18,7 @@ class ListOrderAssociationsHandler implements HandlerInterface
 
     public function __construct(
         private readonly QueryParser $queryParser,
-        private readonly SearcherAction $searcher,
-        private readonly EncoderInterface $encoder
+        private readonly SearcherAction $searcher
     ) {
     }
 
