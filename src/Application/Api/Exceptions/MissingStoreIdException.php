@@ -12,7 +12,7 @@ class MissingStoreIdException extends DomainException
     public function __construct(string $message = '', int $code = 400, Throwable $previous = null)
     {
         parent::__construct(
-            $message ?: 'Invalid store id',
+            $message ?: 'Invalid or missing store id',
             $code,
             $previous
         );
