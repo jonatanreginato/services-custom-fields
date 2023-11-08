@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
 
-use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\Mapping\Driver\AttributeDriver;
 use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
