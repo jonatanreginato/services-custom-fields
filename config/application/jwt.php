@@ -7,5 +7,6 @@ return [
         'secret' => getenv('JWT_SECRET'),
         'secure' => false,
         'path'   => '/api',
+        'ignore' => '/api/v1/token',
     ],
 ];

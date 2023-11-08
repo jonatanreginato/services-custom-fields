@@ -10,8 +10,6 @@ use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderFactory;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerFactory;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\L10n\Middleware\AcceptLanguageMiddleware;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\L10n\Middleware\AcceptLanguageMiddlewareFactory;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\SchemaContainerFactory;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\SchemaContainerInterface;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Captures\CaptureAggregator;
