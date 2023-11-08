@@ -7,8 +7,6 @@ namespace Nuvemshop\ApiTemplate\Application\Api\Exceptions;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiException;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorAggregator;
 use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorCollection;
-use Nuvemshop\ApiTemplate\Infrastructure\JsonApi\Exceptions\AuthorizationException;
-use Nuvemshop\ApiTemplate\Infrastructure\JsonApi\Passport\Exceptions\AuthenticationException;
 use Throwable;
 
 class ThrowableConverter implements ThrowableConverterInterface
@@ -19,30 +17,18 @@ class ThrowableConverter implements ThrowableConverterInterface
      */
     public static function convert(Throwable $throwable): ?ApiException
     {
-        $converted = null;
+        $errors = static::createErrorWith(
+            $throwable->getMessage(),
+            $throwable->getCode() ?? 400
+        );
 
-        if ($throwable instanceof AuthorizationException) {
-            $httpCode  = 403;
-            $action    = $throwable->getAction();
-            $errors    = static::createErrorWith(
-                'Unauthorized',
-                "You are not unauthorized for action `$action`.",
-                $httpCode
-            );
-            $converted = new ApiException($errors, $httpCode, $throwable);
-        } elseif ($throwable instanceof AuthenticationException) {
-            $httpCode  = 401;
-            $errors    = static::createErrorWith('Authentication failed', 'Authentication failed', $httpCode);
-            $converted = new ApiException($errors, $httpCode, $throwable);
-        }
-
-        return $converted;
+        return new ApiException($errors, $throwable->getCode() ?? 400, $throwable);
     }
 
-    private static function createErrorWith(string $title, string $detail, int $httpCode): ErrorCollection
+    private static function createErrorWith(string $detail, int $httpCode): ErrorCollection
     {
         return (new ErrorAggregator())->addApiError(
-            $title,
+            'Error',
             $detail,
             (string)$httpCode
         );
