@@ -13,8 +13,8 @@ if [ ! "$RUNNING_CONTAINER" ]; then
     exit 1
 fi
 
-#echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Executing CodeSniffer..."
-#docker compose exec -T php composer run cs-check
+echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Executing CodeSniffer..."
+docker compose exec -T php composer run cs-check
 
-#echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Executing PHP-unit..."
-#docker compose exec -T php composer run test
+echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Executing PHP-unit..."
+docker compose exec -T php composer run test
