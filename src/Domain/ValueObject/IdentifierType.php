@@ -6,6 +6,7 @@ namespace Nuvemshop\CustomFields\Domain\ValueObject;
 
 use InvalidArgumentException;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class IdentifierType implements IdentifierInterface
 {
     public int $id;

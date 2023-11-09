@@ -7,6 +7,7 @@ namespace Nuvemshop\CustomFields\Infrastructure\Api\Parser;
 use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
 use Nuvemshop\CustomFields\Domain\Schema\SchemaInterface;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class Resource implements ResourceInterface
 {
     public function __construct(

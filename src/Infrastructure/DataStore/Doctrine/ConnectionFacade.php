@@ -10,6 +10,7 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Throwable;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class ConnectionFacade
 {
     public Connection $connection;

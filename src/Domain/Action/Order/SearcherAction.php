@@ -10,6 +10,7 @@ use Nuvemshop\CustomFields\Domain\Repository\Order\OptionTypeAssociationReposito
 use Nuvemshop\CustomFields\Domain\Repository\Order\TextTypeAssociationRepository;
 use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class SearcherAction
 {
     public function __construct(

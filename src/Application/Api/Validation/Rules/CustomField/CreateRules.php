@@ -6,6 +6,7 @@ namespace Nuvemshop\CustomFields\Application\Api\Validation\Rules\CustomField;
 
 use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\BodyRulesAggregatorInterface;
 
+// phpcs:ignoreFile -- this is a readonly class
 final readonly class CreateRules implements BodyRulesAggregatorInterface
 {
     public function getAllowedAttributes(): array

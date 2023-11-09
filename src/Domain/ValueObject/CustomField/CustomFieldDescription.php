@@ -7,6 +7,7 @@ namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 use InvalidArgumentException;
 use Nuvemshop\CustomFields\Domain\ValueObject\StringType;
 
+// phpcs:ignoreFile -- this is a readonly class
 final readonly class CustomFieldDescription extends StringType
 {
     private const MAX_LENGTH = 150;

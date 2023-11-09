@@ -7,6 +7,7 @@ namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 use InvalidArgumentException;
 use Nuvemshop\CustomFields\Domain\Enum\ValueTypeEnum;
 
+// phpcs:ignoreFile -- this is a readonly class
 final readonly class CustomFieldValueType
 {
     public ValueTypeEnum $id;

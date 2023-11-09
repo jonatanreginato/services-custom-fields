@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class ApiError implements ApiErrorInterface
 {
     public function __construct(

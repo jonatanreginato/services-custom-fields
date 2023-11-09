@@ -8,6 +8,7 @@ use function is_object;
 use function is_scalar;
 use function method_exists;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class SimpleError implements SimpleErrorInterface
 {
     public function __construct(

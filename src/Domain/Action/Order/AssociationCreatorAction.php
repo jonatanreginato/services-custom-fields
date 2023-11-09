@@ -26,6 +26,7 @@ use Nuvemshop\CustomFields\Infrastructure\Exception\PersistenceException;
 use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 use Throwable;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class AssociationCreatorAction
 {
     public function __construct(

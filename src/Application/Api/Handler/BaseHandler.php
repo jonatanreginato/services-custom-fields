@@ -13,6 +13,7 @@ use Throwable;
 use function extension_loaded;
 use function get_class;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class BaseHandler implements RequestHandlerInterface
 {
     public function __construct(

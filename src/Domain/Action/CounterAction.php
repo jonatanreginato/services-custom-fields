@@ -6,6 +6,7 @@ namespace Nuvemshop\CustomFields\Domain\Action;
 
 use Nuvemshop\CustomFields\Domain\Repository;
 
+// phpcs:ignoreFile -- this is a readonly class
 readonly class CounterAction
 {
     public function __construct(

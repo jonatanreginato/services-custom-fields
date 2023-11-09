@@ -6,6 +6,7 @@ namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 
 use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
 
+// phpcs:ignoreFile -- this is a readonly class
 final readonly class CustomFieldStore extends IdentifierType
 {
 }
