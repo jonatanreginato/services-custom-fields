@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Jwt;
+namespace Nuvemshop\CustomFields\Infrastructure\Jwt;
 
 use Psr\Container\ContainerInterface;
 use Throwable;

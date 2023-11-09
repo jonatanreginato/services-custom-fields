@@ -32,9 +32,10 @@ commitizen init cz-conventional-changelog --save-dev --save-exact &> '/dev/null'
 # Run npm install
 npm install
 
+chmod -R +x ./.husky
 chmod -R +x ./node_modules/.bin/cz
 
-CONTAINER_BASENAME="php-restful-api-template"
+CONTAINER_BASENAME="services-custom-fields"
 RUNNING_CONTAINER=$(docker ps --filter name=${CONTAINER_BASENAME} -q)
 
 if [[ -n $RUNNING_CONTAINER ]]; then

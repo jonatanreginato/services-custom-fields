@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Parser;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Parser;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Schema\SchemaInterface;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\Schema\SchemaInterface;
 
 interface ResourceInterface extends IdentifierInterface
 {

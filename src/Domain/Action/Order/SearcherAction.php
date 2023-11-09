@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
+namespace Nuvemshop\CustomFields\Domain\Action\Order;
 
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\DateTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\NumericTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\OptionTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\TextTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Domain\Repository\Order\DateTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Repository\Order\NumericTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Repository\Order\OptionTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Repository\Order\TextTypeAssociationRepository;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 
 readonly class SearcherAction
 {

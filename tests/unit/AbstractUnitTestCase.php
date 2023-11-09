@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate;
+namespace Nuvemshop\CustomFields;
 
 use Monolog\Level;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Formatter\ConsoleFormatter;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Formatter\ConsoleFormatter;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Processor\PsrLogMessageProcessor;

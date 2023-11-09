@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Repository\Product;
+namespace Nuvemshop\CustomFields\Domain\Repository\Product;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\AbstractRepository;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\AbstractRepository;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
 
 class ProductFieldRepository extends AbstractRepository implements ProductFieldRepositoryInterface
 {

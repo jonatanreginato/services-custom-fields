@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Exceptions;
+namespace Nuvemshop\CustomFields\Application\Api\Exceptions;
 
 use DomainException;
 use Throwable;

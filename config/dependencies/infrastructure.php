@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-use Nuvemshop\ApiTemplate\Application\Api\Query\ParametersMapper;
-use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\BodyParserInterface;
-use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\ParserFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\QueryParserInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderFactory;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerFactory;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\SchemaContainerFactory;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\SchemaContainerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Captures\CaptureAggregator;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorAggregator;
-use Nuvemshop\ApiTemplate\Infrastructure\Cors;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore;
-use Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Handler;
-use Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener as ErrorListener;
-use Nuvemshop\ApiTemplate\Infrastructure\Jwt;
-use Nuvemshop\ApiTemplate\Infrastructure\Log;
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId;
+use Nuvemshop\CustomFields\Application\Api\Query\ParametersMapper;
+use Nuvemshop\CustomFields\Application\Api\Validation\Parser\BodyParserInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Parser\ParserFactory;
+use Nuvemshop\CustomFields\Application\Api\Validation\Parser\QueryParserInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderFactory;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerFactory;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\SchemaContainerFactory;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\SchemaContainerInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Captures\CaptureAggregator;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregator;
+use Nuvemshop\CustomFields\Infrastructure\Cors;
+use Nuvemshop\CustomFields\Infrastructure\DataStore;
+use Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Handler;
+use Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Listener as ErrorListener;
+use Nuvemshop\CustomFields\Infrastructure\Jwt;
+use Nuvemshop\CustomFields\Infrastructure\Log;
+use Nuvemshop\CustomFields\Infrastructure\RequestId;
 
 return [
     'dependencies' => [

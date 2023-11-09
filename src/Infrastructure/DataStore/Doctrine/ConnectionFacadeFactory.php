@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
 use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Logging\DebugStack;
 use Doctrine\DBAL\Logging\LoggerChain;
 use Doctrine\DBAL\Logging\SQLLogger;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Processor\MetricProcessor;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Processor\XRequestIdProcessor;
+use Nuvemshop\CustomFields\Infrastructure\Log\Processor\MetricProcessor;
+use Nuvemshop\CustomFields\Infrastructure\Log\Processor\XRequestIdProcessor;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Processor\PsrLogMessageProcessor;

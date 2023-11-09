@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Traits;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Traits;
 
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\EntityQueryBuilder;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\EntityQueryBuilder;
 
 trait QueryBuilderTrait
 {

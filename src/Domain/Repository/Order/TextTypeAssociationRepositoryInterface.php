@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Repository\Order;
+namespace Nuvemshop\CustomFields\Domain\Repository\Order;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
 
 interface TextTypeAssociationRepositoryInterface
 {

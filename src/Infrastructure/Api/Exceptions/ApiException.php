@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Exceptions;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorCollection;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCollection;
 use Throwable;
 
 use function is_iterable;

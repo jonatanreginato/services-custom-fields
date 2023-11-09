@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Headers;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\Headers;
 
 interface MediaTypeInterface
 {

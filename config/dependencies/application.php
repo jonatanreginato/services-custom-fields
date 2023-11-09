@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractCountHandlerFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractCreateHandlerFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractDeleteHandlerFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractListDomainAssociationsHandlerFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractReadHandlerFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\AbstractUpdateHandlerFactory;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\BaseHandler;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\CustomField\V1 as CustomFieldHandler;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\Order\V1 as OrderHandler;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderFieldHandler;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\Token\V1 as Token;
-use Nuvemshop\ApiTemplate\Application\Api\Validation;
-use Nuvemshop\ApiTemplate\Application\Web;
-use Nuvemshop\ApiTemplate\Domain;
-use Nuvemshop\ApiTemplate\Infrastructure;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
+use Nuvemshop\CustomFields\Application\Api\Handler\AbstractCountHandlerFactory;
+use Nuvemshop\CustomFields\Application\Api\Handler\AbstractCreateHandlerFactory;
+use Nuvemshop\CustomFields\Application\Api\Handler\AbstractDeleteHandlerFactory;
+use Nuvemshop\CustomFields\Application\Api\Handler\AbstractListDomainAssociationsHandlerFactory;
+use Nuvemshop\CustomFields\Application\Api\Handler\AbstractReadHandlerFactory;
+use Nuvemshop\CustomFields\Application\Api\Handler\AbstractUpdateHandlerFactory;
+use Nuvemshop\CustomFields\Application\Api\Handler\BaseHandler;
+use Nuvemshop\CustomFields\Application\Api\Handler\CustomField\V1 as CustomFieldHandler;
+use Nuvemshop\CustomFields\Application\Api\Handler\Order\V1 as OrderHandler;
+use Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1 as OrderFieldHandler;
+use Nuvemshop\CustomFields\Application\Api\Handler\Token\V1 as Token;
+use Nuvemshop\CustomFields\Application\Api\Validation;
+use Nuvemshop\CustomFields\Application\Web;
+use Nuvemshop\CustomFields\Domain;
+use Nuvemshop\CustomFields\Infrastructure;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
 use Psr\Container\ContainerInterface;
 
 return [

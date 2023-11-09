@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\RequestId;
+namespace Nuvemshop\CustomFields\Infrastructure\RequestId;
 
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\Exception\MissingRequestId;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\Exception\MissingRequestId;
 
 final class MonologProcessor
 {

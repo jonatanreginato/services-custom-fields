@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\Response;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
 use Psr\Http\Message\ResponseInterface;
 
 interface ResponsesInterface

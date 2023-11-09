@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors;
 
 use MessageFormatter;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\ApiResponse;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\DocumentInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ApiResponse;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\DocumentInterface;
 
 use function assert;
 use function call_user_func;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\Response;
 
 use Laminas\Diactoros\Response;
 use Laminas\Diactoros\Response\InjectContentTypeTrait;
 use Laminas\Diactoros\Stream;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Headers\MediaTypeInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Headers\MediaTypeInterface;
 
 class ApiResponse extends Response
 {

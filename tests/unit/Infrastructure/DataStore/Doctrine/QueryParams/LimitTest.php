@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\QueryParams;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\QueryParams;
 
-use Nuvemshop\ApiTemplate\AbstractUnitTestCase;
+use Nuvemshop\CustomFields\AbstractUnitTestCase;
 
 class LimitTest extends AbstractUnitTestCase
 {

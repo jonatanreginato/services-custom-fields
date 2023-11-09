@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Query;
+namespace Nuvemshop\CustomFields\Application\Api\Query;
 
 readonly class FilterParameter implements FilterParameterInterface
 {

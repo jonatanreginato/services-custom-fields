@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Middleware;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Middleware;
 
 use Psr\Container\ContainerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Exception\LoggerException;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Exception\LoggerException;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 use Throwable;
 
 class LoggerMiddlewareFactory

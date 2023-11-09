@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action;
+namespace Nuvemshop\CustomFields\Domain\Action;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Exception\PersistenceException;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Infrastructure\Exception\PersistenceException;
 use Throwable;
 
 abstract class AbstractCreatorAction extends AbstractAction

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Encoder;
 
 use Psr\Http\Message\UriInterface;
 

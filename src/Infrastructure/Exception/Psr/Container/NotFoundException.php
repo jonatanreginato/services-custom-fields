@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Exception\Psr\Container;
+namespace Nuvemshop\CustomFields\Infrastructure\Exception\Psr\Container;
 
 use DomainException;
 use Psr\Container\ContainerExceptionInterface;

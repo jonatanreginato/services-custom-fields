@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Script\Swagger;
+namespace Nuvemshop\CustomFields\Application\Script\Swagger;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Exception\DomainException;
-use Nuvemshop\ApiTemplate\Infrastructure\Swagger\SwaggerMapper;
+use Nuvemshop\CustomFields\Infrastructure\Exception\DomainException;
+use Nuvemshop\CustomFields\Infrastructure\Swagger\SwaggerMapper;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputDefinition;

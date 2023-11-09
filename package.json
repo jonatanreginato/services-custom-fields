@@ -1,6 +1,6 @@
 {
-  "name": "php-restful-api-template",
-  "description": "A RESTful API template built with PHP 8.2 driven by Mezzio framework.",
+  "name": "services-custom-fields",
+  "description": "Application developed to manage custom fields for various Nuvemshop (Tiendanube) business domains.",
   "devDependencies": {
     "@commitlint/config-conventional": "^16.0.0",
     "@types/node": "^17.0.19",

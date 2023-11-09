@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate;
+namespace Nuvemshop\CustomFields;
 
 use DateTime;
 use Monolog\Logger;

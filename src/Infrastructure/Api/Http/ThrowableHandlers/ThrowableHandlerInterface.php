@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\ThrowableResponseInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ThrowableResponseInterface;
 use Throwable;
 
 interface ThrowableHandlerInterface

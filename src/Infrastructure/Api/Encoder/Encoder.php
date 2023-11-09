@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Encoder;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Parser\ParserInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Representation\BaseWriterInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Representation\DocumentWriter;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Representation\DocumentWriterInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Representation\ErrorWriter;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Representation\ErrorWriterInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\PaginatedDataInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
+use Nuvemshop\CustomFields\Infrastructure\Api\Parser\ParserInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Representation\BaseWriterInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Representation\DocumentWriter;
+use Nuvemshop\CustomFields\Infrastructure\Api\Representation\DocumentWriterInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Representation\ErrorWriter;
+use Nuvemshop\CustomFields\Infrastructure\Api\Representation\ErrorWriterInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\PaginatedDataInterface;
 
 use function assert;
 use function is_array;

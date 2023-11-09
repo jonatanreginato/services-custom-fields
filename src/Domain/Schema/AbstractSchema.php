@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Schema;
+namespace Nuvemshop\CustomFields\Domain\Schema;
 
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;

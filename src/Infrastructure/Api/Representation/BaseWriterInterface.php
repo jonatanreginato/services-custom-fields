@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Representation;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Representation;
 
 interface BaseWriterInterface
 {

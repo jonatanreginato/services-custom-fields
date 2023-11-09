@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Category;
+namespace Nuvemshop\CustomFields\Domain\Entity\Category;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\PersistentCollection;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\CategoryFieldRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\CategoryFieldRepository")
  * @ORM\Table(name="metafield_categories")
  */
 class CategoryFieldEntity extends CustomFieldEntity

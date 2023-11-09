@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Customer;
+namespace Nuvemshop\CustomFields\Domain\Entity\Customer;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\CustomerFieldRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\CustomerFieldRepository")
  * @ORM\Table(name="metafield_customers")
  */
 class CustomerFieldEntity extends CustomFieldEntity

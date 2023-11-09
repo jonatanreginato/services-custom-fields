@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Handler;
+namespace Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Handler;
 
 use DomainException;
 use Throwable;

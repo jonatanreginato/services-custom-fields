@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Handler;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Handler;
 
 use Monolog\Handler\BufferHandler;
 use Monolog\LogRecord;

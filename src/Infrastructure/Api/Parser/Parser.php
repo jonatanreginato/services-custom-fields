@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Parser;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Parser;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Schema\SchemaInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\SchemaContainerInterface;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\Schema\SchemaInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\SchemaContainerInterface;
 
 use function assert;
 use function is_array;

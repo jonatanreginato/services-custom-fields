@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\RequestId\OverridePolicy;
+namespace Nuvemshop\CustomFields\Infrastructure\RequestId\OverridePolicy;
 
 use Psr\Http\Message\ServerRequestInterface;
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDO\SQLite\Driver;
-use Nuvemshop\ApiTemplate\AbstractUnitTestCase;
+use Nuvemshop\CustomFields\AbstractUnitTestCase;
 
 class ConnectionFacadeTest extends AbstractUnitTestCase
 {

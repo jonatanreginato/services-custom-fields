@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Schema;
+namespace Nuvemshop\CustomFields\Domain\Schema;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Enum\OwnerResourceEnum;
-use Nuvemshop\ApiTemplate\Domain\Enum\SourceEnum;
-use Nuvemshop\ApiTemplate\Domain\Enum\ValueTypeEnum;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Enum\OwnerResourceEnum;
+use Nuvemshop\CustomFields\Domain\Enum\SourceEnum;
+use Nuvemshop\CustomFields\Domain\Enum\ValueTypeEnum;
 
 class CustomFieldSchema extends AbstractSchema
 {
@@ -39,5 +39,4 @@ class CustomFieldSchema extends AbstractSchema
                 : [],
         ];
     }
-
 }

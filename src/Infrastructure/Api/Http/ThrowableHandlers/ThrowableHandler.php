@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers;
 
 use Exception;
-use Nuvemshop\ApiTemplate\Application\Api\Exceptions\ThrowableConverterInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiException;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\ApiResponse;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\ThrowableResponseInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Traits\Reflection\ClassIsTrait;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ApiError;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorCollection;
+use Nuvemshop\CustomFields\Application\Api\Exceptions\ThrowableConverterInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiException;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ApiResponse;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ThrowableResponseInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Traits\Reflection\ClassIsTrait;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiError;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCollection;
 use Psr\Log\LoggerAwareTrait;
 use Throwable;
 

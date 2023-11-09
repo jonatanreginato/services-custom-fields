@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Traits\Container;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Traits\Container;
 
 use Psr\Container\ContainerInterface;
 

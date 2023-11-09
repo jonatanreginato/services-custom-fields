@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Validation\Parser;
+namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Rules\QueryRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\QueryRulesAggregatorInterface;
 
 interface QueryParserInterface extends ParserInterface
 {

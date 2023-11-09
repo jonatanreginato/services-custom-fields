@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener\ElasticsearchListener;
-use Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener\FileListener;
-use Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener\NewRelicListener;
+use Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Listener\ElasticsearchListener;
+use Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Listener\FileListener;
+use Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Listener\NewRelicListener;
 
 return match (getenv('APPLICATION_ENV')) {
     'development' => [
         'error_handler' => [
             'listeners' => [
-                ElasticsearchListener::class,
+//                ElasticsearchListener::class,
                 FileListener::class,
             ],
         ],
@@ -18,7 +18,7 @@ return match (getenv('APPLICATION_ENV')) {
     'staging', 'production' => [
         'error_handler' => [
             'listeners' => [
-                ElasticsearchListener::class,
+//                ElasticsearchListener::class,
                 NewRelicListener::class,
             ],
         ],

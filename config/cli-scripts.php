@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Nuvemshop\ApiTemplate\Application\Script;
+use Nuvemshop\CustomFields\Application\Script;
 
 return [
     Script\Swagger\GenerateSwaggerSchemasCli::class,

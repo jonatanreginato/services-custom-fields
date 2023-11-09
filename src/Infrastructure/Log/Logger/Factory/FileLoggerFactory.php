@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\Factory;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger\Factory;
 
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy;
@@ -11,7 +11,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Processor\PsrLogMessageProcessor;
 use Psr\Container\ContainerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 
 class FileLoggerFactory implements FactoryInterface
 {

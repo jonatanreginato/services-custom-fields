@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Schema;
+namespace Nuvemshop\CustomFields\Domain\Schema;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\AssociationEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\AssociationEntityInterface;
 
 class AssociationSchema extends AbstractSchema
 {

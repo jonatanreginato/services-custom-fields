@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Processor;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Processor;
 
 use Monolog\LogRecord;
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Category;
+namespace Nuvemshop\CustomFields\Domain\Entity\Category;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\DateTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\DateTypeAssociationEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\DateTypeCategoryAssociationRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\DateTypeCategoryAssociationRepository")
  * @ORM\Table(name="metafield_date_resource_categories")
  */
 class DateTypeCategoryAssociationEntity extends DateTypeAssociationEntity

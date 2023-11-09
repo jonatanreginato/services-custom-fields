@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Traits;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits;
 
-use Nuvemshop\ApiTemplate\Application\Api\Exceptions\MissingStoreIdException;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Headers\MediaType;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Headers\MediaTypeInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\Responses;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\ResponsesInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\Link;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\LinkInterface;
+use Nuvemshop\CustomFields\Application\Api\Exceptions\MissingStoreIdException;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Headers\MediaType;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Headers\MediaTypeInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\Responses;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ResponsesInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\Link;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\LinkInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;

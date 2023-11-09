@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Captures;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Validation\Captures;
 
 use function count;
 

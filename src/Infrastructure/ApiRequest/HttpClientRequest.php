@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\ApiRequest;
+namespace Nuvemshop\CustomFields\Infrastructure\ApiRequest;
 
 interface HttpClientRequest
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Schema;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Schema;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Settings\ApiSettingsInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Settings\ApiSettingsInterface;
 use Psr\Container\ContainerInterface;
 
 class SchemaContainerFactory

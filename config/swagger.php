@@ -6,9 +6,9 @@
 
 /**
  * @OA\Info(
- *     title="Nuvemshop - PHP RESTful API Template",
- *     description="A RESTful API template built with PHP 8.2 driven by Mezzio framework.",
- *     version="1.0.0",
+ *     title="Application developed to manage custom fields for various Nuvemshop (Tiendanube) business domains.
+ *     description="A REST API built with PHP 8.2 driven by Mezzio framework, using PSR-7 and PSR-15 specifications.",
+ *     version="0.0.1",
  * )
  */
 

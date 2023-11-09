@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Product;
+namespace Nuvemshop\CustomFields\Domain\Entity\Product;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\ProductFieldOptionRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\ProductFieldOptionRepository")
  * @ORM\Table(name="metafield_option_products")
  */
 class ProductFieldOptionEntity extends OptionEntity

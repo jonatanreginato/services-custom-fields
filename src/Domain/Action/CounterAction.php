@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action;
+namespace Nuvemshop\CustomFields\Domain\Action;
 
-use Nuvemshop\ApiTemplate\Domain\Repository;
+use Nuvemshop\CustomFields\Domain\Repository;
 
 readonly class CounterAction
 {

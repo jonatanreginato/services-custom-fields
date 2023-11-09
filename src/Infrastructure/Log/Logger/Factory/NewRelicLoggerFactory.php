@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\Factory;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger\Factory;
 
 use Monolog\Handler\NewRelicHandler;
 use Monolog\Level;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 
 class NewRelicLoggerFactory
 {

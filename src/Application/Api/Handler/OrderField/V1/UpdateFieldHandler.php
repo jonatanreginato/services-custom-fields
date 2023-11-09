@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1;
+namespace Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1;
 
-use Nuvemshop\ApiTemplate\Application\Api\Handler\HandlerInterface;
-use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\BodyParserInterface;
-use Nuvemshop\ApiTemplate\Domain\Action\Order\FieldUpdaterAction;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomField;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldDescription;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldName;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldStore;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldUuid;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
+use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Parser\BodyParserInterface;
+use Nuvemshop\CustomFields\Domain\Action\Order\FieldUpdaterAction;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldDescription;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldName;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldStore;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldUuid;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

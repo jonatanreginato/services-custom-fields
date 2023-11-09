@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Validation;
+namespace Nuvemshop\CustomFields\Application\Api\Validation;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorCodes as BaseErrorCodes;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCodes as BaseErrorCodes;
 
 interface ErrorCodes extends BaseErrorCodes
 {

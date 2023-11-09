@@ -71,18 +71,18 @@ LABEL maintainer="jonatan.reginato@nuvemshop.com.br"
 COPY environment/php/rootfilesystem/ /
 
 # Config INET HTTP server host (supervisor)
-ARG INET_HTTP_SERVER_HOST="php-restful-api-template-php:9001"
+ARG INET_HTTP_SERVER_HOST="services-custom-fields-php:9001"
 EXPOSE 9001
 RUN sed -i "s/{INET_HTTP_SERVER_HOST}/$INET_HTTP_SERVER_HOST/" /etc/supervisord.conf
 
 # XDEBUG - Config
 ENV PHP_IDE_CONFIG     "serverName=docker"
-ENV XDEBUG_CONFIG      "idekey=php-restful-api-template"
-ENV XDEBUG_SESSION     "php-restful-api-template"
+ENV XDEBUG_CONFIG      "idekey=services-custom-fields"
+ENV XDEBUG_SESSION     "services-custom-fields"
 ENV XDEBUG_MODE        "develop,debug,coverage"
 ENV XDEBUG_CLIENT_PORT  9003
 ENV XDEBUG_CLIENT_HOST "host.docker.internal"
-ENV XDEBUG_IDE_KEY     "php-restful-api-template"
+ENV XDEBUG_IDE_KEY     "services-custom-fields"
 
 RUN sed -i "s/{XDEBUG_MODE}/$XDEBUG_MODE/" /usr/local/etc/php/conf.d/99-xdebug.ini \
  && sed -i "s/{XDEBUG_CLIENT_PORT}/$XDEBUG_CLIENT_PORT/" /usr/local/etc/php/conf.d/99-xdebug.ini \

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\Factory;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger\Factory;
 
 use Monolog\Handler\SlackHandler;
 use Monolog\Level;
 use Psr\Container\ContainerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Exception\LoggerException;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Exception\LoggerException;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 use Throwable;
 
 class SlackLoggerFactory

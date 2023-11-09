@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Processor\MetricProcessor;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Processor\XRequestIdProcessor;
+use Nuvemshop\CustomFields\Infrastructure\Log\Processor\MetricProcessor;
+use Nuvemshop\CustomFields\Infrastructure\Log\Processor\XRequestIdProcessor;
 use Monolog\Logger;
 use Monolog\Processor\MemoryPeakUsageProcessor;
 use Monolog\Processor\MemoryUsageProcessor;

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Order;
+namespace Nuvemshop\CustomFields\Domain\Entity\Order;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\PersistentCollection;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntity as BaseCustomFieldEntity;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\CustomFieldRepository;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntity as BaseCustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Repository\Order\CustomFieldRepository;
 
 #[Entity(repositoryClass: CustomFieldRepository::class)]
 #[Table(name: 'metafield_orders')]

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Exceptions;
+namespace Nuvemshop\CustomFields\Application\Api\Exceptions;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiException;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorAggregator;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorCollection;
+use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiException;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregator;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCollection;
 use Throwable;
 
 class ThrowableConverter implements ThrowableConverterInterface

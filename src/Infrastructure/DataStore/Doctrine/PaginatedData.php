@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
 class PaginatedData implements PaginatedDataInterface
 {

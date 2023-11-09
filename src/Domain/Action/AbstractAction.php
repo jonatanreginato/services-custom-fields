@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action;
+namespace Nuvemshop\CustomFields\Domain\Action;
 
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Repository;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Repository;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 
 abstract class AbstractAction
 {

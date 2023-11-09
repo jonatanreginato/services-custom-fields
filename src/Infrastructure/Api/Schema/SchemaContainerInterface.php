@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Schema;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Schema;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Schema\SchemaInterface;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\Schema\SchemaInterface;
 
 interface SchemaContainerInterface
 {

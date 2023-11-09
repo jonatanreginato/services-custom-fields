@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Headers;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\Headers;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
+use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
 
 use function trim;
 

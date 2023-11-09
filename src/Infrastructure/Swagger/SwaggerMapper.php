@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Swagger;
+namespace Nuvemshop\CustomFields\Infrastructure\Swagger;
 
 use Exception;
 use Symfony\Component\Yaml\Yaml;

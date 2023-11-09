@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 
 final readonly class CustomFieldRestriction
 {

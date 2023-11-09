@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Elasticsearch;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Elasticsearch;
 
 use Elastic\Elasticsearch;
 

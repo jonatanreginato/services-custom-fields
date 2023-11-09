@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Repository\Product;
+namespace Nuvemshop\CustomFields\Domain\Repository\Product;
 
 use Doctrine\Persistence\ObjectRepository;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\QueryParams\Filter;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\QueryParams\Filter;
 
-/**
- * @template T of object
- */
 interface ProductFieldRepositoryInterface extends ObjectRepository
 {
     public function getCount(Filter $criteria): int;

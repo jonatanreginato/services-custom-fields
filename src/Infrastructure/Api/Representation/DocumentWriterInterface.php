@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Representation;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Representation;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Parser\ResourceInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Parser\ResourceInterface;
 
 interface DocumentWriterInterface extends BaseWriterInterface
 {

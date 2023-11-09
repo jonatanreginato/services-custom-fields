@@ -68,7 +68,7 @@ try {
 
     if ($uri === '/alive') {
         http_response_code(200);
-        exit("<h1>php-restful-api-template says: I'm alive!<h1>");
+        exit("<h1>services-custom-fields says: I'm alive!<h1>");
     }
 
     $www_root = '/var/www/public';

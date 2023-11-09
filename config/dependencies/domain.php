@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 use Doctrine\ORM\EntityManager;
-use Nuvemshop\ApiTemplate\Domain\Action;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldOptionEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\DateTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\NumericTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\OptionTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\TextTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Repository;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerType;
+use Nuvemshop\CustomFields\Domain\Action;
+use Nuvemshop\CustomFields\Domain\Entity\Order\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\CustomFieldOptionEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\DateTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\NumericTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\OptionTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\TextTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Repository;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerType;
 use Psr\Container\ContainerInterface;
 
 return [

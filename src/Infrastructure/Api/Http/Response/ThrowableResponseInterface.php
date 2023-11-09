@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\Response;
 
 use Psr\Http\Message\ResponseInterface;
 use Throwable;

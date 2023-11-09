@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Parser;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Parser;
 
 interface IdentifierInterface
 {

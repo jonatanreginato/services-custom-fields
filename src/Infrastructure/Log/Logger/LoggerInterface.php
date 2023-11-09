@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger;
 
 interface LoggerInterface
 {

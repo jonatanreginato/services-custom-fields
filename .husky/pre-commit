@@ -2,7 +2,7 @@
 
 . "$(dirname "$0")/_/husky.sh"
 
-MAIN_CONTAINER_NAME="php-restful-api-template"
+MAIN_CONTAINER_NAME="services-custom-fields"
 RUNNING_CONTAINER=$(docker ps --filter name=${MAIN_CONTAINER_NAME} -aq)
 
 if [ ! "$RUNNING_CONTAINER" ]; then

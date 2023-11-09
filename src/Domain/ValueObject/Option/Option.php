@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\Option;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\Option;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomField;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldUuid;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldUuid;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
 
 final readonly class Option implements AggregateInterface
 {

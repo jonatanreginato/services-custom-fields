@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Handler\Token\V1;
+namespace Nuvemshop\CustomFields\Application\Api\Handler\Token\V1;
 
 use Laminas\Diactoros\Response\JsonResponse;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\HandlerInterface;
-use Nuvemshop\ApiTemplate\Domain\Exception\JwtException;
-use Nuvemshop\ApiTemplate\Domain\Exception\TokensException;
+use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
+use Nuvemshop\CustomFields\Domain\Exception\JwtException;
+use Nuvemshop\CustomFields\Domain\Exception\TokensException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

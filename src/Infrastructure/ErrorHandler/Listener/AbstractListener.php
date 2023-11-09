@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener;
+namespace Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Listener;
 
 use Monolog;
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\RequestIdMiddleware;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Throwable;

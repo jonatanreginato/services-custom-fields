@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Cors;
+namespace Nuvemshop\CustomFields\Infrastructure\Cors;
 
 use DomainException;
 use Throwable;

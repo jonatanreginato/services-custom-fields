@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action;
+namespace Nuvemshop\CustomFields\Domain\Action;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\PaginatedDataInterface;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\PaginatedDataInterface;
 
 abstract class AbstractSearcherAction extends AbstractAction
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\Factory;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger\Factory;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Processor\PsrLogMessageProcessor;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Formatter\ConsoleFormatter;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Formatter\ConsoleFormatter;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 
 class ConsoleLoggerFactory
 {

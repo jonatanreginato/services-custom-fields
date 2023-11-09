@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Schema;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Schema;
 
 use function assert;
 

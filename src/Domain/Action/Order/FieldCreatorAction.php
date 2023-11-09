@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
+namespace Nuvemshop\CustomFields\Domain\Action\Order;
 
 use DateTime;
-use Nuvemshop\ApiTemplate\Domain\Action\AbstractCreatorAction;
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldEntity;
-use Nuvemshop\ApiTemplate\Domain\Exception\DuplicatedCustomFieldException;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomField;
+use Nuvemshop\CustomFields\Domain\Action\AbstractCreatorAction;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\Order\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Exception\DuplicatedCustomFieldException;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
 
 class FieldCreatorAction extends AbstractCreatorAction
 {

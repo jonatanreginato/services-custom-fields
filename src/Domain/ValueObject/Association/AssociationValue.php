@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\Association;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\Association;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\StringType;
+use Nuvemshop\CustomFields\Domain\ValueObject\StringType;
 
 final readonly class AssociationValue extends StringType
 {

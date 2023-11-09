@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Exception\InvalidUuidStringException;
-use Nuvemshop\ApiTemplate\Infrastructure\Types\Uuid;
+use Nuvemshop\CustomFields\Infrastructure\Exception\InvalidUuidStringException;
+use Nuvemshop\CustomFields\Infrastructure\Types\Uuid;
 
 final class CustomFieldUuid
 {

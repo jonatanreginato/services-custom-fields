@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Encoder;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Parser\Parser;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\SchemaContainerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Settings\ApiSettingsInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Parser\Parser;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\SchemaContainerInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Settings\ApiSettingsInterface;
 use Psr\Container\ContainerInterface;
 
 class EncoderFactory

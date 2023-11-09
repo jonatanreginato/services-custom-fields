@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject;
+namespace Nuvemshop\CustomFields\Domain\ValueObject;
 
 interface DescriptionInterface
 {

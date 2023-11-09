@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Validation\Parser;
+namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Captures\CaptureAggregator;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Captures\CaptureAggregatorInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorAggregator;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorAggregatorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Captures\CaptureAggregator;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Captures\CaptureAggregatorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregator;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregatorInterface;
 use Psr\Container\ContainerInterface;
 
 class ParserFactory implements ParserFactoryInterface

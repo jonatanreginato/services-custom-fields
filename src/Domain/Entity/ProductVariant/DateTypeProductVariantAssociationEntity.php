@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\ProductVariant;
+namespace Nuvemshop\CustomFields\Domain\Entity\ProductVariant;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\DateTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\DateTypeAssociationEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\DateTypeProductVariantAssociationRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\DateTypeProductVariantAssociationRepository")
  * @ORM\Table(name="metafield_date_resource_product_variants")
  */
 class DateTypeProductVariantAssociationEntity extends DateTypeAssociationEntity

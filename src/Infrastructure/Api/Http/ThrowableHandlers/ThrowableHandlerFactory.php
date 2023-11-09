@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Settings\ApiSettingsInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerType;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Settings\ApiSettingsInterface;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerType;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 

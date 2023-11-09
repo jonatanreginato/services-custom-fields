@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\QueryParams;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\QueryParams;
 
-use Nuvemshop\ApiTemplate\AbstractUnitTestCase;
-use Nuvemshop\ApiTemplate\Domain\Entity\UserEntity;
-use Nuvemshop\ApiTemplate\UnitTestException;
+use Nuvemshop\CustomFields\AbstractUnitTestCase;
+use Nuvemshop\CustomFields\Domain\Entity\UserEntity;
+use Nuvemshop\CustomFields\UnitTestException;
 use ReflectionClass;
 use Throwable;
 

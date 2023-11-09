@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Repository\Category;
+namespace Nuvemshop\CustomFields\Domain\Repository\Category;
 
-use Nuvemshop\ApiTemplate\Domain\Repository\OptionRepositoryInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\AbstractRepository;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
+use Nuvemshop\CustomFields\Domain\Repository\OptionRepositoryInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\AbstractRepository;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
 
 class DateTypeCategoryAssociationRepository extends AbstractRepository implements OptionRepositoryInterface
 {

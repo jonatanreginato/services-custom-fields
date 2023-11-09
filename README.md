@@ -1,4 +1,4 @@
-# PHP Restful API template
+# Services Custom Fields
 
 [![Technology][php-image]][php-url]
 [![Technology][mezzio-image]][mezzio-url]
@@ -39,11 +39,13 @@
 
 [elastic-image]: https://img.shields.io/badge/elastic_stack-005571?style=for-the-badge&logo=elasticstack&logoColor=white
 
-A RESTful API template built with PHP 8.2 driven by [Mezzio framework][mezzio-url].
+Application developed to manage custom fields for various Nuvemshop (Tiendanube) business domains.
+A custom field allows the store owner/merchant to expand their experience and control their own business through personalized and unique custom fields for orders, products, product variants, categories or customers.
+This is an REST API built with PHP 8.2 driven by [Mezzio framework][mezzio-url], using the [PSR-7][psr7-url] and [PSR-15][psr7-url] specifications.
 
 **Índice**
 
-* [PHP Restful API template](#php-restful-api-template)
+* [services-custom-fields](#services-custom-fields)
     * [Team](#team)
     * [Resources](#resources)
     * [Requirements](#requirements)
@@ -65,8 +67,7 @@ A RESTful API template built with PHP 8.2 driven by [Mezzio framework][mezzio-ur
 
 * [NGINX](https://www.nginx.com/) — High performance load balancer, web server and reverse proxy.
 
-* [PHP](https://www.php.net/) — A popular general-purpose scripting language that is especially suited to web
-  development.
+* [PHP](https://www.php.net/) — A popular general-purpose scripting language that is especially suited to web development.
 
 * [MySQL](https://www.mysql.com/) — The world's most popular open source database.
 
@@ -77,8 +78,7 @@ A RESTful API template built with PHP 8.2 driven by [Mezzio framework][mezzio-ur
 
 ## Development environment setup
 
-The application provides a [`compose.yaml`](compose.yaml) for use
-with [Docker Compose](https://docs.docker.com/compose/).
+The application provides a [`compose.yaml`](compose.yaml) for use with [Docker Compose](https://docs.docker.com/compose/).
 
 Build and launch the images by running the script:
 
@@ -88,12 +88,11 @@ $ sudo ./bin/runenv.sh
 
 The following services will be performed:
 
-+ **php-restful-api-template-nginx**: image: nginx:alpine
-+ **php-restful-api-template-php**: image: php:8.2.7-fpm-alpine
-+ **php-restful-api-template-elk**: image: sebp/elk:latest
++ **services-custom-fields-nginx**: image: nginx:alpine
++ **services-custom-fields-php**: image: php:8.2.7-fpm-alpine
++ **services-custom-fields-elk**: image: sebp/elk:latest
 
-After the image provisioning confirmation message, you can visit http://localhost:8181 (HTTP/HTTP1.1)
-or http://localhost:8282 (HTTPS/ HTTP2.0) to test the environment setup.
+After the image provisioning confirmation message, you can visit http://localhost:8181 (HTTP/HTTP1.1) or http://localhost:8282 (HTTPS/ HTTP2.0) to test the environment setup.
 
 If everything went well, voilà, you are ready to use the application!
 
@@ -113,7 +112,7 @@ If everything went well, voilà, you are ready to use the application!
 
 ## Versioning
 
-For available versions, access [link](https://github.com/jonatanreginato/php-restful-api-template/releases).
+For available versions, access [link](https://github.com/jonatanreginato/services-custom-fields/releases).
 
 ## API documentation
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener;
+namespace Nuvemshop\CustomFields\Infrastructure\ErrorHandler\Listener;
 
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 use Throwable;
 
 class FileListenerFactory implements FactoryInterface

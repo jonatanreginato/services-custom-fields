@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Representation;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Representation;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Schema\DocumentInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Schema\DocumentInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
 
 use function array_filter;
 

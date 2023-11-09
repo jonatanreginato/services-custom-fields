@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 
 use InvalidArgumentException;
-use Nuvemshop\ApiTemplate\Domain\Enum\OwnerResourceEnum;
+use Nuvemshop\CustomFields\Domain\Enum\OwnerResourceEnum;
 
 final class CustomFieldOwnerResource
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
 
 final readonly class CustomFieldStore extends IdentifierType
 {

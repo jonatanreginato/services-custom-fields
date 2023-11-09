@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Order;
+namespace Nuvemshop\CustomFields\Domain\Entity\Order;
 
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\Table;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\NumericTypeAssociationEntity as BaseNumericTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\NumericTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\NumericTypeAssociationEntity as BaseNumericTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Repository\Order\NumericTypeAssociationRepository;
 
 #[Entity(repositoryClass: NumericTypeAssociationRepository::class)]
 #[Table(name: 'metafield_numeric_resource_orders')]

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\CustomField;
 
 use InvalidArgumentException;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\StringType;
+use Nuvemshop\CustomFields\Domain\ValueObject\StringType;
 
 final readonly class CustomFieldDescription extends StringType
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\ProductVariant;
+namespace Nuvemshop\CustomFields\Domain\Entity\ProductVariant;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\NumericTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\NumericTypeAssociationEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\NumericTypeProductVariantAssociationRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\NumericTypeProductVariantAssociationRepository")
  * @ORM\Table(name="metafield_numeric_resource_product_variants")
  */
 class NumericTypeProductVariantAssociationEntity extends NumericTypeAssociationEntity

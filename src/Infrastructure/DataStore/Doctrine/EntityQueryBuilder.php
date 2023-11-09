@@ -1,12 +1,12 @@
 <?php
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Composite;
 use Doctrine\ORM\QueryBuilder;
-use Nuvemshop\ApiTemplate\Application\Api\Query\FilterParameterInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
+use Nuvemshop\CustomFields\Application\Api\Query\FilterParameterInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
 
 class EntityQueryBuilder extends QueryBuilder
 {

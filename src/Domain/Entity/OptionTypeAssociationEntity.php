@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity;
+namespace Nuvemshop\CustomFields\Domain\Entity;
 
 abstract class OptionTypeAssociationEntity extends AssociationEntity implements OptionTypeAssociationEntityInterface
 {

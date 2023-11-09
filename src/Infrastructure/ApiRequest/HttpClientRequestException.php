@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\ApiRequest;
+namespace Nuvemshop\CustomFields\Infrastructure\ApiRequest;
 
 use Exception;
-use Nuvemshop\ApiTemplate\Infrastructure\Exception\JsonProcessException;
+use Nuvemshop\CustomFields\Infrastructure\Exception\JsonProcessException;
 use Throwable;
 
 class HttpClientRequestException extends Exception

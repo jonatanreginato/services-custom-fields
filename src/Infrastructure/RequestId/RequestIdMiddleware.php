@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\RequestId;
+namespace Nuvemshop\CustomFields\Infrastructure\RequestId;
 
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\Exception\NotGenerated;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\Exception\NotGenerated;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\RequestId;
+namespace Nuvemshop\CustomFields\Infrastructure\RequestId;
 
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\Exception\InvalidRequestId;
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\Exception\MissingRequestId;
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\Generator\GeneratorInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\OverridePolicy\OverridePolicyInterface;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\Exception\InvalidRequestId;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\Exception\MissingRequestId;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\Generator\GeneratorInterface;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\OverridePolicy\OverridePolicyInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 final class RequestIdProvider implements RequestIdProviderInterface

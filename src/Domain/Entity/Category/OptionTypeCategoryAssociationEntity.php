@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Category;
+namespace Nuvemshop\CustomFields\Domain\Entity\Category;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionTypeAssociationEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\OptionTypeCategoryAssociationRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\OptionTypeCategoryAssociationRepository")
  * @ORM\Table(name="metafield_option_resource_categories")
  */
 class OptionTypeCategoryAssociationEntity extends OptionTypeAssociationEntity

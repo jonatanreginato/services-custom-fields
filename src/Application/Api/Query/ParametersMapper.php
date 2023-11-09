@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Query;
+namespace Nuvemshop\CustomFields\Application\Api\Query;
 
-use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\QueryParserInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Repository;
+use Nuvemshop\CustomFields\Application\Api\Validation\Parser\QueryParserInterface;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Repository;
 
 use function assert;
 use function is_string;

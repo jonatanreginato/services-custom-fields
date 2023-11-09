@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
+namespace Nuvemshop\CustomFields\Domain\Action\Order;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\AssociationEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldEntity;
-use Nuvemshop\ApiTemplate\Domain\Enum\ValueTypeEnum;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\CustomFieldRepositoryInterface;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\DateTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\NumericTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\OptionTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\TextTypeAssociationRepository;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\Association\Association;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Repository;
-use Nuvemshop\ApiTemplate\Infrastructure\Exception\PersistenceException;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Domain\Entity\AssociationEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\Order\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Enum\ValueTypeEnum;
+use Nuvemshop\CustomFields\Domain\Repository\Order\CustomFieldRepositoryInterface;
+use Nuvemshop\CustomFields\Domain\Repository\Order\DateTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Repository\Order\NumericTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Repository\Order\OptionTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Repository\Order\TextTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\Association\Association;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Repository;
+use Nuvemshop\CustomFields\Infrastructure\Exception\PersistenceException;
+use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
 use Throwable;
 
 class AssociationDeleterAction

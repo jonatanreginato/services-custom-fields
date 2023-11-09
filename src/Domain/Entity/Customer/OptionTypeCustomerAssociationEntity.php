@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Customer;
+namespace Nuvemshop\CustomFields\Domain\Entity\Customer;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionTypeAssociationEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\OptionTypeCustomerAssociationRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\OptionTypeCustomerAssociationRepository")
  * @ORM\Table(name="metafield_option_resource_customers")
  */
 class OptionTypeCustomerAssociationEntity extends OptionTypeAssociationEntity

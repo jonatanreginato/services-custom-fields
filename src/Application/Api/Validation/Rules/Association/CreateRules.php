@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Validation\Rules\Association;
+namespace Nuvemshop\CustomFields\Application\Api\Validation\Rules\Association;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Rules\BodyRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\BodyRulesAggregatorInterface;
 
 final readonly class CreateRules implements BodyRulesAggregatorInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
+namespace Nuvemshop\CustomFields\Domain\Action\Order;
 
-use Nuvemshop\ApiTemplate\Domain\Action\AbstractSearcherAction;
+use Nuvemshop\CustomFields\Domain\Action\AbstractSearcherAction;
 
 class AssociationSearcherAction extends AbstractSearcherAction
 {

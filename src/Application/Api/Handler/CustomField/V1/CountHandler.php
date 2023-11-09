@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Handler\CustomField\V1;
+namespace Nuvemshop\CustomFields\Application\Api\Handler\CustomField\V1;
 
 use Laminas\Diactoros\Response\JsonResponse;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\HandlerInterface;
-use Nuvemshop\ApiTemplate\Domain\Action\CounterAction;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
+use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
+use Nuvemshop\CustomFields\Domain\Action\CounterAction;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

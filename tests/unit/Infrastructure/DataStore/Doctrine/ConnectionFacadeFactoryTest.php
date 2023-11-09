@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
-use Nuvemshop\ApiTemplate\AbstractUnitTestCase;
-use Nuvemshop\ApiTemplate\ContainerInterfaceMock;
+use Nuvemshop\CustomFields\AbstractUnitTestCase;
+use Nuvemshop\CustomFields\ContainerInterfaceMock;
 use Psr\Container\ContainerInterface;
 use Throwable;
 

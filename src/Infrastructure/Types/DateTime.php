@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Types;
+namespace Nuvemshop\CustomFields\Infrastructure\Types;
 
 use DateTimeZone;
-use Nuvemshop\ApiTemplate\Infrastructure\Exception\InvalidDateTimeException;
+use Nuvemshop\CustomFields\Infrastructure\Exception\InvalidDateTimeException;
 use Throwable;
 
 final class DateTime extends \DateTime

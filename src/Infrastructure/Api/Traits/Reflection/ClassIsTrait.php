@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Traits\Reflection;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Traits\Reflection;
 
 use function array_key_exists;
 use function assert;

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Repository\Order;
+namespace Nuvemshop\CustomFields\Domain\Repository\Order;
 
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldOptionEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\DateTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\NumericTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\OptionTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\TextTypeAssociationEntity;
-use Nuvemshop\ApiTemplate\Domain\Enum\ValueTypeEnum;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomFieldUuid;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\IdentifierType;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\AbstractRepository;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\PaginatedData;
+use Nuvemshop\CustomFields\Domain\Entity\Order\CustomFieldOptionEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\DateTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\NumericTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\OptionTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Entity\Order\TextTypeAssociationEntity;
+use Nuvemshop\CustomFields\Domain\Enum\ValueTypeEnum;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldUuid;
+use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\AbstractRepository;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\PaginatedData;
 
 class CustomFieldRepository extends AbstractRepository implements CustomFieldRepositoryInterface
 {

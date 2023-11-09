@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Cors;
+namespace Nuvemshop\CustomFields\Infrastructure\Cors;
 
-use Nuvemshop\ApiTemplate\AbstractUnitTestCase;
-use Nuvemshop\ApiTemplate\ContainerInterfaceMock;
+use Nuvemshop\CustomFields\AbstractUnitTestCase;
+use Nuvemshop\CustomFields\ContainerInterfaceMock;
 use Psr\Container\ContainerInterface;
 use Throwable;
 

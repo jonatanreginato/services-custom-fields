@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Enum;
+namespace Nuvemshop\CustomFields\Domain\Enum;
 
 use DomainException;
 use InvalidArgumentException;

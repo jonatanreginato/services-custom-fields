@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 use Mezzio\Application;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\CustomField\V1 as CustomField;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\Order\V1 as Order;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderField;
-use Nuvemshop\ApiTemplate\Application\Api\Handler\Token\V1 as Token;
-use Nuvemshop\ApiTemplate\Application\Web;
+use Nuvemshop\CustomFields\Application\Api\Handler\CustomField\V1 as CustomField;
+use Nuvemshop\CustomFields\Application\Api\Handler\Order\V1 as Order;
+use Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1 as OrderField;
+use Nuvemshop\CustomFields\Application\Api\Handler\Token\V1 as Token;
+use Nuvemshop\CustomFields\Application\Web;
 
 const UUID           = '/{uuid:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}}';
 const ID             = '/{id:\d+}';

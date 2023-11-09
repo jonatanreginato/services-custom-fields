@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Validation\Parser;
+namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
 use Generator;
-use Nuvemshop\ApiTemplate\Application\Api\Exceptions\MissingStoreIdException;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Exceptions\ApiInvalidQueryParametersException;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\Response\ApiResponse;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorAggregatorInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorCodes;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ErrorMessages;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\SimpleError;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Rules\QueryRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Exceptions\MissingStoreIdException;
+use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidQueryParametersException;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ApiResponse;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregatorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCodes;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorMessages;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\SimpleError;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\QueryRulesAggregatorInterface;
 
 use function in_array;
 use function is_string;

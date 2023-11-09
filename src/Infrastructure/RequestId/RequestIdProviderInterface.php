@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\RequestId;
+namespace Nuvemshop\CustomFields\Infrastructure\RequestId;
 
 interface RequestIdProviderInterface
 {

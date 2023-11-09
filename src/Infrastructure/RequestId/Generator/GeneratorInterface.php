@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\RequestId\Generator;
+namespace Nuvemshop\CustomFields\Infrastructure\RequestId\Generator;
 
 interface GeneratorInterface
 {

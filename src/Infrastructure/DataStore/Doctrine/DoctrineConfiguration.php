@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\Mapping\Driver\AttributeDriver;
@@ -31,7 +31,7 @@ class DoctrineConfiguration
 
         $this->config = new Configuration();
         $this->config->setProxyDir(APP_ROOT . '/cache/proxies');
-        $this->config->setProxyNamespace('Nuvemshop\ApiTemplate\Domain\Entity');
+        $this->config->setProxyNamespace('Nuvemshop\CustomFields\Domain\Entity');
         $this->config->setAutoGenerateProxyClasses(true);
         $this->config->setMetadataDriverImpl(new AttributeDriver($doctrineConfig['entitiesPath'], true));
         $this->config->setNamingStrategy(new UnderscoreNamingStrategy());

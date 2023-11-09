@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Settings;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Settings;
 
 interface ApiSettingsInterface
 {

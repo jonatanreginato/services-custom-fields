@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity;
+namespace Nuvemshop\CustomFields\Domain\Entity;
 
 interface OptionEntityInterface extends EntityInterface
 {

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\ProductVariant;
+namespace Nuvemshop\CustomFields\Domain\Entity\ProductVariant;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Nuvemshop\ApiTemplate\Domain\Repository\ProductVariantFieldRepository")
+ * @ORM\Entity(repositoryClass="Nuvemshop\CustomFields\Domain\Repository\ProductVariantFieldRepository")
  * @ORM\Table(name="metafield_product_variants")
  */
 class ProductVariantFieldEntity extends CustomFieldEntity

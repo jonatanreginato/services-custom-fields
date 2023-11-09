@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Application\Api\Handler;
+namespace Nuvemshop\CustomFields\Application\Api\Handler;
 
-use Nuvemshop\ApiTemplate\Application\Api\Handler\OrderField\V1 as OrderHandler;
-use Nuvemshop\ApiTemplate\Application\Api\Query\ParametersMapper;
-use Nuvemshop\ApiTemplate\Application\Api\Query\ParametersMapperInterface;
-use Nuvemshop\ApiTemplate\Application\Api\Validation;
-use Nuvemshop\ApiTemplate\Application\Api\Validation\Parser\QueryParserInterface;
-use Nuvemshop\ApiTemplate\Domain;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
+use Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1 as OrderHandler;
+use Nuvemshop\CustomFields\Application\Api\Query\ParametersMapper;
+use Nuvemshop\CustomFields\Application\Api\Query\ParametersMapperInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation;
+use Nuvemshop\CustomFields\Application\Api\Validation\Parser\QueryParserInterface;
+use Nuvemshop\CustomFields\Domain;
+use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 

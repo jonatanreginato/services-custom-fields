@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity;
+namespace Nuvemshop\CustomFields\Domain\Entity;
 
 use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
-use Nuvemshop\ApiTemplate\Domain\Entity\Order\CustomFieldEntity;
-use Nuvemshop\ApiTemplate\Domain\Schema\AssociationSchema;
+use Nuvemshop\CustomFields\Domain\Entity\Order\CustomFieldEntity;
+use Nuvemshop\CustomFields\Domain\Schema\AssociationSchema;
 
 abstract class AssociationEntity implements AssociationEntityInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Cors;
+namespace Nuvemshop\CustomFields\Infrastructure\Cors;
 
-use Nuvemshop\ApiTemplate\AbstractUnitTestCase;
+use Nuvemshop\CustomFields\AbstractUnitTestCase;
 
 class CorsMiddlewareExceptionTest extends AbstractUnitTestCase
 {

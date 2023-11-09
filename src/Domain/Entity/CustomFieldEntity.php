@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity;
+namespace Nuvemshop\CustomFields\Domain\Entity;
 
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,10 +10,10 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\PersistentCollection;
-use Nuvemshop\ApiTemplate\Domain\Enum\ValueTypeEnum;
-use Nuvemshop\ApiTemplate\Domain\Schema\CustomFieldSchema;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomField;
+use Nuvemshop\CustomFields\Domain\Enum\ValueTypeEnum;
+use Nuvemshop\CustomFields\Domain\Schema\CustomFieldSchema;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
 
 abstract class CustomFieldEntity implements CustomFieldEntityInterface
 {

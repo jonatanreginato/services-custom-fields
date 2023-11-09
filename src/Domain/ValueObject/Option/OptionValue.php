@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\ValueObject\Option;
+namespace Nuvemshop\CustomFields\Domain\ValueObject\Option;
 
-use Nuvemshop\ApiTemplate\Domain\ValueObject\StringType;
+use Nuvemshop\CustomFields\Domain\ValueObject\StringType;
 
 final readonly class OptionValue extends StringType
 {

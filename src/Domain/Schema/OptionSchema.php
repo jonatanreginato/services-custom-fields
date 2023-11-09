@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Schema;
+namespace Nuvemshop\CustomFields\Domain\Schema;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionEntityInterface;
 
 class OptionSchema extends AbstractSchema
 {

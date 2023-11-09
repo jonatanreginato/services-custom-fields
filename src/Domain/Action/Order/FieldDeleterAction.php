@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Action\Order;
+namespace Nuvemshop\CustomFields\Domain\Action\Order;
 
 use DateTime;
-use Nuvemshop\ApiTemplate\Domain\Action\AbstractDeleterAction;
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\CustomField\CustomField;
+use Nuvemshop\CustomFields\Domain\Action\AbstractDeleterAction;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
 
 class FieldDeleterAction extends AbstractDeleterAction
 {

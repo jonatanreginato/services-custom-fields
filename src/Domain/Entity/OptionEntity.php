@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity;
+namespace Nuvemshop\CustomFields\Domain\Entity;
 
 use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
-use Nuvemshop\ApiTemplate\Domain\Schema\OptionSchema;
+use Nuvemshop\CustomFields\Domain\Schema\OptionSchema;
 
 abstract class OptionEntity implements OptionEntityInterface
 {

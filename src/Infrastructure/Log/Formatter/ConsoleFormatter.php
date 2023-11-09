@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Formatter;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Formatter;
 
 use Monolog\Formatter\FormatterInterface;
 use Monolog\LogRecord;

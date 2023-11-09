@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Middleware;
+namespace Nuvemshop\CustomFields\Infrastructure\Log\Middleware;
 
 use Monolog\Logger;
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Exception\JsonProcessException;
-use Nuvemshop\ApiTemplate\Infrastructure\RequestId\RequestIdMiddleware;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Throwable;
 
 class LoggerMiddleware implements MiddlewareInterface
 {
@@ -26,17 +24,13 @@ class LoggerMiddleware implements MiddlewareInterface
         $method  = $request->getMethod();
         $version = $request->getProtocolVersion();
 
-        try {
-            $token = json_encode([
-                'iss' => $request->getAttribute('token')['iss'] ?? null,
-                'exp' => $request->getAttribute('token')['exp'] ?? null,
-                'sub' => $request->getAttribute('token')['sub'] ?? null,
-                'aud' => $request->getAttribute('token')['aud'] ?? null,
-                'iat' => $request->getAttribute('token')['iat'] ?? null,
-            ], JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-        } catch (Throwable $e) {
-            throw new JsonProcessException($e->getMessage());
-        }
+        $token = [
+            'iss' => $request->getAttribute('token')['iss'] ?? null,
+            'exp' => $request->getAttribute('token')['exp'] ?? null,
+            'sub' => $request->getAttribute('token')['sub'] ?? null,
+            'aud' => $request->getAttribute('token')['aud'] ?? null,
+            'iat' => $request->getAttribute('token')['iat'] ?? null,
+        ];
 
         $headers = $request->getHeaders();
         unset($headers['authorization']);
@@ -46,10 +40,11 @@ class LoggerMiddleware implements MiddlewareInterface
             $this->logger->info("$method $path HTTP/$version", [
                 'context'    => 'http.request',
                 'url'        => (string)$uri,
+                'store_id'   => $request->getAttribute('token')['sub'] ?? null,
                 'request_id' => $request->getAttribute(RequestIdMiddleware::ATTRIBUTE_NAME),
                 'request'    => [
                     'headers' => $headers,
-                    'body'    => $request->getBody()->getContents(),
+                    'body'    => json_decode((string)$request->getBody(), true),
                 ],
             ]);
         }
@@ -59,14 +54,12 @@ class LoggerMiddleware implements MiddlewareInterface
         if ($path !== '/alive') {
             $statusCode     = $response->getStatusCode();
             $responseLogger = [$this->logger, $statusCode < 399 ? 'info' : 'error'];
-            $body           = $response->getBody();
-            $contents       = ($body->isReadable() && $body->getSize() < 5000)
-                ? $body->getContents()
-                : 'Resposta muito longa';
+            $contents       = json_decode((string)$request->getBody(), true);
 
             $responseLogger("HTTP/$version $statusCode $path", [
                 'context'    => 'http.response',
                 'url'        => (string)$request->getUri(),
+                'store_id'   => $request->getAttribute('token')['sub'] ?? null,
                 'request_id' => $request->getAttribute(RequestIdMiddleware::ATTRIBUTE_NAME),
                 'response'   => [
                     'status_code' => $response->getStatusCode(),

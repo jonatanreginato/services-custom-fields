@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Domain\Entity\Order;
+namespace Nuvemshop\CustomFields\Domain\Entity\Order;
 
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\Table;
-use Nuvemshop\ApiTemplate\Domain\Entity\CustomFieldEntityInterface;
-use Nuvemshop\ApiTemplate\Domain\Entity\OptionEntity as BaseCustomFieldOptionEntity;
-use Nuvemshop\ApiTemplate\Domain\Repository\Order\OptionRepository;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\AggregateInterface;
-use Nuvemshop\ApiTemplate\Domain\ValueObject\Option\Option;
+use Nuvemshop\CustomFields\Domain\Entity\CustomFieldEntityInterface;
+use Nuvemshop\CustomFields\Domain\Entity\OptionEntity as BaseCustomFieldOptionEntity;
+use Nuvemshop\CustomFields\Domain\Repository\Order\OptionRepository;
+use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
+use Nuvemshop\CustomFields\Domain\ValueObject\Option\Option;
 
 #[Entity(repositoryClass: OptionRepository::class)]
 #[Table(name: 'metafield_option_orders')]

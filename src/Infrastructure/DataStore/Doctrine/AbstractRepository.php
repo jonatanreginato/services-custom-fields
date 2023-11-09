@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine;
+namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine;
 
 use Closure;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
-use Nuvemshop\ApiTemplate\Domain\Entity\EntityInterface;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Traits\FilterTrait;
-use Nuvemshop\ApiTemplate\Infrastructure\DataStore\Doctrine\Traits\QueryBuilderTrait;
+use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Traits\FilterTrait;
+use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Traits\QueryBuilderTrait;
 
 abstract class AbstractRepository extends EntityRepository implements Repository
 {

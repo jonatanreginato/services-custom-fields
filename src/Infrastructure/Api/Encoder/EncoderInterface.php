@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nuvemshop\ApiTemplate\Infrastructure\Api\Encoder;
+namespace Nuvemshop\CustomFields\Infrastructure\Api\Encoder;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
+use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiErrorInterface;
 use Psr\Http\Message\UriInterface;
 
 interface EncoderInterface
