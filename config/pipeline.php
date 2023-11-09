@@ -31,15 +31,13 @@ return static function (Application $app): void {
      */
 
     // JWT Authentication Middleware
-//    if (getenv('APPLICATION_ENV') !== 'development') {
-        $app->pipe(Tuupola\Middleware\JwtAuthentication::class);
-//    }
+    $app->pipe(Tuupola\Middleware\JwtAuthentication::class);
 
     // RequestId Middleware
-//    $app->pipe(PhpMiddleware\RequestId\RequestIdMiddleware::class);
+    $app->pipe(Nuvemshop\ApiTemplate\Infrastructure\RequestId\RequestIdMiddleware::class);
 
     // Request/Response Logger Middleware
-//    $app->pipe(Nuvemshop\ApiTemplate\Infrastructure\Log\Middleware\LoggerMiddleware::class);
+    $app->pipe(Nuvemshop\ApiTemplate\Infrastructure\Log\Middleware\LoggerMiddleware::class);
 
     /**
      * Register the routing middleware in the middleware pipeline.
@@ -48,10 +46,7 @@ return static function (Application $app): void {
     $app->pipe(Mezzio\Router\Middleware\RouteMiddleware::class);
 
     // CORS Middleware
-//    $app->pipe(Tuupola\Middleware\CorsMiddleware::class);
-
-    // Accept Language Middleware
-//    $app->pipe(AcceptLanguageMiddleware::class);
+    $app->pipe(Tuupola\Middleware\CorsMiddleware::class);
 
     /**
      * The following handle routing failures for common conditions:

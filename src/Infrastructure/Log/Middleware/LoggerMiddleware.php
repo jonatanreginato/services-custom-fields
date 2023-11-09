@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Middleware;
 
-use Nuvemshop\ApiTemplate\Infrastructure\Log\Exception\JsonProcessException;
 use Monolog\Logger;
-use PhpMiddleware\RequestId\RequestIdMiddleware;
+use Nuvemshop\ApiTemplate\Infrastructure\Log\Exception\JsonProcessException;
+use Nuvemshop\ApiTemplate\Infrastructure\RequestId\RequestIdMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -43,15 +43,15 @@ class LoggerMiddleware implements MiddlewareInterface
         $headers['authorization-token'] = $token;
 
         if ($path !== '/alive') {
-            // $this->logger->info("$method $path HTTP/$version", [
-            //     'context'    => 'http.request',
-            //     'url'        => (string)$uri,
-            //     'request_id' => $request->getAttribute(RequestIdMiddleware::ATTRIBUTE_NAME),
-            //     'request'    => [
-            //         'headers' => $headers,
-            //         'body'    => $request->getBody()->getContents(),
-            //     ],
-            // ]);
+            $this->logger->info("$method $path HTTP/$version", [
+                'context'    => 'http.request',
+                'url'        => (string)$uri,
+                'request_id' => $request->getAttribute(RequestIdMiddleware::ATTRIBUTE_NAME),
+                'request'    => [
+                    'headers' => $headers,
+                    'body'    => $request->getBody()->getContents(),
+                ],
+            ]);
         }
 
         $response = $handler->handle($request);
@@ -64,15 +64,15 @@ class LoggerMiddleware implements MiddlewareInterface
                 ? $body->getContents()
                 : 'Resposta muito longa';
 
-            // $responseLogger("HTTP/$version $statusCode $path", [
-            //     'context'    => 'http.response',
-            //     'url'        => (string)$request->getUri(),
-            //     'request_id' => $request->getAttribute(RequestIdMiddleware::ATTRIBUTE_NAME),
-            //     'response'   => [
-            //         'status_code' => $response->getStatusCode(),
-            //         'body'        => $contents,
-            //     ],
-            // ]);
+            $responseLogger("HTTP/$version $statusCode $path", [
+                'context'    => 'http.response',
+                'url'        => (string)$request->getUri(),
+                'request_id' => $request->getAttribute(RequestIdMiddleware::ATTRIBUTE_NAME),
+                'response'   => [
+                    'status_code' => $response->getStatusCode(),
+                    'body'        => $contents,
+                ],
+            ]);
         }
 
         return $response;

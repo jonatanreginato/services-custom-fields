@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nuvemshop\ApiTemplate\Infrastructure\ErrorHandler\Listener;
 
 use Monolog;
-use PhpMiddleware\RequestId\RequestIdMiddleware;
+use Nuvemshop\ApiTemplate\Infrastructure\RequestId\RequestIdMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Throwable;
