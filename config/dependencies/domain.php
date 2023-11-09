@@ -20,28 +20,28 @@ return [
             Action\Order\FieldSearcherAction::class                  =>
                 static fn(ContainerInterface $container) => new Action\Order\FieldSearcherAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\OptionSearcherAction::class                 =>
                 static fn(ContainerInterface $container) => new Action\Order\OptionSearcherAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\AssociationSearcherAction::class            =>
                 static fn(ContainerInterface $container) => new Action\Order\AssociationSearcherAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\FieldCreatorAction::class                   =>
                 static fn(ContainerInterface $container) => new Action\Order\FieldCreatorAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\OptionCreatorAction::class                  =>
                 static fn(ContainerInterface $container) => new Action\Order\OptionCreatorAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(Repository\Order\OptionRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\AssociationCreatorAction::class             =>
                 static fn(ContainerInterface $container) => new Action\Order\AssociationCreatorAction(
@@ -51,17 +51,17 @@ return [
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
                     $container->get(Repository\Order\NumericTypeAssociationRepository::class),
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\FieldUpdaterAction::class                   =>
                 static fn(ContainerInterface $container) => new Action\Order\FieldUpdaterAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\OptionUpdaterAction::class                  =>
                 static fn(ContainerInterface $container) => new Action\Order\OptionUpdaterAction(
                     $container->get(Repository\Order\OptionRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\AssociationUpdaterAction::class             =>
                 static fn(ContainerInterface $container) => new Action\Order\AssociationUpdaterAction(
@@ -71,17 +71,17 @@ return [
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
                     $container->get(Repository\Order\NumericTypeAssociationRepository::class),
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\FieldDeleterAction::class                   =>
                 static fn(ContainerInterface $container) => new Action\Order\FieldDeleterAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\OptionDeleterAction::class                  =>
                 static fn(ContainerInterface $container) => new Action\Order\OptionDeleterAction(
                     $container->get(Repository\Order\OptionRepositoryInterface::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\AssociationDeleterAction::class             =>
                 static fn(ContainerInterface $container) => new Action\Order\AssociationDeleterAction(
@@ -90,7 +90,7 @@ return [
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
                     $container->get(Repository\Order\NumericTypeAssociationRepository::class),
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\Order\SearcherAction::class                       =>
                 static fn(ContainerInterface $container) => new Action\Order\SearcherAction(
@@ -98,7 +98,7 @@ return [
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
                     $container->get(Repository\Order\NumericTypeAssociationRepository::class),
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
-                    $container->get(LoggerType::ConsoleLog->name)
+                    $container->get(LoggerType::CONSOLE)
                 ),
             Action\CounterAction::class                              =>
                 static fn(ContainerInterface $container) => new Action\CounterAction(

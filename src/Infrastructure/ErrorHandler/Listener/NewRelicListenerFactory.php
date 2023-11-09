@@ -15,7 +15,7 @@ class NewRelicListenerFactory
     {
         try {
             /** @var LoggerFacade $facade */
-            $facade = $container->get(LoggerType::NewRelicLog->name);
+            $facade = $container->get(LoggerType::NEW_RELIC);
 
             return new NewRelicListener($facade->logger);
         } catch (Throwable $e) {

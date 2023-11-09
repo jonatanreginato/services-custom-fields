@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nuvemshop\ApiTemplate\Infrastructure\DataStore\Elasticsearch;
 
-use Elasticsearch\Client as ElasticsearchClient;
+use Elastic\Elasticsearch\Client as ElasticsearchClient;
 use Psr\Container\ContainerInterface;
 use Throwable;
 

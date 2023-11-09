@@ -6,11 +6,9 @@ namespace Nuvemshop\ApiTemplate\Infrastructure\Log\Logger;
 
 enum LoggerType
 {
-    case ConsoleLog;
-    case FileLog;
-    case ElasticsearchLog;
-    case OpenSearchLog;
-    case NewRelicLog;
-    case SlackNotification;
-    case SlackWebhookNotification;
+    public const CONSOLE       = 'CONSOLE_LOG';
+    public const FILE          = 'FILE_LOG';
+    public const ELASTICSEARCH = 'ELASTICSEARCH_LOG';
+    public const NEW_RELIC     = 'NEW_RELIC_LOG';
+    public const SLACK         = 'SLACK_NOTIFICATION';
 }

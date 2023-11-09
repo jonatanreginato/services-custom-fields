@@ -17,11 +17,11 @@ class ThrowableHandlerFactory
         $apiSettings = $container->get('config')['api'];
 
         $isLogEnabled = $apiSettings[ApiSettingsInterface::IS_LOG_ENABLED];
-        $isDebug = $apiSettings[ApiSettingsInterface::IS_DEBUG];
+        $isDebug      = $apiSettings[ApiSettingsInterface::IS_DEBUG];
 
         $ignoredErrorClasses = $apiSettings[ApiSettingsInterface::DO_NOT_LOG_EXCEPTIONS_LIST];
-        $codeForUnexpected = $apiSettings[ApiSettingsInterface::HTTP_CODE_FOR_UNEXPECTED_THROWABLE];
-        $throwableConverter = $apiSettings[ApiSettingsInterface::JSON_API_EXCEPTION_CONVERTER] ?? null;
+        $codeForUnexpected   = $apiSettings[ApiSettingsInterface::HTTP_CODE_FOR_UNEXPECTED_THROWABLE];
+        $throwableConverter  = $apiSettings[ApiSettingsInterface::JSON_API_EXCEPTION_CONVERTER] ?? null;
 
         /** @var EncoderInterface $encoder */
         $encoder = $container->get(EncoderInterface::class);
@@ -34,9 +34,12 @@ class ThrowableHandlerFactory
             $throwableConverter
         );
 
-        if ($isLogEnabled && $container->has(LoggerType::ConsoleLog->name)) {
+        if ($isLogEnabled && $container->has(LoggerType::FILE)) {
             /** @var LoggerInterface $logger */
-            $logger = $container->get(LoggerType::ConsoleLog->name)->logger;
+            $logger = $container->build(
+                LoggerType::FILE,
+                $container->get('config')['log']['file_throwable_handler']['options']
+            )->logger;
             $handler->setLogger($logger);
         }
 

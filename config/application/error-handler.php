@@ -10,7 +10,7 @@ return match (getenv('APPLICATION_ENV')) {
     'development' => [
         'error_handler' => [
             'listeners' => [
-//                ElasticsearchListener::class,
+                ElasticsearchListener::class,
                 FileListener::class,
             ],
         ],

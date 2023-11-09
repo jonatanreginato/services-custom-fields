@@ -15,7 +15,7 @@ class FileListenerFactory implements FactoryInterface
         ContainerInterface $container,
         $requestedName,
         ?array $options = null
-    ): ElasticsearchListener {
+    ): FileListener {
         try {
             /** @var LoggerFacade $facade */
             $facade = $container->build(
@@ -23,7 +23,7 @@ class FileListenerFactory implements FactoryInterface
                 $container->get('config')['log']['file_error_listener']['options']
             );
 
-            return new ElasticsearchListener($facade->logger);
+            return new FileListener($facade->logger);
         } catch (Throwable $e) {
             throw new ErrorListenerException($e->getMessage(), $e->getCode(), $e->getPrevious());
         }
