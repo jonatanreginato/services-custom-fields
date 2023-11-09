@@ -12,7 +12,7 @@ class ElasticsearchFacade
 
     public function __construct(array $config)
     {
-        $hosts = [$config['host']];
+        $hosts = [$config['host'] . ':' . $config['port']];
 
         $builder = Elasticsearch\ClientBuilder::create()
             ->setHosts($hosts)

@@ -7,11 +7,9 @@ use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerType;
 return [
     'log' => [
         'http_messages'                => [
-//            'logger'  => LoggerType::ELASTICSEARCH,
-            'logger'  => LoggerType::FILE,
+            'logger'  => LoggerType::ELASTICSEARCH,
             'options' => [
-//                'index' => getenv('ELASTICSEARCH_HTTP_INDEX'),
-                'path' => '/var/www/log/http_messages.log',
+                'index' => getenv('ELASTICSEARCH_HTTP_INDEX'),
             ],
         ],
         'elasticsearch_error_listener' => [

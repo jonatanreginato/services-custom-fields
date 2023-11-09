@@ -79,9 +79,6 @@ return [
             'scheme' => strtolower((string)getenv('ELASTICSEARCH_SCHEME')),
             'host'   => getenv('ELASTICSEARCH_HOST'),
             'port'   => getenv('ELASTICSEARCH_PORT'),
-            'region' => getenv('ELASTICSEARCH_REGION'),
-            'key'    => getenv('ELASTICSEARCH_KEY'),
-            'secret' => getenv('ELASTICSEARCH_SECRET'),
         ],
     ],
 ];

@@ -13,8 +13,6 @@ services :
     volumes :
       - "./environment/nginx/log:/var/log/nginx"
     command: [nginx-debug, '-g', 'daemon off;']
-    networks:
-      - elk-php
   php :
     build :
       context : .
@@ -25,33 +23,25 @@ services :
     volumes :
       - "./:/var/www"
       - "./environment/php/log:/var/log"
-    networks:
-      - elk-php
   elk:
     image: sebp/elk:latest
     container_name: services-custom-fields-elk
     ports:
       - "5601:5601"
       - "9200:9200"
-      - "5044:5044"
     environment:
       TZ: America/Sao_Paulo
-      ELASTICSEARCH_USER: elastic
-      ELASTICSEARCH_PASSWORD: s0m3C0mpl3xP@ssw0rd!
-      LOGSTASH_USER: elastic
-      LOGSTASH_PASSWORD: s0m3C0mpl3xP@ssw0rd!
       KIBANA_USER: kibana
       KIBANA_PASSWORD: s0m3C0mpl3xP@ssw0rd!
+      LOGSTASH_START: 0
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    volumes:
+      - "./environment/elk/log:/var/log/elasticsearch"
     ulimits:
-      nofile:
-        soft: 65536
-        hard: 65536
+      memlock:
+        soft: -1
+        hard: -1
     deploy:
       resources:
         limits:
-          memory: 4Gb
-    networks:
-      - elk-php
-networks:
-  elk-php:
-    driver: bridge
+          memory: 2g

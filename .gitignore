@@ -1,5 +1,6 @@
 .idea/
 .vscode/
+.DS_Store
 *~
 ._*
 *.bkp
@@ -22,6 +23,7 @@ cache/*
 # Docker logs e configs
 environment/nginx/log/
 environment/php/log/
+environment/elk/log/
 
 # Environment files
 environment/production*

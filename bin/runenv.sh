@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#if [ "$EUID" -ne 0 ]
-#  then echo "Please run as root"
-#  exit
-#fi
-
 echo ""
 echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Starting development environment..."
 
@@ -77,6 +72,10 @@ rm -Rf ./environment/php/log
 mkdir -m 777 ./environment/php/log
 mkdir -m 777 ./environment/php/log/php
 mkdir -m 777 ./environment/php/log/supervisor
+
+rm -Rf ./environment/elk/log
+mkdir -m 777 ./environment/elk/log
+
 echo "$(date '+%Y-%m-%d %H:%M:%S,%3N') $(tput bold)$(tput setaf 4)INFO$(tput sgr0) Cleaned logs."
 
 # Setup .env
