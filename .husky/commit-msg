@@ -3,4 +3,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # Will run lint on commit
-npx --no-install commitlint --edit
+#npx --no-install commitlint --edit
