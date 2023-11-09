@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1;
 
+use Laminas\Diactoros\Response\JsonResponse;
 use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
 use Nuvemshop\CustomFields\Application\Api\Validation\Parser\BodyParserInterface;
 use Nuvemshop\CustomFields\Domain\Action\Order\OptionCreatorAction;
+use Nuvemshop\CustomFields\Domain\Schema\OptionSchema;
 use Nuvemshop\CustomFields\Domain\ValueObject\Option\Option;
-use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -19,8 +20,7 @@ class CreateOptionHandler implements HandlerInterface
 
     public function __construct(
         private readonly BodyParserInterface $bodyParser,
-        private readonly OptionCreatorAction $action,
-        private readonly EncoderInterface $encoder
+        private readonly OptionCreatorAction $action
     ) {
     }
 
@@ -34,8 +34,8 @@ class CreateOptionHandler implements HandlerInterface
             )
         );
 
-        $entity = ($this->action)($option);
+        $entity = ($this->action)($option, OptionSchema::class);
 
-        return $this->defaultCreateResponse($entity, $request->getUri(), $this->encoder);
+        return new JsonResponse($entity, 201, [], JSON_PRETTY_PRINT);
     }
 }

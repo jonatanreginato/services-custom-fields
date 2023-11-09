@@ -6,7 +6,6 @@ namespace Nuvemshop\CustomFields\Application\Api\Handler;
 
 use Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1 as OrderHandler;
 use Nuvemshop\CustomFields\Domain;
-use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -16,10 +15,7 @@ class AbstractDeleteHandlerFactory
     public function __invoke(ContainerInterface $container, string $requestedName): RequestHandlerInterface
     {
         return new BaseHandler(
-            new $requestedName(
-                $container->get($this->selectActionClass($requestedName)),
-                $container->get(EncoderInterface::class)
-            ),
+            new $requestedName($container->get($this->selectActionClass($requestedName))),
             $container->get(ThrowableHandlerInterface::class)
         );
     }

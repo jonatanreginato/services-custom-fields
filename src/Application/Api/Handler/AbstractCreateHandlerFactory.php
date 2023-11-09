@@ -8,7 +8,6 @@ use Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1 as OrderHandler
 use Nuvemshop\CustomFields\Application\Api\Validation;
 use Nuvemshop\CustomFields\Application\Api\Validation\Parser\BodyParserInterface;
 use Nuvemshop\CustomFields\Domain;
-use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -24,8 +23,7 @@ class AbstractCreateHandlerFactory
         return new BaseHandler(
             new $requestedName(
                 $bodyParser,
-                $container->get($this->selectActionClass($requestedName)),
-                $container->get(EncoderInterface::class)
+                $container->get($this->selectActionClass($requestedName))
             ),
             $container->get(ThrowableHandlerInterface::class)
         );

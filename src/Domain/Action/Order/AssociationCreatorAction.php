@@ -19,6 +19,7 @@ use Nuvemshop\CustomFields\Domain\Repository\Order\NumericTypeAssociationReposit
 use Nuvemshop\CustomFields\Domain\Repository\Order\OptionRepository;
 use Nuvemshop\CustomFields\Domain\Repository\Order\OptionTypeAssociationRepository;
 use Nuvemshop\CustomFields\Domain\Repository\Order\TextTypeAssociationRepository;
+use Nuvemshop\CustomFields\Domain\Schema\SchemaInterface;
 use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
 use Nuvemshop\CustomFields\Domain\ValueObject\Association\Association;
 use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\Repository;
@@ -40,7 +41,7 @@ readonly class AssociationCreatorAction
     ) {
     }
 
-    public function __invoke(AggregateInterface|Association $association): EntityInterface
+    public function __invoke(AggregateInterface|Association $association, string $schemaClass): array
     {
         /** @var CustomFieldEntity $customFieldEntity */
         $customFieldEntity = $this->customFieldRepository->getByIdentifier($association->getCustomFieldUuid());
@@ -66,7 +67,10 @@ readonly class AssociationCreatorAction
             $entity->setUpdatedAt(new DateTime());
             $this->update($repository);
 
-            return $entity;
+            /** @var $schema SchemaInterface */
+            $schema = new $schemaClass($entity);
+
+            return $schema->getAttributes();
         }
 
         /** @var AssociationEntityInterface $entity */
@@ -78,7 +82,10 @@ readonly class AssociationCreatorAction
         $entity->setUpdatedAt(new DateTime());
         $this->create($repository, $entity);
 
-        return $entity;
+        /** @var $schema SchemaInterface */
+        $schema = new $schemaClass($entity);
+
+        return $schema->getAttributes();
     }
 
     private function update(Repository $repository): void

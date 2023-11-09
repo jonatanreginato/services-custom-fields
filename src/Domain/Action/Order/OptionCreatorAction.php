@@ -26,7 +26,7 @@ class OptionCreatorAction extends AbstractCreatorAction
         parent::__construct($optionRepository, $logger);
     }
 
-    public function __invoke(AggregateInterface|Option $aggregate): EntityInterface
+    public function __invoke(AggregateInterface|Option $aggregate, string $schemaClass): array
     {
         if (
             $this->repository->findOneBy([
@@ -37,7 +37,7 @@ class OptionCreatorAction extends AbstractCreatorAction
             throw new DuplicatedOptionValueException($aggregate->getValue());
         }
 
-        return parent::__invoke($aggregate);
+        return parent::__invoke($aggregate, $schemaClass);
     }
 
     protected function buildEntity(AggregateInterface|Option $aggregate): EntityInterface

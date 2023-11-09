@@ -14,7 +14,7 @@ use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
 
 class FieldCreatorAction extends AbstractCreatorAction
 {
-    public function __invoke(AggregateInterface|CustomField $aggregate): EntityInterface
+    public function __invoke(AggregateInterface|CustomField $aggregate, string $schemaClass): array
     {
         if (
             $this->repository->findOneBy([
@@ -26,7 +26,7 @@ class FieldCreatorAction extends AbstractCreatorAction
             throw new DuplicatedCustomFieldException($aggregate->getKey());
         }
 
-        return parent::__invoke($aggregate);
+        return parent::__invoke($aggregate, $schemaClass);
     }
 
     protected function buildEntity(AggregateInterface $aggregate): EntityInterface

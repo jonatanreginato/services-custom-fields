@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1;
 
+use Laminas\Diactoros\Response\JsonResponse;
 use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
 use Nuvemshop\CustomFields\Application\Api\Validation\Parser\BodyParserInterface;
 use Nuvemshop\CustomFields\Domain\Action\Order\FieldCreatorAction;
+use Nuvemshop\CustomFields\Domain\Schema\CustomFieldSchema;
 use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
-use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
 use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -19,8 +20,7 @@ class CreateFieldHandler implements HandlerInterface
 
     public function __construct(
         private readonly BodyParserInterface $bodyParser,
-        private readonly FieldCreatorAction $action,
-        private readonly EncoderInterface $encoder
+        private readonly FieldCreatorAction $action
     ) {
     }
 
@@ -35,9 +35,9 @@ class CreateFieldHandler implements HandlerInterface
             )
         );
 
-        $entity = ($this->action)($customField);
-//        $this->launchMetafieldCreatedEvent($entity);
+        $entity = ($this->action)($customField, CustomFieldSchema::class);
+        // $this->launchMetafieldCreatedEvent($entity);
 
-        return $this->defaultCreateResponse($entity, $request->getUri(), $this->encoder);
+        return new JsonResponse($entity, 201, [], JSON_PRETTY_PRINT);
     }
 }

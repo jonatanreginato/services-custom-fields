@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Nuvemshop\CustomFields\Domain\Action;
 
 use Nuvemshop\CustomFields\Domain\Entity\EntityInterface;
+use Nuvemshop\CustomFields\Domain\Schema\SchemaInterface;
 use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
 use Nuvemshop\CustomFields\Infrastructure\Exception\PersistenceException;
 use Throwable;
 
 abstract class AbstractUpdaterAction extends AbstractAction
 {
-    public function __invoke(AggregateInterface $aggregate): EntityInterface
+    public function __invoke(AggregateInterface $aggregate, string $schemaClass): array
     {
         try {
             $this->repository->beginTransaction();
@@ -24,7 +25,10 @@ abstract class AbstractUpdaterAction extends AbstractAction
             throw new PersistenceException($e->getMessage(), (int)$e->getCode(), $e->getPrevious());
         }
 
-        return $entity;
+        /** @var $schema SchemaInterface */
+        $schema = new $schemaClass($entity);
+
+        return $schema->getAttributes();
     }
 
     abstract protected function buildEntity(AggregateInterface $aggregate): EntityInterface;
