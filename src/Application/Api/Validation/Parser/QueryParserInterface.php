@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\QueryRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\QueryRulesInterface;
 
 interface QueryParserInterface extends ParserInterface
 {
     public const PARAM_FILTER = 'filter';
 
-    public function setQueryRules(QueryRulesAggregatorInterface $queryRules): void;
+    public function setQueryRules(QueryRulesInterface $queryRules): void;
 
     public function parse(?string $identity, int $storeId, array $parameters = []): void;
 

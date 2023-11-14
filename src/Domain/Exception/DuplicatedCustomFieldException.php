@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Domain\Exception;
 
-use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiException;
-use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiExceptionInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ApiError;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ApiError;
+use Nuvemshop\CustomFields\Application\Api\Validation\Exceptions\ApiException;
+use Nuvemshop\CustomFields\Application\Api\Validation\Exceptions\ApiExceptionInterface;
 
 class DuplicatedCustomFieldException extends ApiException implements ApiExceptionInterface
 {

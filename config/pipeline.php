@@ -34,10 +34,13 @@ return static function (Application $app): void {
     $app->pipe(Tuupola\Middleware\JwtAuthentication::class);
 
     // RequestId Middleware
-    $app->pipe(Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMiddleware::class);
+    $app->pipe(Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMiddlewareInterface::class);
+
+    // StoreId Middleware
+    $app->pipe(Nuvemshop\CustomFields\Infrastructure\StoreId\StoreIdMiddlewareInterface::class);
 
     // Request/Response Logger Middleware
-    $app->pipe(Nuvemshop\CustomFields\Infrastructure\Log\Middleware\LoggerMiddleware::class);
+    $app->pipe(Nuvemshop\CustomFields\Infrastructure\Log\Middleware\LoggerMiddlewareInterface::class);
 
     /**
      * Register the routing middleware in the middleware pipeline.

@@ -2,22 +2,21 @@
 
 declare(strict_types=1);
 
-use Nuvemshop\CustomFields\Application\Api\Handler\AbstractCountHandlerFactory;
 use Nuvemshop\CustomFields\Application\Api\Handler\AbstractCreateHandlerFactory;
 use Nuvemshop\CustomFields\Application\Api\Handler\AbstractDeleteHandlerFactory;
-use Nuvemshop\CustomFields\Application\Api\Handler\AbstractListDomainAssociationsHandlerFactory;
 use Nuvemshop\CustomFields\Application\Api\Handler\AbstractReadHandlerFactory;
 use Nuvemshop\CustomFields\Application\Api\Handler\AbstractUpdateHandlerFactory;
 use Nuvemshop\CustomFields\Application\Api\Handler\BaseHandler;
 use Nuvemshop\CustomFields\Application\Api\Handler\CustomField\V1 as CustomFieldHandler;
+use Nuvemshop\CustomFields\Application\Api\Handler\ListDomainAssociationsHandlerFactory;
 use Nuvemshop\CustomFields\Application\Api\Handler\Order\V1 as OrderHandler;
 use Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1 as OrderFieldHandler;
+use Nuvemshop\CustomFields\Application\Api\Handler\ThrowableHandler\ThrowableHandlerInterface;
 use Nuvemshop\CustomFields\Application\Api\Handler\Token\V1 as Token;
 use Nuvemshop\CustomFields\Application\Api\Validation;
 use Nuvemshop\CustomFields\Application\Web;
-use Nuvemshop\CustomFields\Domain;
+use Nuvemshop\CustomFields\Domain\Action\CustomFieldsCounterAction;
 use Nuvemshop\CustomFields\Infrastructure;
-use Nuvemshop\CustomFields\Infrastructure\Api\Http\ThrowableHandlers\ThrowableHandlerInterface;
 use Psr\Container\ContainerInterface;
 
 return [
@@ -78,15 +77,21 @@ return [
             OrderFieldHandler\DeleteAssociationHandler::class => AbstractDeleteHandlerFactory::class,
 
             // domain's associations
-            OrderHandler\ListOrderAssociationsHandler::class  => AbstractListDomainAssociationsHandlerFactory::class,
+            OrderHandler\ListOrderAssociationsHandler::class  => ListDomainAssociationsHandlerFactory::class,
 
             // count custom fields
-            CustomFieldHandler\CountHandler::class            => AbstractCountHandlerFactory::class,
+            CustomFieldHandler\CountHandler::class            =>
+                static fn(ContainerInterface $container) => new BaseHandler(
+                    new CustomFieldHandler\CountHandler($container->get(CustomFieldsCounterAction::class)),
+                    $container->get(ThrowableHandlerInterface::class)
+                ),
 
-            Token\TokenHandler::class => static fn(ContainerInterface $container) => new BaseHandler(
-                new Token\TokenHandler(),
-                $container->get(ThrowableHandlerInterface::class)
-            ),
+            // generate token
+            Token\TokenHandler::class                         =>
+                static fn(ContainerInterface $container) => new BaseHandler(
+                    new Token\TokenHandler(),
+                    $container->get(ThrowableHandlerInterface::class)
+                ),
         ],
     ],
 ];

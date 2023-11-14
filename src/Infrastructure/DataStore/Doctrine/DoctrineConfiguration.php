@@ -19,9 +19,10 @@ use DoctrineExtensions\Query\Mysql\Lpad;
 use DoctrineExtensions\Query\Mysql\Round;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 
-class DoctrineConfiguration
+// phpcs:ignoreFile -- this is a readonly class
+readonly class DoctrineConfiguration
 {
-    public readonly Configuration $config;
+    public Configuration $config;
 
     public function __construct(array $doctrineConfig)
     {

@@ -1,0 +1,10 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nuvemshop\CustomFields\Application\Api\Validation\Rules;
+
+interface QueryRulesInterface extends RulesInterface
+{
+    public function getAllowedFilters(): array;
+}

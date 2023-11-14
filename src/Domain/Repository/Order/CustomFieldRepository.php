@@ -14,7 +14,6 @@ use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldUuid;
 use Nuvemshop\CustomFields\Domain\ValueObject\IdentifierType;
 use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\AbstractRepository;
 use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\EntityNotFoundException;
-use Nuvemshop\CustomFields\Infrastructure\DataStore\Doctrine\PaginatedData;
 
 class CustomFieldRepository extends AbstractRepository implements CustomFieldRepositoryInterface
 {
@@ -29,7 +28,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
             ?: throw new EntityNotFoundException("Custom order field $identifier not found");
     }
 
-    public function fetchOptions(CustomFieldUuid $identifier): PaginatedData
+    public function fetchOptions(CustomFieldUuid $identifier): array
     {
         $this->createBuilder(CustomFieldOptionEntity::class, 'o');
 
@@ -40,7 +39,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
             ->andWhere('f.uuid = :uuid')
             ->setParameter('uuid', (string)$identifier);
 
-        return new PaginatedData($this->queryBuilder->getQuery()->getResult());
+        return $this->queryBuilder->getQuery()->getResult();
     }
 
     public function fetchOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed
@@ -59,7 +58,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
         return $this->queryBuilder->getQuery()->getOneOrNullResult();
     }
 
-    public function fetchAssociations(CustomFieldUuid $identifier): PaginatedData
+    public function fetchAssociations(CustomFieldUuid $identifier): array
     {
         $customField            = $this->getByIdentifier($identifier);
         $associationEntityClass = $this->getAssociationEntityClass($customField->getValueType());
@@ -83,7 +82,7 @@ class CustomFieldRepository extends AbstractRepository implements CustomFieldRep
                 ->setParameter('uuid', (string)$identifier);
         }
 
-        return new PaginatedData($this->queryBuilder->getQuery()->getResult());
+        return $this->queryBuilder->getQuery()->getResult();
     }
 
     public function fetchAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed

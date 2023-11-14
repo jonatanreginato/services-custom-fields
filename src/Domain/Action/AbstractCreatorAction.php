@@ -10,7 +10,7 @@ use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
 use Nuvemshop\CustomFields\Infrastructure\Exception\PersistenceException;
 use Throwable;
 
-abstract class AbstractCreatorAction extends AbstractAction
+abstract class AbstractCreatorAction extends AbstractAction implements CreatorActionInterface
 {
     public function __invoke(AggregateInterface $aggregate, string $schemaClass): array
     {

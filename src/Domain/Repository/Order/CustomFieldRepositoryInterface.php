@@ -15,7 +15,7 @@ interface CustomFieldRepositoryInterface
 
     public function fetchOption(CustomFieldUuid $identifier, IdentifierType $optionIdentifier): mixed;
 
-    public function fetchAssociations(CustomFieldUuid $identifier): mixed;
+    public function fetchAssociations(CustomFieldUuid $identifier): array;
 
     public function fetchAssociation(CustomFieldUuid $identifier, IdentifierType $ownerIdentifier): mixed;
 }

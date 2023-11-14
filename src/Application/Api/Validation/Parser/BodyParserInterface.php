@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\BodyRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\BodyRulesInterface;
 
 interface BodyParserInterface extends ParserInterface
 {
-    public function setBodyRules(BodyRulesAggregatorInterface $bodyRules): void;
+    public function setBodyRules(BodyRulesInterface $bodyRules): void;
 
     public function parse(string $requestBody): void;
 

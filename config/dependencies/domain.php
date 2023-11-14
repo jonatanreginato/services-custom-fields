@@ -17,54 +17,37 @@ use Psr\Container\ContainerInterface;
 return [
     'dependencies' => [
         'factories' => [
-            Action\Order\FieldSearcherAction::class                  =>
-                static fn(ContainerInterface $container) => new Action\Order\FieldSearcherAction(
+            Action\OrderField\FieldSearcherAction::class  =>
+                static fn(ContainerInterface $container) => new Action\OrderField\FieldSearcherAction(
+                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
+                    $container->build(
+                        $container->get('config')['log']['elasticsearch_logs']['logger'],
+                        $container->get('config')['log']['elasticsearch_logs']['options']
+                    ),
+                ),
+            Action\OrderField\OptionSearcherAction::class =>
+                static fn(ContainerInterface $container) => new Action\OrderField\OptionSearcherAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\OptionSearcherAction::class                 =>
-                static fn(ContainerInterface $container) => new Action\Order\OptionSearcherAction(
+            Action\OrderField\AssociationSearcherAction::class =>
+                static fn(ContainerInterface $container) => new Action\OrderField\AssociationSearcherAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\AssociationSearcherAction::class            =>
-                static fn(ContainerInterface $container) => new Action\Order\AssociationSearcherAction(
+            Action\OrderField\FieldCreatorAction::class        =>
+                static fn(ContainerInterface $container) => new Action\OrderField\FieldCreatorAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\FieldCreatorAction::class                   =>
-                static fn(ContainerInterface $container) => new Action\Order\FieldCreatorAction(
-                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::CONSOLE)
-                ),
-            Action\Order\OptionCreatorAction::class                  =>
-                static fn(ContainerInterface $container) => new Action\Order\OptionCreatorAction(
-                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(Repository\Order\OptionRepositoryInterface::class),
-                    $container->get(LoggerType::CONSOLE)
-                ),
-            Action\Order\AssociationCreatorAction::class             =>
-                static fn(ContainerInterface $container) => new Action\Order\AssociationCreatorAction(
+            Action\OrderField\OptionCreatorAction::class       =>
+                static fn(ContainerInterface $container) => new Action\OrderField\OptionCreatorAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(Repository\Order\OptionRepositoryInterface::class),
-                    $container->get(Repository\Order\OptionTypeAssociationRepository::class),
-                    $container->get(Repository\Order\TextTypeAssociationRepository::class),
-                    $container->get(Repository\Order\NumericTypeAssociationRepository::class),
-                    $container->get(Repository\Order\DateTypeAssociationRepository::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\FieldUpdaterAction::class                   =>
-                static fn(ContainerInterface $container) => new Action\Order\FieldUpdaterAction(
-                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
-                    $container->get(LoggerType::CONSOLE)
-                ),
-            Action\Order\OptionUpdaterAction::class                  =>
-                static fn(ContainerInterface $container) => new Action\Order\OptionUpdaterAction(
-                    $container->get(Repository\Order\OptionRepositoryInterface::class),
-                    $container->get(LoggerType::CONSOLE)
-                ),
-            Action\Order\AssociationUpdaterAction::class             =>
-                static fn(ContainerInterface $container) => new Action\Order\AssociationUpdaterAction(
+            Action\OrderField\AssociationCreatorAction::class  =>
+                static fn(ContainerInterface $container) => new Action\OrderField\AssociationCreatorAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(Repository\Order\OptionRepositoryInterface::class),
                     $container->get(Repository\Order\OptionTypeAssociationRepository::class),
@@ -73,18 +56,38 @@ return [
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\FieldDeleterAction::class                   =>
-                static fn(ContainerInterface $container) => new Action\Order\FieldDeleterAction(
+            Action\OrderField\FieldUpdaterAction::class        =>
+                static fn(ContainerInterface $container) => new Action\OrderField\FieldUpdaterAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\OptionDeleterAction::class                  =>
-                static fn(ContainerInterface $container) => new Action\Order\OptionDeleterAction(
+            Action\OrderField\OptionUpdaterAction::class       =>
+                static fn(ContainerInterface $container) => new Action\OrderField\OptionUpdaterAction(
                     $container->get(Repository\Order\OptionRepositoryInterface::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\AssociationDeleterAction::class             =>
-                static fn(ContainerInterface $container) => new Action\Order\AssociationDeleterAction(
+            Action\OrderField\AssociationUpdaterAction::class  =>
+                static fn(ContainerInterface $container) => new Action\OrderField\AssociationUpdaterAction(
+                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
+                    $container->get(Repository\Order\OptionRepositoryInterface::class),
+                    $container->get(Repository\Order\OptionTypeAssociationRepository::class),
+                    $container->get(Repository\Order\TextTypeAssociationRepository::class),
+                    $container->get(Repository\Order\NumericTypeAssociationRepository::class),
+                    $container->get(Repository\Order\DateTypeAssociationRepository::class),
+                    $container->get(LoggerType::CONSOLE)
+                ),
+            Action\OrderField\FieldDeleterAction::class        =>
+                static fn(ContainerInterface $container) => new Action\OrderField\FieldDeleterAction(
+                    $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
+                    $container->get(LoggerType::CONSOLE)
+                ),
+            Action\OrderField\OptionDeleterAction::class       =>
+                static fn(ContainerInterface $container) => new Action\OrderField\OptionDeleterAction(
+                    $container->get(Repository\Order\OptionRepositoryInterface::class),
+                    $container->get(LoggerType::CONSOLE)
+                ),
+            Action\OrderField\AssociationDeleterAction::class  =>
+                static fn(ContainerInterface $container) => new Action\OrderField\AssociationDeleterAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                     $container->get(Repository\Order\OptionTypeAssociationRepository::class),
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
@@ -92,7 +95,7 @@ return [
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\Order\SearcherAction::class                       =>
+            Action\Order\SearcherAction::class            =>
                 static fn(ContainerInterface $container) => new Action\Order\SearcherAction(
                     $container->get(Repository\Order\OptionTypeAssociationRepository::class),
                     $container->get(Repository\Order\TextTypeAssociationRepository::class),
@@ -100,8 +103,8 @@ return [
                     $container->get(Repository\Order\DateTypeAssociationRepository::class),
                     $container->get(LoggerType::CONSOLE)
                 ),
-            Action\CounterAction::class                              =>
-                static fn(ContainerInterface $container) => new Action\CounterAction(
+            Action\CustomFieldsCounterAction::class =>
+                static fn(ContainerInterface $container) => new Action\CustomFieldsCounterAction(
                     $container->get(Repository\Order\CustomFieldRepositoryInterface::class),
                 ),
             Repository\Order\CustomFieldRepositoryInterface::class   =>

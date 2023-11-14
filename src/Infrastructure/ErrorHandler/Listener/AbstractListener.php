@@ -28,6 +28,7 @@ abstract class AbstractListener
             : 'Resposta muito longa';
 
         $this->logger->error("HTTP/$version $statusCode $path", [
+            'store_id'   => $request->getAttribute('token')['sub'] ?? null,
             'url'           => (string)$request->getUri(),
             'status_code'   => $response->getStatusCode(),
             'error_message' => $error->getMessage(),

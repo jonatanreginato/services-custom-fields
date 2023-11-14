@@ -6,9 +6,10 @@ namespace Nuvemshop\CustomFields\Infrastructure\DataStore\Elasticsearch;
 
 use Elastic\Elasticsearch;
 
-class ElasticsearchFacade
+// phpcs:ignoreFile -- this is a readonly class
+readonly class ElasticsearchFacade
 {
-    public readonly Elasticsearch\Client $client;
+    public Elasticsearch\Client $client;
 
     public function __construct(array $config)
     {

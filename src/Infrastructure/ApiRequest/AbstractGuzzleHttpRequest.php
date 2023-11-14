@@ -11,9 +11,9 @@ use Throwable;
 
 abstract class AbstractGuzzleHttpRequest implements HttpClientRequest
 {
-    protected string $baseUri;
+    protected ?string $baseUri = null;
 
-    protected string $currentUri;
+    protected ?string $currentUri = null;
 
     protected string $currentBody;
 
@@ -62,7 +62,7 @@ abstract class AbstractGuzzleHttpRequest implements HttpClientRequest
         }
 
         return new HttpClientResponse(
-            $response->getBody()->getContents(),
+            (string)$response->getBody(),
             $response->getStatusCode()
         );
     }

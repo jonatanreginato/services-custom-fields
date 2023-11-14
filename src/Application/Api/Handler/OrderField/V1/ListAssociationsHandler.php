@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1;
 
+use Laminas\Diactoros\Response\JsonResponse;
 use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
+use Nuvemshop\CustomFields\Application\Api\Handler\HandlerMethodsTrait;
 use Nuvemshop\CustomFields\Application\Api\Query\ParametersMapper;
 use Nuvemshop\CustomFields\Application\Api\Validation\Parser\QueryParser;
-use Nuvemshop\CustomFields\Domain\Action\Order\AssociationSearcherAction;
+use Nuvemshop\CustomFields\Domain\Action\OrderField\AssociationSearcherAction;
 use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldUuid;
-use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -21,8 +21,7 @@ class ListAssociationsHandler implements HandlerInterface
     public function __construct(
         private readonly QueryParser $queryParser,
         private readonly ParametersMapper $parametersMapper,
-        private readonly AssociationSearcherAction $searcher,
-        private readonly EncoderInterface $encoder
+        private readonly AssociationSearcherAction $searcher
     ) {
     }
 
@@ -35,11 +34,10 @@ class ListAssociationsHandler implements HandlerInterface
         );
 
         $this->parametersMapper->applyQueryParameters($this->queryParser, $this->searcher->getRepository());
-        $list      = $this->searcher->listAssociations(new CustomFieldUuid((string)$this->queryParser->getIdentity()));
-        $responses = $this->defaultCreateResponses($request->getUri(), $this->encoder);
+        $list = $this->searcher->listAssociations(new CustomFieldUuid((string)$this->queryParser->getIdentity()));
 
-        return !$list->getData()
-            ? $responses->getCodeResponse(404)
-            : $responses->getContentResponse($list, 200);
+        return !$list
+            ? new JsonResponse([], 404)
+            : new JsonResponse($list, 200, [], JSON_PRETTY_PRINT);
     }
 }

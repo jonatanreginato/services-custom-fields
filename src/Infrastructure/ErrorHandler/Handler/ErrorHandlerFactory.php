@@ -13,7 +13,7 @@ class ErrorHandlerFactory
     public function __invoke(ContainerInterface $container, string $serviceName, callable $callback): ErrorHandler
     {
         if (!$serviceName) {
-            throw new ErrorHandlerException('ApiError handler not found');
+            throw new ErrorHandlerException('Error handler not found');
         }
 
         /** @var ErrorHandler $errorHandler */

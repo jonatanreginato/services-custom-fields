@@ -15,8 +15,8 @@
 /**
  * ----------------------------------------------------------------------------------------------------------------
  * @OA\Tag(
- *     name="Users",
- *     description="Methods for operations with user resources.",
+ *     name="Custom Order Fields",
+ *     description="Methods for operations with custom order field resources.",
  * )
  * ----------------------------------------------------------------------------------------------------------------
  */

@@ -6,12 +6,12 @@ namespace Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1;
 
 use Laminas\Diactoros\Response\JsonResponse;
 use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
-use Nuvemshop\CustomFields\Domain\Action\Order\AssociationDeleterAction;
+use Nuvemshop\CustomFields\Application\Api\Handler\HandlerMethodsTrait;
+use Nuvemshop\CustomFields\Domain\Action\OrderField\AssociationDeleterAction;
 use Nuvemshop\CustomFields\Domain\ValueObject\Association\Association;
 use Nuvemshop\CustomFields\Domain\ValueObject\Association\AssociationOwner;
 use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomField;
 use Nuvemshop\CustomFields\Domain\ValueObject\CustomField\CustomFieldUuid;
-use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

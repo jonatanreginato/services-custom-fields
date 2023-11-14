@@ -12,7 +12,7 @@ class ErrorHandlerException extends DomainException
     public function __construct(string $message = '', int $code = 500, Throwable $previous = null)
     {
         parent::__construct(
-            $message ?: 'ApiError handler error.',
+            $message ?: 'Error handler error.',
             $code,
             $previous
         );

@@ -4,37 +4,37 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
-use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidBodyException;
-use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ApiResponse;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Captures\CaptureAggregatorInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregatorInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCodes;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorMessages;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\SimpleError;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\BodyRulesAggregatorInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\DefaultBodyRulesAggregator;
+use Nuvemshop\CustomFields\Application\Api\Response\ApiResponse;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Data\DataAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ErrorAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ErrorCodes;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ErrorMessages;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\SimpleError;
+use Nuvemshop\CustomFields\Application\Api\Validation\Exceptions\ApiInvalidBodyException;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\BodyRulesInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\DefaultBodyRules;
 
 class BodyParser implements BodyParserInterface
 {
-    private ?BodyRulesAggregatorInterface $bodyRules = null;
+    private ?BodyRulesInterface $bodyRules = null;
 
     private array $bodyData = [];
 
     public function __construct(
-        private readonly CaptureAggregatorInterface $captureAggregator,
+        private readonly DataAggregatorInterface $captureAggregator,
         private readonly ErrorAggregatorInterface $errorAggregator
     ) {
     }
 
-    public function setBodyRules(BodyRulesAggregatorInterface $bodyRules): void
+    public function setBodyRules(BodyRulesInterface $bodyRules): void
     {
         $this->bodyRules = $bodyRules;
     }
 
-    protected function getBodyRules(): BodyRulesAggregatorInterface
+    protected function getBodyRules(): BodyRulesInterface
     {
         if ($this->bodyRules === null) {
-            $this->bodyRules = new DefaultBodyRulesAggregator();
+            $this->bodyRules = new DefaultBodyRules();
         }
 
         return $this->bodyRules;

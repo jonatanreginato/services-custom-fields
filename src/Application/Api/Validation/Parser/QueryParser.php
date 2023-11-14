@@ -5,21 +5,22 @@ declare(strict_types=1);
 namespace Nuvemshop\CustomFields\Application\Api\Validation\Parser;
 
 use Generator;
-use Nuvemshop\CustomFields\Application\Api\Exceptions\MissingStoreIdException;
-use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidQueryParametersException;
-use Nuvemshop\CustomFields\Infrastructure\Api\Http\Response\ApiResponse;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorAggregatorInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorCodes;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\ErrorMessages;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Errors\SimpleError;
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\QueryRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Response\ApiResponse;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ErrorAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ErrorCodes;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\ErrorMessages;
+use Nuvemshop\CustomFields\Application\Api\Validation\Captures\Errors\SimpleError;
+use Nuvemshop\CustomFields\Application\Api\Validation\Exceptions\ApiInvalidQueryParametersException;
+use Nuvemshop\CustomFields\Application\Api\Validation\Exceptions\MissingStoreIdException;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\DefaultQueryRules;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\QueryRulesInterface;
 
 use function in_array;
 use function is_string;
 
 class QueryParser implements QueryParserInterface
 {
-    private ?QueryRulesAggregatorInterface $queryRules = null;
+    private ?QueryRulesInterface $queryRules = null;
 
     private mixed $identityParameter = null;
 
@@ -31,18 +32,21 @@ class QueryParser implements QueryParserInterface
 
     private ?array $cachedFilters = null;
 
-    public function __construct(
-        private readonly ErrorAggregatorInterface $errorAggregator
-    ) {
+    public function __construct(private readonly ErrorAggregatorInterface $errorAggregator)
+    {
     }
 
-    public function setQueryRules(QueryRulesAggregatorInterface $queryRules): void
+    public function setQueryRules(QueryRulesInterface $queryRules): void
     {
         $this->queryRules = $queryRules;
     }
 
-    protected function getQueryRules(): QueryRulesAggregatorInterface
+    protected function getQueryRules(): QueryRulesInterface
     {
+        if ($this->queryRules === null) {
+            $this->queryRules = new DefaultQueryRules();
+        }
+
         return $this->queryRules;
     }
 

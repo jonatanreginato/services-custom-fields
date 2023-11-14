@@ -8,11 +8,14 @@ use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Logging\DebugStack;
 use Doctrine\DBAL\Logging\LoggerChain;
 use Doctrine\DBAL\Logging\SQLLogger;
-use Nuvemshop\CustomFields\Infrastructure\Log\Processor\MetricProcessor;
-use Nuvemshop\CustomFields\Infrastructure\Log\Processor\XRequestIdProcessor;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Processor\PsrLogMessageProcessor;
+use Nuvemshop\CustomFields\Infrastructure\Log\Processor\MetricProcessor;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMonologProcessor;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdProviderInterface;
+use Nuvemshop\CustomFields\Infrastructure\StoreId\StoreIdMiddlewareInterface;
+use Nuvemshop\CustomFields\Infrastructure\StoreId\StoreIdMonologProcessor;
 use Psr\Container\ContainerInterface;
 use Symfony\Bridge\Doctrine\ContainerAwareEventManager;
 use Symfony\Bridge\Doctrine\Logger\DbalLogger;
@@ -36,7 +39,7 @@ class ConnectionFacadeFactory
         $configuration = new Configuration();
         if (getenv('APPLICATION_ENV') === 'development') {
             $configuration->setSQLLogger(
-                $this->configSQLLogger()
+                $this->configSQLLogger($container)
             );
         }
 
@@ -45,11 +48,16 @@ class ConnectionFacadeFactory
         return new ConnectionFacade($connectionParams, $configuration, $eventManager);
     }
 
-    private function configSQLLogger(): SQLLogger
+    private function configSQLLogger(ContainerInterface $container): SQLLogger
     {
         $monologLogger = new Logger('doctrine');
-        $monologLogger->pushProcessor(new XRequestIdProcessor());
         $monologLogger->pushProcessor(new MetricProcessor());
+        $monologLogger->pushProcessor(
+            new RequestIdMonologProcessor($container->get(RequestIdProviderInterface::class))
+        );
+        $monologLogger->pushProcessor(
+            new StoreIdMonologProcessor($container->get(StoreIdMiddlewareInterface::class))
+        );
 
         $streamHandler = new StreamHandler('/var/www/log/local.log', 100, true, null, false);
         $streamHandler->pushProcessor(new PsrLogMessageProcessor());

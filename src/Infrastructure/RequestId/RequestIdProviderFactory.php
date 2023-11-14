@@ -4,28 +4,12 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Infrastructure\RequestId;
 
-use Nuvemshop\CustomFields\Infrastructure\RequestId\Generator\GeneratorInterface;
-use Nuvemshop\CustomFields\Infrastructure\RequestId\OverridePolicy\OverridePolicyInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\Generator\Uuid4StaticGenerator;
 
-final class RequestIdProviderFactory implements RequestIdProviderFactoryInterface
+final class RequestIdProviderFactory
 {
-    protected GeneratorInterface $generator;
-    protected OverridePolicyInterface|bool $allowOverride;
-    protected string $requestHeader;
-
-    public function __construct(
-        GeneratorInterface $generator,
-        OverridePolicyInterface|bool $allowOverride = true,
-        string $requestHeader = RequestIdProvider::DEFAULT_REQUEST_HEADER
-    ) {
-        $this->generator = $generator;
-        $this->allowOverride = $allowOverride;
-        $this->requestHeader = $requestHeader;
-    }
-
-    public function create(ServerRequestInterface $request): RequestIdProviderInterface
+    public function __invoke(): RequestIdProviderInterface
     {
-        return new RequestIdProvider($request, $this->generator, $this->allowOverride, $this->requestHeader);
+        return new RequestIdProvider(new Uuid4StaticGenerator());
     }
 }

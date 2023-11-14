@@ -27,13 +27,13 @@ abstract class AbstractRepository extends EntityRepository implements Repository
         $this->filterParameters = $filterParameters;
     }
 
-    public function fetchResources(bool $withoutDeleted): PaginatedData
+    public function fetchResources(bool $withoutDeleted): array
     {
         if (!isset($this->queryBuilder)) {
             $this->makeQueryBuilder($withoutDeleted);
         }
 
-        return new PaginatedData($this->queryBuilder->getQuery()->getResult());
+        return $this->queryBuilder->getQuery()->getResult();
     }
 
     public function fetchResource(mixed $uuid, bool $withoutDeleted): ?EntityInterface

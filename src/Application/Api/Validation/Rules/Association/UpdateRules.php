@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Validation\Rules\Association;
 
-use Nuvemshop\CustomFields\Infrastructure\Api\Validation\Rules\BodyRulesAggregatorInterface;
+use Nuvemshop\CustomFields\Application\Api\Validation\Rules\BodyRulesInterface;
 
 // phpcs:ignoreFile -- this is a readonly class
-final readonly class UpdateRules implements BodyRulesAggregatorInterface
+final readonly class UpdateRules implements BodyRulesInterface
 {
     public function getAllowedAttributes(): array
     {

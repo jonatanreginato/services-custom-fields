@@ -8,7 +8,7 @@ use Nuvemshop\CustomFields\Domain\ValueObject\AggregateInterface;
 use Nuvemshop\CustomFields\Infrastructure\Exception\PersistenceException;
 use Throwable;
 
-abstract class AbstractDeleterAction extends AbstractAction
+abstract class AbstractDeleterAction extends AbstractAction implements DeleterActionInterface
 {
     public function __invoke(AggregateInterface $aggregate): void
     {

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Application\Api\Handler\OrderField\V1;
 
+use Laminas\Diactoros\Response\JsonResponse;
 use Nuvemshop\CustomFields\Application\Api\Handler\HandlerInterface;
+use Nuvemshop\CustomFields\Application\Api\Handler\HandlerMethodsTrait;
 use Nuvemshop\CustomFields\Application\Api\Query\ParametersMapper;
 use Nuvemshop\CustomFields\Application\Api\Validation\Parser\QueryParser;
-use Nuvemshop\CustomFields\Domain\Action\Order\FieldSearcherAction;
-use Nuvemshop\CustomFields\Infrastructure\Api\Encoder\EncoderInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Http\Traits\HandlerMethodsTrait;
+use Nuvemshop\CustomFields\Domain\Action\OrderField\FieldSearcherAction;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -20,8 +20,7 @@ class ReadFieldHandler implements HandlerInterface
     public function __construct(
         private readonly QueryParser $queryParser,
         private readonly ParametersMapper $parametersMapper,
-        private readonly FieldSearcherAction $searcher,
-        private readonly EncoderInterface $encoder
+        private readonly FieldSearcherAction $searcher
     ) {
     }
 
@@ -34,11 +33,10 @@ class ReadFieldHandler implements HandlerInterface
         );
 
         $this->parametersMapper->applyQueryParameters($this->queryParser, $this->searcher->getRepository());
-        $data      = $this->searcher->read((string)$this->queryParser->getIdentity(), true);
-        $responses = $this->defaultCreateResponses($request->getUri(), $this->encoder);
+        $data = $this->searcher->read((string)$this->queryParser->getIdentity(), true);
 
-        return $data === null
-            ? $responses->getCodeResponse(404)
-            : $responses->getContentResponse($data, 200);
+        return !$data
+            ? new JsonResponse([], 404)
+            : new JsonResponse($data, 200, [], JSON_PRETTY_PRINT);
     }
 }

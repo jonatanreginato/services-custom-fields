@@ -10,14 +10,21 @@ use Monolog\Handler\FingersCrossedHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Processor\PsrLogMessageProcessor;
-use Psr\Container\ContainerInterface;
 use Nuvemshop\CustomFields\Infrastructure\Log\Logger\LoggerFacade;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMonologProcessor;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdProviderInterface;
+use Nuvemshop\CustomFields\Infrastructure\StoreId\StoreIdMiddlewareInterface;
+use Nuvemshop\CustomFields\Infrastructure\StoreId\StoreIdMonologProcessor;
+use Psr\Container\ContainerInterface;
 
 class FileLoggerFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): LoggerFacade
     {
-        $facade = new LoggerFacade();
+        $facade = new LoggerFacade(
+            new RequestIdMonologProcessor($container->get(RequestIdProviderInterface::class)),
+            new StoreIdMonologProcessor($container->get(StoreIdMiddlewareInterface::class))
+        );
 
         $streamHandler = new StreamHandler(
             $options['path'],

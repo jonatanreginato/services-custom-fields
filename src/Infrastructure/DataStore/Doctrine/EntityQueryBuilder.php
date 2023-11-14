@@ -6,7 +6,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Composite;
 use Doctrine\ORM\QueryBuilder;
 use Nuvemshop\CustomFields\Application\Api\Query\FilterParameterInterface;
-use Nuvemshop\CustomFields\Infrastructure\Api\Exceptions\ApiInvalidArgumentException;
 
 class EntityQueryBuilder extends QueryBuilder
 {
@@ -114,6 +113,6 @@ class EntityQueryBuilder extends QueryBuilder
         }
 
         // arguments are empty
-        throw new ApiInvalidArgumentException();
+        throw new InvalidArgumentException();
     }
 }

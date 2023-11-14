@@ -4,29 +4,21 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Infrastructure\RequestId;
 
-use Nuvemshop\CustomFields\Infrastructure\RequestId\Exception\NotGenerated;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class RequestIdMiddleware implements RequestIdProviderInterface, MiddlewareInterface
+final class RequestIdMiddleware implements RequestIdMiddlewareInterface
 {
     private const DEFAULT_RESPONSE_HEADER = 'X-Request-Id';
-    public const ATTRIBUTE_NAME          = 'request-id';
-
-    protected RequestIdProviderFactoryInterface $requestIdProviderFactory;
+    public const  ATTRIBUTE_NAME          = 'request-id';
 
     protected ?string $requestId = null;
 
-    protected ?string $responseHeader;
-
     public function __construct(
-        RequestIdProviderFactoryInterface $requestIdProviderFactory,
-        ?string $responseHeader = self::DEFAULT_RESPONSE_HEADER
+        private readonly RequestIdProviderInterface $requestIdProvider,
+        private readonly ?string $responseHeader = self::DEFAULT_RESPONSE_HEADER
     ) {
-        $this->requestIdProviderFactory = $requestIdProviderFactory;
-        $this->responseHeader = $responseHeader;
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
@@ -40,27 +32,17 @@ final class RequestIdMiddleware implements RequestIdProviderInterface, Middlewar
 
     private function attachRequestIdToAttribute(ServerRequestInterface $request): ServerRequestInterface
     {
-        $requestIdProvider = $this->requestIdProviderFactory->create($request);
-        $this->requestId = $requestIdProvider->getRequestId();
+        $this->requestId = $this->requestIdProvider->getRequestId();
 
         return $request->withAttribute(self::ATTRIBUTE_NAME, $this->requestId);
     }
 
     private function attachRequestIdToResponse(ResponseInterface $response): ResponseInterface
     {
-        if (is_string($this->responseHeader) && !empty($this->responseHeader)) {
+        if (!empty($this->responseHeader) && !empty($this->requestId)) {
             return $response->withHeader($this->responseHeader, $this->requestId);
         }
 
         return $response;
-    }
-
-    public function getRequestId(): string
-    {
-        if (empty($this->requestId)) {
-            throw new NotGenerated('Request id is not generated yet');
-        }
-
-        return $this->requestId;
     }
 }

@@ -4,28 +4,36 @@ declare(strict_types=1);
 
 namespace Nuvemshop\CustomFields\Infrastructure\Log\Logger;
 
-use Nuvemshop\CustomFields\Infrastructure\Log\Processor\MetricProcessor;
-use Nuvemshop\CustomFields\Infrastructure\Log\Processor\XRequestIdProcessor;
 use Monolog\Logger;
 use Monolog\Processor\MemoryPeakUsageProcessor;
 use Monolog\Processor\MemoryUsageProcessor;
 use Monolog\Processor\ProcessIdProcessor;
+use Monolog\Processor\PsrLogMessageProcessor;
 use Monolog\Processor\WebProcessor;
+use Nuvemshop\CustomFields\Infrastructure\Log\Processor\MetricProcessor;
+use Nuvemshop\CustomFields\Infrastructure\RequestId\RequestIdMonologProcessor;
+use Nuvemshop\CustomFields\Infrastructure\StoreId\StoreIdMonologProcessor;
 
-class LoggerFacade implements LoggerInterface
+// phpcs:ignoreFile -- this is a readonly class
+readonly class LoggerFacade implements LoggerInterface
 {
-    public readonly Logger $logger;
+    public Logger $logger;
 
-    public function __construct()
-    {
+    public function __construct(
+        RequestIdMonologProcessor $requestIdProcessor,
+        StoreIdMonologProcessor $storeIdProcessor
+    ) {
         $this->logger = new Logger((string)getenv('APPLICATION_NAME'));
 
-        $this->logger->pushProcessor(new XRequestIdProcessor());
-        $this->logger->pushProcessor(new MetricProcessor());
+        $this->logger->pushProcessor(new PsrLogMessageProcessor());
         $this->logger->pushProcessor(new ProcessIdProcessor());
+        $this->logger->pushProcessor(new MetricProcessor());
         $this->logger->pushProcessor(new MemoryUsageProcessor());
         $this->logger->pushProcessor(new MemoryPeakUsageProcessor());
         $this->logger->pushProcessor(new WebProcessor());
+
+        $this->logger->pushProcessor($requestIdProcessor);
+        $this->logger->pushProcessor($storeIdProcessor);
 
         $this->logger->useMicrosecondTimestamps(true);
     }
